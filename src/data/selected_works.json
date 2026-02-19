@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Picolino",
+        "category": "Web Development",
+        "url": "https://picolino.site/",
+        "image": "/images/projects/picolino.png"
+    },
+    {
+        "title": "Selected Work 2",
+        "category": "Design",
+        "url": "#",
+        "image": "https://placehold.co/600x800/27272a/FFF?text=Coming+Soon"
+    },
+    {
+        "title": "Selected Work 3",
+        "category": "Marketing",
+        "url": "#",
+        "image": "https://placehold.co/600x800/27272a/FFF?text=Coming+Soon"
+    }
+]
