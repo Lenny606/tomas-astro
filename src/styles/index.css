@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+    --color-brand-primary: #ffffff;
+    --color-brand-secondary: #a1a1aa;
+    --color-bg-primary: #050505;
+    --color-border-subtle: #1a1a1a;
+}
+
+:root {
+    --font-serif: "Playfair Display", serif;
+    --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+body {
+    font-family: var(--font-sans);
+    @apply bg-[#050505] text-white antialiased selection:bg-white selection:text-black;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-serif {
+    font-family: var(--font-serif);
+}
+
+.glass {
+    @apply bg-white/[0.02] backdrop-blur-xl border border-white/[0.05];
+}
+
+.text-contrast {
+    @apply text-white/90 leading-relaxed;
+}
+
+.text-subtle {
+    @apply text-zinc-500 font-medium;
+}
+
+.link-hover {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full;
+}
