@@ -9,6 +9,8 @@ export const ui = {
     cz: {
         'nav.home': 'Domů',
         'nav.about': 'O mně',
+        'nav.work': 'Práce',
+        'nav.galleries': 'Galerie',
         'hero.title': 'Digitální zážitky s precizním kódem',
         'hero.subtitle': 'Full-stack webový vývojář se zaměřením na výkon, minimalistický design a moderní technologie jako Astro a React.',
         'hero.cta': 'Moje projekty',
@@ -31,6 +33,8 @@ export const ui = {
     en: {
         'nav.home': 'Home',
         'nav.about': 'About me',
+        'nav.work': 'Work',
+        'nav.galleries': 'Galleries',
         'hero.title': 'Digital experiences built with precision',
         'hero.subtitle': 'Full-stack web developer specializing in high-performance web applications, minimalist design, and modern technologies.',
         'hero.cta': 'View Projects',

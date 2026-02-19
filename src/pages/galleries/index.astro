@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import GalleryGrid from "../../components/GalleryGrid.astro";
+import GalleryCard from "../../components/GalleryCard.astro";
+import { galleryService } from "../../services/gallery-service";
+import { getLangFromUrl, useTranslations } from "../../utils/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const galleries = await galleryService.getGalleries();
+---
+
+<BaseLayout title={`Galleries | TomasAstro`}>
+    <section class="max-w-7xl mx-auto px-12 pt-16 pb-32">
+        <div class="max-w-4xl mb-20">
+            <h1
+                class="text-7xl md:text-9xl font-serif tracking-tight mb-8 animate-in fade-in slide-in-from-bottom-8 duration-1000"
+            >
+                Galleries
+            </h1>
+            <p
+                class="text-2xl text-zinc-400 font-light max-w-2xl leading-relaxed"
+            >
+                Explore different collections of photography, digital art, and
+                architectural studies.
+            </p>
+        </div>
+
+        <GalleryGrid columns={2}>
+            {
+                galleries.map((gallery) => (
+                    <GalleryCard
+                        title={gallery.title}
+                        description={gallery.description}
+                        image={gallery.coverImage}
+                        href={`/galleries/${gallery.slug}`}
+                        subtitle="View Collection"
+                    />
+                ))
+            }
+        </GalleryGrid>
+    </section>
+</BaseLayout>

@@ -1,31 +1,63 @@
 ---
-import { getLangFromUrl, useTranslations, languages } from '../utils/i18n';
+import { getLangFromUrl, useTranslations, languages } from "../utils/i18n";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 py-8 px-12 bg-[#050505]/80 backdrop-blur-md">
+<nav
+  class="fixed top-0 left-0 right-0 z-50 py-8 px-12 bg-[#050505]/80 backdrop-blur-md"
+>
   <div class="max-w-7xl mx-auto flex justify-between items-center">
-    <a href={lang === 'cz' ? '/' : '/en/'} class="text-xl font-serif tracking-tight hover:opacity-70 transition-opacity">
+    <a
+      href={lang === "cz" ? "/" : "/en/"}
+      class="text-xl font-serif tracking-tight hover:opacity-70 transition-opacity"
+    >
       Tomas Astro<span class="text-zinc-500">.</span>
     </a>
-    
+
     <div class="flex items-center gap-12">
-      <ul class="hidden md:flex gap-10 text-[13px] uppercase tracking-[0.2em] font-medium text-zinc-400">
-        <li><a href="#" class="hover:text-white transition-colors link-hover">{t('nav.home')}</a></li>
-        <li><a href="#" class="hover:text-white transition-colors link-hover">{t('nav.about')}</a></li>
+      <ul
+        class="hidden md:flex gap-10 text-[13px] uppercase tracking-[0.2em] font-medium text-zinc-400"
+      >
+        <li>
+          <a
+            href={lang === "cz" ? "/" : "/en/"}
+            class="hover:text-white transition-colors link-hover"
+            >{t("nav.home")}
+          </a>
+        </li>
+        <li>
+          <a
+            href="/galleries"
+            class="hover:text-white transition-colors link-hover"
+            >{t("nav.galleries")}
+          </a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-white transition-colors link-hover"
+            >{t("nav.about")}
+          </a>
+        </li>
       </ul>
 
-      <div class="flex gap-4 text-[11px] font-bold uppercase tracking-widest border-l border-white/10 pl-12">
-        {Object.entries(languages).map(([code, label]) => (
-          <a
-            href={code === 'cz' ? '/' : `/${code}/`}
-            class={`transition-all ${lang === code ? 'text-white' : 'text-zinc-600 hover:text-zinc-400'}`}
-          >
-            {code}
-          </a>
-        ))}
+      <div
+        class="flex gap-4 text-[11px] font-bold uppercase tracking-widest border-l border-white/10 pl-12"
+      >
+        {
+          Object.entries(languages).map(([code, label]) => (
+            <a
+              href={code === "cz" ? "/" : `/${code}/`}
+              class={`transition-all ${
+                lang === code
+                  ? "text-white"
+                  : "text-zinc-600 hover:text-zinc-400"
+              }`}
+            >
+              {code}
+            </a>
+          ))
+        }
       </div>
     </div>
   </div>

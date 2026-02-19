@@ -1,0 +1,53 @@
+[
+    {
+        "id": "1",
+        "title": "Abstract Landscapes",
+        "slug": "abstract-landscapes",
+        "description": "A collection of abstract landscape photography and digital art.",
+        "coverImage": "/images/galleries/abstract-cover.jpg",
+        "items": [
+            {
+                "id": "item-1",
+                "filename": "desert-vibe.jpg",
+                "slug": "desert-vibe",
+                "title": "Desert Vibe",
+                "description": "Warm tones and shifting sands.",
+                "medium": "Digital Photography",
+                "year": "2024",
+                "status": "available",
+                "url": "/images/galleries/desert-vibe.jpg"
+            },
+            {
+                "id": "item-2",
+                "filename": "ocean-mist.jpg",
+                "slug": "ocean-mist",
+                "title": "Ocean Mist",
+                "description": "Cool blue gradients and misty horizons.",
+                "medium": "Digital Art",
+                "year": "2023",
+                "status": "sold",
+                "url": "/images/galleries/ocean-mist.jpg"
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "title": "Urban Geometry",
+        "slug": "urban-geometry",
+        "description": "Exploring the lines and shadows of modern architecture.",
+        "coverImage": "/images/galleries/urban-cover.jpg",
+        "items": [
+            {
+                "id": "item-3",
+                "filename": "concrete-lines.jpg",
+                "slug": "concrete-lines",
+                "title": "Concrete Lines",
+                "description": "Minimalist architectural study.",
+                "medium": "Photography",
+                "year": "2024",
+                "status": "available",
+                "url": "/images/galleries/concrete-lines.jpg"
+            }
+        ]
+    }
+]
