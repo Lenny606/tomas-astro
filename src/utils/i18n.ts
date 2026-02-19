@@ -22,13 +22,6 @@ export const ui = {
         'about.agency_text_3': ', takže také vedu řadu bootstrapped startupů a projektů v oblastech ',
         'about.agency_text_4': ' dat a výzkumu.',
         'about.involvement_title': 'Tady je pár věcí, na kterých momentálně pracuji:',
-        'capabilities.title': 'Capabilities',
-        'capabilities.seo': 'Enterprise SEO',
-        'capabilities.ads': 'Paid Advertising',
-        'capabilities.design': 'Design',
-        'capabilities.strategy': 'Marketing Strategy',
-        'capabilities.dev': 'Web Development',
-        'capabilities.ooh': 'OOH Advertising',
     },
     en: {
         'nav.home': 'Home',
@@ -46,13 +39,6 @@ export const ui = {
         'about.agency_text_3': ' movement so I\'m also running a number of bootstrapped startups and projects in the ',
         'about.agency_text_4': ' data & research spaces.',
         'about.involvement_title': 'Here\'s a few things I\'m involved in right now:',
-        'capabilities.title': 'Capabilities',
-        'capabilities.seo': 'Enterprise SEO',
-        'capabilities.ads': 'Paid Advertising',
-        'capabilities.design': 'Design',
-        'capabilities.strategy': 'Marketing Strategy',
-        'capabilities.dev': 'Web Development',
-        'capabilities.ooh': 'OOH Advertising',
     },
 } as const;
 
