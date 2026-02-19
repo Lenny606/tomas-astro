@@ -5,15 +5,13 @@ import GalleryCard from "../../components/GalleryCard.astro";
 import { galleryService } from "../../services/gallery-service";
 import { getLangFromUrl, useTranslations } from "../../utils/i18n";
 
-export async function getStaticPaths() {
-    const galleries = await galleryService.getGalleries();
-    return galleries.map((gallery) => ({
-        params: { slug: gallery.slug },
-        props: { gallery },
-    }));
+const { slug } = Astro.params;
+const gallery = await galleryService.getGalleryBySlug(slug as string);
+
+if (!gallery) {
+    return Astro.redirect("/404");
 }
 
-const { gallery } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---

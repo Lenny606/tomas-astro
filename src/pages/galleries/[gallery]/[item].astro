@@ -3,25 +3,17 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { galleryService } from "../../../services/gallery-service";
 import { getLangFromUrl, useTranslations } from "../../../utils/i18n";
 
-export async function getStaticPaths() {
-    const galleries = await galleryService.getGalleries();
-    const paths = [];
+const { gallery: gallerySlug, item: itemSlug } = Astro.params;
+const gallery = await galleryService.getGalleryBySlug(gallerySlug as string);
+const item = await galleryService.getGalleryItem(
+    gallerySlug as string,
+    itemSlug as string
+);
 
-    for (const gallery of galleries) {
-        if (gallery.items) {
-            for (const item of gallery.items) {
-                paths.push({
-                    params: { gallery: gallery.slug, item: item.slug },
-                    props: { gallery, item },
-                });
-            }
-        }
-    }
-
-    return paths;
+if (!gallery || !item) {
+    return Astro.redirect("/404");
 }
 
-const { gallery, item } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
