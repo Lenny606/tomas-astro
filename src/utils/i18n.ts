@@ -8,17 +8,17 @@ export const defaultLang = 'cz';
 export const ui = {
     cz: {
         'nav.home': 'Domů',
-        'nav.about': 'O nás',
-        'hero.title': 'Budoucnost Astro Projektů',
-        'hero.subtitle': 'Jednoduché, rychlé a lokalizované webové aplikace.',
-        'hero.cta': 'Začněte nyní',
+        'nav.about': 'O mně',
+        'hero.title': 'Digitální zážitky s precizním kódem',
+        'hero.subtitle': 'Full-stack webový vývojář se zaměřením na výkon, minimalistický design a moderní technologie jako Astro a React.',
+        'hero.cta': 'Moje projekty',
     },
     en: {
         'nav.home': 'Home',
-        'nav.about': 'About',
-        'hero.title': 'Future of Astro Projects',
-        'hero.subtitle': 'Simple, fast, and localized web applications.',
-        'hero.cta': 'Get Started',
+        'nav.about': 'About me',
+        'hero.title': 'Digital experiences built with precision',
+        'hero.subtitle': 'Full-stack web developer specializing in high-performance web applications, minimalist design, and modern technologies.',
+        'hero.cta': 'View Projects',
     },
 } as const;
 

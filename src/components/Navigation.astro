@@ -5,7 +5,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 py-8 px-12">
+<nav class="fixed top-0 left-0 right-0 z-50 py-8 px-12 bg-[#050505]/80 backdrop-blur-md">
   <div class="max-w-7xl mx-auto flex justify-between items-center">
     <a href={lang === 'cz' ? '/' : '/en/'} class="text-xl font-serif tracking-tight hover:opacity-70 transition-opacity">
       Tomas Astro<span class="text-zinc-500">.</span>
