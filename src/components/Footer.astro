@@ -1,0 +1,34 @@
+---
+const socialLinks = [
+  { name: 'INSTAGRAM', url: '#' },
+  { name: 'FACEBOOK', url: '#' },
+  { name: 'READ.CV', url: '#' },
+  { name: 'SAVEE', url: '#' },
+  { name: 'DEV.TO', url: '#' },
+  { name: 'WIKIPEDIA', url: '#' },
+  { name: 'WNW', url: '#' },
+  { name: 'LINKEDIN', url: '#' },
+  { name: 'TWITTER', url: '#' },
+  { name: 'POLYWORK', url: '#' },
+];
+---
+
+<footer class="bg-white text-black py-20 px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-wrap justify-center gap-x-12 gap-y-6 mb-20">
+      {socialLinks.map((link) => (
+        <a 
+          href={link.url} 
+          class="text-[13px] font-medium tracking-[0.2em] hover:opacity-50 transition-opacity"
+        >
+          {link.name}
+        </a>
+      ))}
+    </div>
+
+    <div class="max-w-2xl mx-auto text-center">
+      <p class="text-[15px] leading-relaxed text-zinc-400 font-medium">
+        </p>
+    </div>
+  </div>
+</footer>

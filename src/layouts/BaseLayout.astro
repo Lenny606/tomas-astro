@@ -1,6 +1,7 @@
 ---
 import '../styles/index.css';
 import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 import { getLangFromUrl } from '../utils/i18n';
 
 interface Props {
@@ -28,6 +29,7 @@ const lang = getLangFromUrl(Astro.url);
 		<main class="min-h-screen pt-32 pb-20">
 			<slot />
 		</main>
+    <Footer />
 	</body>
 </html>
 
