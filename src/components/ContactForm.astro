@@ -1,0 +1,201 @@
+---
+import { getLangFromUrl, useTranslations } from "../utils/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Turnstile Site Key - Should be moved to .env in production
+const turnstileSiteKey = "1x00000000000000000000AA";
+---
+
+<div class="contact-form-container">
+    <form id="contact-form" class="space-y-8">
+        <div class="hidden" aria-hidden="true">
+            <input
+                type="text"
+                name="website_url"
+                tabindex="-1"
+                autocomplete="off"
+            />
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="form-group">
+                <label
+                    for="name"
+                    class="text-xs uppercase tracking-widest text-zinc-500 mb-3 block font-bold"
+                    >{t("contact.name")}
+                </label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="John Doe"
+                    class="w-full bg-zinc-900/50 border border-white/10 px-6 py-4 text-white focus:border-white/30 outline-none transition-colors font-sans"
+                />
+            </div>
+            <div class="form-group">
+                <label
+                    for="email"
+                    class="text-xs uppercase tracking-widest text-zinc-500 mb-3 block font-bold"
+                    >{t("contact.email")}
+                </label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="john@example.com"
+                    class="w-full bg-zinc-900/50 border border-white/10 px-6 py-4 text-white focus:border-white/30 outline-none transition-colors font-sans"
+                />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label
+                for="subject"
+                class="text-xs uppercase tracking-widest text-zinc-500 mb-3 block font-bold"
+                >{t("contact.subject")}
+            </label>
+            <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                placeholder="How can I help you?"
+                class="w-full bg-zinc-900/50 border border-white/10 px-6 py-4 text-white focus:border-white/30 outline-none transition-colors font-sans"
+            />
+        </div>
+
+        <div class="form-group">
+            <label
+                for="message"
+                class="text-xs uppercase tracking-widest text-zinc-500 mb-3 block font-bold"
+                >{t("contact.message")}
+            </label>
+            <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required
+                placeholder="Your message here..."
+                class="w-full bg-zinc-900/50 border border-white/10 px-6 py-4 text-white focus:border-white/30 outline-none transition-colors font-sans resize-none"
+            ></textarea>
+        </div>
+
+        <!-- Cloudflare Turnstile -->
+        <div
+            class="cf-turnstile"
+            data-sitekey={turnstileSiteKey}
+            data-theme="dark"
+        >
+        </div>
+
+        <button
+            type="submit"
+            class="w-full md:w-auto px-12 py-5 bg-white text-black text-sm uppercase tracking-widest font-bold hover:bg-zinc-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+            {t("contact.submit")}
+        </button>
+
+        <div id="form-status" class="hidden text-sm font-medium mt-4"></div>
+    </form>
+</div>
+
+<script
+    is:inline
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer
+></script>
+
+<script>
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const statusEl = document.getElementById("form-status");
+    const submitBtn = form?.querySelector(
+        'button[type="submit"]'
+    ) as HTMLButtonElement;
+
+    if (form && statusEl && submitBtn) {
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            // Basic Honeypot Check
+            if (data.website_url) {
+                console.log("Bot detected");
+                return;
+            }
+
+            submitBtn.disabled = true;
+            statusEl.textContent = "Sending...";
+            statusEl.classList.remove(
+                "hidden",
+                "text-red-400",
+                "text-green-400"
+            );
+            statusEl.classList.add("text-zinc-400");
+
+            try {
+                // Mocking the submission for now as per plan
+                console.log("Form submission:", data);
+
+                // In a real scenario, you'd fetch your backend endpoint here:
+                // const response = await fetch('/api/contact', {
+                //   method: 'POST',
+                //   body: JSON.stringify(data),
+                // });
+
+                // Simulated success
+                await new Promise((resolve) => setTimeout(resolve, 1000));
+
+                statusEl.textContent = "Message sent successfully!"; // Use localized string if possible in client-side
+                statusEl.classList.remove("text-zinc-400");
+                statusEl.classList.add("text-green-400");
+                form.reset();
+
+                // Reset turnstile
+                // @ts-ignore
+                if (window.turnstile) {
+                    // @ts-ignore
+                    window.turnstile.reset();
+                }
+            } catch (error) {
+                statusEl.textContent =
+                    "There was an error sending the message.";
+                statusEl.classList.remove("text-zinc-400");
+                statusEl.classList.add("text-red-400");
+            } finally {
+                submitBtn.disabled = false;
+            }
+        });
+    }
+</script>
+
+<style>
+    .contact-form-container {
+        animation: fade-in-up 1s ease-out;
+    }
+
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .form-group label {
+        transition: color 0.3s ease;
+    }
+
+    .form-group:focus-within label {
+        color: white;
+    }
+</style>

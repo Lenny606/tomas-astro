@@ -42,7 +42,9 @@ const t = useTranslations(lang);
           </a>
         </li>
         <li>
-          <a href="#" class="hover:text-white transition-colors link-hover"
+          <a
+            href={lang === "cz" ? "/about" : "/en/about"}
+            class="hover:text-white transition-colors link-hover"
             >{t("nav.about")}
           </a>
         </li>

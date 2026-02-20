@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import { getLangFromUrl, useTranslations } from "../../utils/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<BaseLayout title={`${t("about.title")} | TomasAstro`}>
+    <section class="max-w-7xl mx-auto px-12 pt-16 pb-32">
+        <div class="max-w-4xl mb-32">
+            <h1
+                class="text-7xl md:text-9xl font-serif tracking-tight mb-8 animate-in fade-in slide-in-from-bottom-8 duration-1000"
+            >
+                {t("about.title")}
+            </h1>
+            <p
+                class="text-2xl md:text-3xl text-zinc-400 font-light max-w-2xl leading-relaxed"
+            >
+                {t("about.subtitle")}
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-40">
+            <div>
+                <h2 class="text-4xl font-serif mb-10">
+                    {t("about.bio_title")}
+                </h2>
+                <div
+                    class="space-y-6 text-xl text-zinc-400 leading-relaxed font-light"
+                >
+                    <p>{t("about.bio_text")}</p>
+                    <p>
+                        I am dedicated to continuous learning and exploring new
+                        ways to push the boundaries of the web. My approach
+                        combines technical precision with aesthetic sensibility.
+                    </p>
+                </div>
+            </div>
+            <div class="bg-zinc-900 border border-white/5 p-12 plastic">
+                <h3
+                    class="text-xs uppercase tracking-[0.3em] text-zinc-500 mb-8 font-bold"
+                >
+                    Expertise
+                </h3>
+                <ul class="space-y-4 text-white font-medium">
+                    <li
+                        class="flex justify-between border-b border-white/5 pb-4"
+                    >
+                        <span>Frontend</span>
+                        <span
+                            class="text-zinc-500 uppercase text-[10px] tracking-widest mt-1"
+                            >React / Astro / Tailwind</span
+                        >
+                    </li>
+                    <li
+                        class="flex justify-between border-b border-white/5 pb-4"
+                    >
+                        <span>Backend</span>
+                        <span
+                            class="text-zinc-500 uppercase text-[10px] tracking-widest mt-1"
+                            >Node.js / Python / SQL</span
+                        >
+                    </li>
+                    <li
+                        class="flex justify-between border-b border-white/5 pb-4"
+                    >
+                        <span>Design</span>
+                        <span
+                            class="text-zinc-500 uppercase text-[10px] tracking-widest mt-1"
+                            >Figma / UI / UX</span
+                        >
+                    </li>
+                    <li class="flex justify-between">
+                        <span>Marketing</span>
+                        <span
+                            class="text-zinc-500 uppercase text-[10px] tracking-widest mt-1"
+                            >SEO / Analytics / Strategy</span
+                        >
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-serif mb-6">
+                    {t("about.contact_title")}
+                </h2>
+                <p class="text-zinc-400 text-lg">
+                    Have a project in mind? Let's get in touch.
+                </p>
+            </div>
+            <ContactForm />
+        </div>
+    </section>
+</BaseLayout>
