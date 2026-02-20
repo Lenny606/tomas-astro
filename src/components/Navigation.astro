@@ -20,13 +20,20 @@ const t = useTranslations(lang);
       <ul
         class="hidden md:flex gap-10 text-[13px] uppercase tracking-[0.2em] font-medium text-zinc-400"
       >
-        <li>
-          <a
-            href={lang === "cz" ? "/" : "/en/"}
-            class="hover:text-white transition-colors link-hover"
-            >{t("nav.home")}
-          </a>
-        </li>
+        {
+          Astro.url.pathname !== "/" &&
+            Astro.url.pathname !== "/en" &&
+            Astro.url.pathname !== "/en/" && (
+              <li>
+                <a
+                  href={lang === "cz" ? "/" : "/en/"}
+                  class="hover:text-white transition-colors link-hover"
+                >
+                  {t("nav.home")}
+                </a>
+              </li>
+            )
+        }
         <li>
           <a
             href="/galleries"
