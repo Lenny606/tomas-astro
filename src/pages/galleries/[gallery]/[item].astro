@@ -24,7 +24,8 @@ const t = useTranslations(lang);
             href={`/galleries/${gallery.slug}`}
             class="text-xs uppercase tracking-[0.2em] font-bold text-zinc-500 hover:text-white transition-colors mb-16 inline-block"
         >
-            ← Back to {gallery.title}
+            {t("item.back")}
+            {gallery.title}
         </a>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
@@ -59,7 +60,7 @@ const t = useTranslations(lang);
                             <h4
                                 class="text-zinc-500 uppercase tracking-widest text-[10px] mb-2 font-bold"
                             >
-                                Medium
+                                {t("item.medium")}
                             </h4>
                             <p class="text-sm text-white font-medium">
                                 {item.medium}
@@ -69,7 +70,7 @@ const t = useTranslations(lang);
                             <h4
                                 class="text-zinc-500 uppercase tracking-widest text-[10px] mb-2 font-bold"
                             >
-                                Year
+                                {t("item.year")}
                             </h4>
                             <p class="text-sm text-white font-medium">
                                 {item.year}
@@ -79,15 +80,17 @@ const t = useTranslations(lang);
                             <h4
                                 class="text-zinc-500 uppercase tracking-widest text-[10px] mb-2 font-bold"
                             >
-                                Status
+                                {t("item.status")}
                             </h4>
                             <p class="text-sm font-medium">
                                 {
                                     item.status === "sold" ? (
-                                        <span class="text-red-400">Sold</span>
+                                        <span class="text-red-400">
+                                            {t("item.sold")}
+                                        </span>
                                     ) : (
                                         <span class="text-[#9eff7a]">
-                                            Available
+                                            {t("item.available")}
                                         </span>
                                     )
                                 }
@@ -99,7 +102,7 @@ const t = useTranslations(lang);
                         <button
                             class="w-full py-5 bg-white text-black text-sm uppercase tracking-widest font-bold hover:bg-zinc-200 transition-colors"
                         >
-                            Inquire about this piece
+                            {t("item.inquire")}
                         </button>
                     </div>
                 </div>

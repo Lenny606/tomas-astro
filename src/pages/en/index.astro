@@ -1,14 +1,24 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getLangFromUrl, useTranslations } from '../../utils/i18n';
+import selectedWorks from '../../data/selected_works.json';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <BaseLayout title="TomasAstro | Creative Developer">
-  <section class="max-w-7xl mx-auto px-12 pt-16 pb-32">
-    <div class="max-w-4xl">
+  <section class="max-w-7xl mx-auto px-12 pt-16 pb-32 relative overflow-hidden">
+    <!-- Spline Scene Background -->
+    <div class="absolute right-0 top-0 w-full lg:w-2/3 h-full z-0 opacity-80 pointer-events-none lg:pointer-events-auto">
+      <div class="w-full h-full relative">
+        <iframe src='https://my.spline.design/clonercubesimplecopy-7sZBoIYllwysjLz1HHxmJdCS/' frameborder='0' width='100%' height='100%' class="w-full h-full"></iframe>
+        <!-- Gradient overlay to blend spline -->
+        <div class="absolute inset-0 bg-linear-to-r from-black via-transparent to-transparent pointer-events-none"></div>
+      </div>
+    </div>
+
+    <div class="max-w-4xl relative z-10">
       <h1 class="text-7xl md:text-9xl font-serif tracking-tight mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000">
         {t('hero.title')}
       </h1>
@@ -22,7 +32,7 @@ const t = useTranslations(lang);
           {t('hero.cta')}
         </a>
         <a href="#" class="text-sm uppercase tracking-widest font-bold link-hover">
-          View Selected Work
+          {t('hero.view_work')}
         </a>
       </div>
     </div>
@@ -30,29 +40,35 @@ const t = useTranslations(lang);
 
   <section class="max-w-7xl mx-auto px-12 py-32 border-t border-white/5">
     <div class="flex justify-between items-end mb-20">
-      <h2 class="text-5xl font-serif">Selected Work</h2>
-      <a href="#" class="text-xs uppercase tracking-[0.2em] font-bold text-zinc-500 hover:text-white transition-colors">View All</a>
+      <h2 class="text-5xl font-serif">{t('work.title')}</h2>
+      <a href="#" class="text-xs uppercase tracking-[0.2em] font-bold text-zinc-500 hover:text-white transition-colors">{t('work.view_all')}</a>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      {[1, 2, 3].map((i) => (
-        <div class="group relative cursor-pointer overflow-hidden plastic aspect-[4/5] bg-zinc-900 border border-white/5">
+      {selectedWorks.map((work) => (
+        <a href={work.url} target="_blank" rel="noopener noreferrer" class="group relative cursor-pointer overflow-hidden plastic aspect-[4/5] bg-zinc-900 border border-white/5 block">
           <!-- Background Image Placeholder -->
-          <div class="absolute inset-0 bg-linear-to-br from-zinc-800 to-zinc-900 group-hover:scale-105 transition-transform duration-700 ease-out"></div>
+          <div class="absolute inset-0 bg-linear-to-br from-zinc-800 to-zinc-900 group-hover:scale-105 transition-transform duration-700 ease-out">
+            {work.image && <img src={work.image} alt={work.title} class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" />}
+          </div>
           
           <!-- Overlay -->
           <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
             <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-              <p class="text-xs uppercase tracking-[0.2em] text-zinc-400 mb-3">Portfolio Project</p>
-              <h3 class="text-3xl font-serif leading-tight">Project Title {i}</h3>
+              <p class="text-xs uppercase tracking-[0.2em] text-zinc-400 mb-3">
+                {work.category === 'Web Development' ? t('category.web') : 
+                 work.category === 'Design' ? t('category.design') : 
+                 work.category === 'Marketing' ? t('category.marketing') : 
+                 work.category}
+              </p>
+              <h3 class="text-3xl font-serif leading-tight">{work.title}</h3>
               <div class="mt-6 h-[1px] w-0 group-hover:w-full bg-white transition-all duration-700 delay-100"></div>
             </div>
           </div>
-        </div>
+        </a>
       ))}
     </div>
   </section>
-
   <section class="max-w-7xl mx-auto px-12 py-32 reveal-section">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-20">
       <div class="lg:col-span-12">
@@ -117,8 +133,19 @@ const t = useTranslations(lang);
     }
     
     .text-zinc-600 {
-      color: #52525b; /* zinc-600 to match screen better */
+      color: #52525b;
+    }
+
+    /* Spline hide logo/watermark if possible via styling or just container overflow */
+    iframe {
+      border: none;
+    }
+    
+    @media (max-width: 1024px) {
+      .absolute.right-0.top-0 {
+        opacity: 0.4;
+        width: 100%;
+      }
     }
   </style>
 </BaseLayout>
-
