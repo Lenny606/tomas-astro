@@ -11,6 +11,7 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
 
     const defaultHeaders = {
         'Content-Type': 'application/json',
+        'X-API-Token': import.meta.env.API_TOKEN || '',
     };
 
     const response = await fetch(url, {
