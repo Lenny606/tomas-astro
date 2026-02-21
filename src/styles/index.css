@@ -5,6 +5,8 @@
     --color-brand-secondary: #a1a1aa;
     --color-bg-primary: #050505;
     --color-border-subtle: #1a1a1a;
+    --color-accent-pink: #ff0080;
+    --color-accent-green: #9eff7a;
 }
 
 :root {
@@ -14,7 +16,7 @@
 
 body {
     font-family: var(--font-sans);
-    @apply bg-[#050505] text-white antialiased selection:bg-white selection:text-black;
+    @apply bg-bg-primary text-white antialiased selection:bg-white selection:text-black;
 }
 
 h1,

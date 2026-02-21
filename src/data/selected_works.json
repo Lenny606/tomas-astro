@@ -6,10 +6,10 @@
         "image": "/images/projects/picolino.png"
     },
     {
-        "title": "Selected Work 2",
-        "category": "Design",
-        "url": "#",
-        "image": "https://placehold.co/600x800/27272a/FFF?text=Coming+Soon"
+        "title": "Recipes App",
+        "category": "Web Development",
+        "url": "https://recepies-app-ten.vercel.app/",
+        "image": "https://placehold.co/600x800/27272a/FFF?text=Recipes+App"
     },
     {
         "title": "Selected Work 3",
