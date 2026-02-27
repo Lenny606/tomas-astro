@@ -8,7 +8,10 @@ const t = useTranslations(lang);
 ---
 
 <BaseLayout title="TomasAstro | Creative Developer">
-  <section class="max-w-7xl mx-auto px-12 pt-16 pb-32 relative overflow-hidden">
+  <section class="max-w-7xl mx-auto px-12 pt-16 pb-32 relative overflow-hidden min-h-[80vh] flex flex-col justify-center">
+    <div class="absolute -left-10 -top-20 text-[25rem] font-serif text-white/[0.02] select-none pointer-events-none leading-none">
+      01
+    </div>
     <!-- Spline Scene Background - Commented out for performance
     <div class="absolute right-0 top-0 w-full lg:w-2/3 h-full z-0 opacity-80 pointer-events-none lg:pointer-events-auto">
       <div class="w-full h-full relative">
@@ -18,7 +21,7 @@ const t = useTranslations(lang);
     </div>
     -->
 
-    <div class="max-w-4xl relative z-10">
+    <div class="max-w-4xl relative z-10 lg:ml-20">
       <h1 
         class="text-7xl md:text-9xl font-serif tracking-tight mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000"
         set:html={t('hero.title')}
@@ -28,11 +31,11 @@ const t = useTranslations(lang);
         {t('hero.subtitle')}
       </p>
 
-      <div class="flex items-center gap-8">
-        <a href="#" class="px-10 py-5 bg-white text-black text-sm uppercase tracking-widest font-bold hover:bg-zinc-200 transition-colors">
+      <div class="flex flex-wrap items-center gap-8">
+        <a href="#work" class="px-10 py-5 bg-white text-black text-sm uppercase tracking-widest font-bold hover:bg-zinc-200 transition-colors" aria-label="Learn more about my work">
           {t('hero.cta')}
         </a>
-        <a href="#" class="text-sm uppercase tracking-widest font-bold link-hover">
+        <a href="#work" class="text-sm uppercase tracking-widest font-bold link-hover" aria-label="View recent work">
           {t('hero.view_work')}
         </a>
       </div>
@@ -45,25 +48,32 @@ const t = useTranslations(lang);
       <a href="#" class="text-xs uppercase tracking-[0.2em] font-bold text-zinc-500 hover:text-white transition-colors">{t('work.view_all')}</a>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      {selectedWorks.map((work) => (
-        <a href={work.url} target="_blank" rel="noopener noreferrer" class="group relative cursor-pointer overflow-hidden plastic aspect-[4/5] bg-zinc-900 border border-white/5 block">
-          <!-- Background Image Placeholder -->
-          <div class="absolute inset-0 bg-linear-to-br from-zinc-800 to-zinc-900 group-hover:scale-105 transition-transform duration-700 ease-out">
-            {work.image && <img src={work.image} alt={work.title} class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" />}
-          </div>
-          
-          <!-- Overlay -->
-          <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
-            <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-              <p class="text-xs uppercase tracking-[0.2em] text-zinc-400 mb-3">
-                {work.category === 'Web Development' ? t('category.web') : work.category}
-              </p>
-              <h3 class="text-3xl font-serif leading-tight">{work.title}</h3>
-              <div class="mt-6 h-[1px] w-0 group-hover:w-full bg-white transition-[width] duration-700 delay-100"></div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-y-20 md:gap-x-10">
+      {selectedWorks.map((work, index) => (
+        <div class={`
+          ${index === 0 ? 'md:col-span-8' : ''}
+          ${index === 1 ? 'md:col-span-4 md:mt-32' : ''}
+          ${index === 2 ? 'md:col-start-4 md:col-span-6' : ''}
+          ${index > 2 ? 'md:col-span-6' : ''}
+        `}>
+          <a href={work.url} target="_blank" rel="noopener noreferrer" class="group relative cursor-pointer overflow-hidden plastic aspect-[4/5] bg-zinc-900 border border-white/5 block">
+            <!-- Background Image Placeholder -->
+            <div class="absolute inset-0 bg-linear-to-br from-zinc-800 to-zinc-900 group-hover:scale-105 transition-transform duration-700 ease-out">
+              {work.image && <img src={work.image} alt={work.title} class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" />}
             </div>
-          </div>
-        </a>
+            
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
+              <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <p class="text-xs uppercase tracking-[0.2em] text-zinc-400 mb-3">
+                  {work.category === 'Web Development' ? t('category.web') : work.category}
+                </p>
+                <h3 class="text-3xl font-serif leading-tight">{work.title}</h3>
+                <div class="mt-6 h-[1px] w-0 group-hover:w-full bg-white transition-[width] duration-700 delay-100"></div>
+              </div>
+            </div>
+          </a>
+        </div>
       ))}
     </div>
   </section>

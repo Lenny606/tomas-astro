@@ -8,7 +8,17 @@ const t = useTranslations(lang);
 ---
 
 <BaseLayout title={`${t("about.title")} | TomasAstro`}>
-    <section class="max-w-7xl mx-auto px-12 pt-16 pb-32">
+    <section class="max-w-7xl mx-auto px-12 pt-16 pb-32 relative">
+        <div
+            class="absolute -left-10 top-20 text-[20rem] font-serif text-white/[0.02] select-none pointer-events-none leading-none"
+        >
+            02
+        </div>
+        <div
+            class="absolute left-0 top-[40%] w-full h-[1px] bg-white/[0.03] pointer-events-none"
+        >
+        </div>
+
         <div class="max-w-4xl mb-32">
             <h1
                 class="text-7xl md:text-9xl font-serif tracking-tight mb-8 animate-in fade-in slide-in-from-bottom-8 duration-1000"
@@ -22,8 +32,10 @@ const t = useTranslations(lang);
             </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-40">
-            <div>
+        <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-40 relative z-10"
+        >
+            <div class="lg:col-span-7">
                 <h2 class="text-4xl font-serif mb-10">
                     {t("about.bio_title")}
                 </h2>
@@ -34,7 +46,9 @@ const t = useTranslations(lang);
                     <p>{t("about.bio_text_2")}</p>
                 </div>
             </div>
-            <div class="bg-zinc-900 border border-white/5 p-12 plastic-static">
+            <div
+                class="lg:col-start-9 lg:col-span-4 lg:-mt-32 bg-zinc-900 border border-white/5 p-12 plastic-static relative z-20"
+            >
                 <h3
                     class="text-xs uppercase tracking-[0.3em] text-zinc-500 mb-8 font-bold"
                 >
