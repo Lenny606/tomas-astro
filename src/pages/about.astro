@@ -31,11 +31,7 @@ const t = useTranslations(lang);
                     class="space-y-6 text-xl text-zinc-400 leading-relaxed font-light"
                 >
                     <p>{t("about.bio_text")}</p>
-                    <p>
-                        Věnuji se neustálému vzdělávání a objevování nových
-                        způsobů, jak posouvat hranice webu. Můj přístup
-                        kombinuje technickou preciznost s estetickým cítěním.
-                    </p>
+                    <p>{t("about.bio_text_2")}</p>
                 </div>
             </div>
             <div class="bg-zinc-900 border border-white/5 p-12 plastic">
@@ -89,7 +85,7 @@ const t = useTranslations(lang);
                     {t("about.contact_title")}
                 </h2>
                 <p class="text-zinc-400 text-lg">
-                    Máte projekt na mysli? Pojďme se spojit.
+                    {t("about.contact_subtitle")}
                 </p>
             </div>
             <ContactForm />

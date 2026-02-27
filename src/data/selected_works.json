@@ -9,12 +9,12 @@
         "title": "Recipes App",
         "category": "Web Development",
         "url": "https://recepies-app-ten.vercel.app/",
-        "image": "https://placehold.co/600x800/27272a/FFF?text=Recipes+App"
+        "image": "/images/projects/recipes-app.png"
     },
     {
-        "title": "Selected Work 3",
+        "title": "Lumina",
         "category": "Marketing",
         "url": "#",
-        "image": "https://placehold.co/600x800/27272a/FFF?text=Coming+Soon"
+        "image": "/images/projects/lumina-marketing.png"
     }
 ]

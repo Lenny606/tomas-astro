@@ -23,20 +23,6 @@ const t = useTranslations(lang);
       <ul
         class="flex gap-10 text-[13px] uppercase tracking-[0.2em] font-medium text-zinc-400"
       >
-        {
-          Astro.url.pathname !== "/" &&
-            Astro.url.pathname !== "/en" &&
-            Astro.url.pathname !== "/en/" && (
-              <li>
-                <a
-                  href={lang === "cz" ? "/" : "/en/"}
-                  class="hover:text-white transition-colors link-hover"
-                >
-                  {t("nav.home")}
-                </a>
-              </li>
-            )
-        }
         <li>
           <a
             href="/galleries"
@@ -99,20 +85,6 @@ const t = useTranslations(lang);
   <ul
     class="flex flex-col gap-8 text-center text-xl uppercase tracking-[0.2em] font-medium text-zinc-400 w-full px-6"
   >
-    {
-      Astro.url.pathname !== "/" &&
-        Astro.url.pathname !== "/en" &&
-        Astro.url.pathname !== "/en/" && (
-          <li>
-            <a
-              href={lang === "cz" ? "/" : "/en/"}
-              class="block hover:text-white transition-colors py-2"
-            >
-              {t("nav.home")}
-            </a>
-          </li>
-        )
-    }
     <li>
       <a href="/galleries" class="block hover:text-white transition-colors py-2"
         >{t("nav.galleries")}
