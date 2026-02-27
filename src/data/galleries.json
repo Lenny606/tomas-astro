@@ -49,5 +49,25 @@
                 "url": "/images/galleries/concrete-lines.jpg"
             }
         ]
+    },
+    {
+        "id": "3",
+        "title": "Web Design",
+        "slug": "web-design",
+        "description": "Premium user interfaces and digital experiences designed for performance and aesthetics.",
+        "coverImage": "/images/galleries/web-design-cover.jpg",
+        "items": [
+            {
+                "id": "item-4",
+                "filename": "ui-study-1.jpg",
+                "slug": "minimalist-ui",
+                "title": "Minimalist UI",
+                "description": "A study in white space and elegant typography.",
+                "medium": "Digital Design",
+                "year": "2024",
+                "status": "available",
+                "url": "/images/galleries/ui-study-1.jpg"
+            }
+        ]
     }
 ]
