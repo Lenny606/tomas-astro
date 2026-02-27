@@ -9,19 +9,20 @@ const t = useTranslations(lang);
 
 <BaseLayout title="TomasAstro | Creative Developer">
   <section class="max-w-7xl mx-auto px-12 pt-16 pb-32 relative overflow-hidden">
-    <!-- Spline Scene Background -->
+    <!-- Spline Scene Background - Commented out for performance
     <div class="absolute right-0 top-0 w-full lg:w-2/3 h-full z-0 opacity-80 pointer-events-none lg:pointer-events-auto">
       <div class="w-full h-full relative">
         <iframe src='https://my.spline.design/clonercubesimplecopy-7sZBoIYllwysjLz1HHxmJdCS/' frameborder='0' width='100%' height='100%' class="w-full h-full"></iframe>
-        <!-- Gradient overlay to blend spline -->
         <div class="absolute inset-0 bg-linear-to-r from-black via-transparent to-transparent pointer-events-none"></div>
       </div>
     </div>
+    -->
 
     <div class="max-w-4xl relative z-10">
-      <h1 class="text-7xl md:text-9xl font-serif tracking-tight mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-        {t('hero.title')}
-      </h1>
+      <h1 
+        class="text-7xl md:text-9xl font-serif tracking-tight mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000"
+        set:html={t('hero.title')}
+      />
       
       <p class="text-2xl md:text-3xl text-zinc-400 mb-16 max-w-2xl leading-relaxed font-light">
         {t('hero.subtitle')}
@@ -56,10 +57,7 @@ const t = useTranslations(lang);
           <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
             <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
               <p class="text-xs uppercase tracking-[0.2em] text-zinc-400 mb-3">
-                {work.category === 'Web Development' ? t('category.web') : 
-                 work.category === 'Design' ? t('category.design') : 
-                 work.category === 'Marketing' ? t('category.marketing') : 
-                 work.category}
+                {work.category === 'Web Development' ? t('category.web') : work.category}
               </p>
               <h3 class="text-3xl font-serif leading-tight">{work.title}</h3>
               <div class="mt-6 h-[1px] w-0 group-hover:w-full bg-white transition-[width] duration-700 delay-100"></div>
@@ -136,7 +134,7 @@ const t = useTranslations(lang);
       color: #52525b;
     }
 
-    /* Spline hide logo/watermark if possible via styling or just container overflow */
+    /* Spline hide logo/watermark if possible via styling or just container overflow
     iframe {
       border: none;
     }
@@ -147,5 +145,6 @@ const t = useTranslations(lang);
         width: 100%;
       }
     }
+    */
   </style>
 </BaseLayout>
