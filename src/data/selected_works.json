@@ -1,5 +1,11 @@
 [
     {
+        "title": "Jenko Studio",
+        "category": "Web Development",
+        "url": "https://jenkostudio.com/",
+        "image": "/images/projects/jenko-studio.png"
+    },
+    {
         "title": "Picolino",
         "category": "Web Development",
         "url": "https://picolino.site/",
