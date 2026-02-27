@@ -1,125 +1,851 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getLangFromUrl, useTranslations } from "../utils/i18n";
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-
-// TODO: Replace with real project data
 const project = {
-    title: "Webdesign One",
-    subtitle: "UI / Digital Experience",
+    client: "Forma Studio",
     year: "2024",
-    description:
-        "A premium digital experience built around clarity, motion, and thoughtful interaction design. Coming soon.",
-    tags: ["UI Design", "Interaction Design", "Prototype"],
-    href: "/galleries/web-design",
+    role: "UI / Brand Design",
+    backHref: "/galleries/web-design",
 };
 ---
 
-<BaseLayout title={`${project.title} | Web Design`}>
-    <section class="max-w-7xl mx-auto px-12 pt-16 pb-32">
-        <!-- Back link -->
-        <a
-            href={project.href}
-            class="text-xs uppercase tracking-[0.2em] font-bold text-zinc-500 hover:text-white transition-colors mb-16 inline-block"
-        >
-            ← Web Design
-        </a>
+<BaseLayout title="Forma Studio — Web Design | Portfolio">
+    <div class="wd1-root">
+        <!-- ═══════════════════════════════════ BACK LINK -->
+        <a href={project.backHref} class="wd1-back">← Web Design</a>
 
-        <!-- Hero -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32">
-            <!-- Placeholder visual -->
-            <div
-                class="aspect-video bg-zinc-900 border border-white/5 flex items-center justify-center overflow-hidden relative"
-            >
-                <!-- Skeleton shimmer -->
-                <div
-                    class="absolute inset-0 bg-linear-to-br from-zinc-800/60 via-zinc-900 to-zinc-800/60 animate-pulse"
-                >
-                </div>
-                <span
-                    class="relative z-10 text-zinc-600 text-xs uppercase tracking-widest font-bold"
-                    >Preview Coming Soon</span
-                >
+        <!-- ═══════════════════════════════════ HERO -->
+        <section class="wd1-hero">
+            <div class="wd1-hero-meta">
+                <span class="wd1-label">{project.client}</span>
+                <span class="wd1-label wd1-label--dim"
+                    >{project.year} · {project.role}
+                </span>
             </div>
 
-            <!-- Info -->
-            <div>
-                <p
-                    class="text-xs uppercase tracking-[0.3em] text-zinc-500 mb-4 font-bold"
-                >
-                    {project.subtitle} / {project.year}
-                </p>
-                <h1 class="text-6xl font-serif mb-8 leading-tight">
-                    {project.title}
-                </h1>
-                <p
-                    class="text-xl text-zinc-400 font-light leading-relaxed mb-10"
-                >
-                    {project.description}
-                </p>
+            <h1 class="wd1-hero-title">
+                Design<br /><em>without</em><br />noise.
+            </h1>
 
-                <!-- Tags -->
-                <div class="flex flex-wrap gap-3 mb-12">
-                    {
-                        project.tags.map((tag) => (
-                            <span class="text-[10px] uppercase tracking-widest font-bold border border-white/10 text-zinc-400 px-4 py-2">
-                                {tag}
-                            </span>
-                        ))
-                    }
-                </div>
-
-                <!-- CTA placeholder -->
-                <button
-                    disabled
-                    class="py-5 px-10 bg-white/5 border border-white/10 text-zinc-500 text-sm uppercase tracking-widest font-bold cursor-not-allowed"
-                >
-                    Live Preview Coming Soon
-                </button>
+            <div class="wd1-hero-aside">
+                <p class="wd1-hero-desc">
+                    Forma is a product design studio that transforms complex
+                    systems into calm, beautiful interfaces. This project
+                    redefined their digital presence from the ground up.
+                </p>
+                <a href="#case" class="wd1-btn">View Case Study ↓</a>
             </div>
-        </div>
+        </section>
 
-        <!-- Divider -->
-        <div class="border-t border-white/5 mb-20"></div>
-
-        <!-- Skeleton sections -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-24">
-            {
-                ["Overview", "Technology", "Outcome"].map((section) => (
-                    <div class="space-y-4">
-                        <h3 class="text-xs uppercase tracking-widest font-bold text-zinc-500">
-                            {section}
-                        </h3>
-                        <div class="space-y-2">
-                            <div class="h-3 bg-zinc-800 rounded-sm w-full animate-pulse" />
-                            <div class="h-3 bg-zinc-800 rounded-sm w-4/5 animate-pulse" />
-                            <div class="h-3 bg-zinc-800 rounded-sm w-3/5 animate-pulse" />
-                        </div>
+        <!-- ═══════════════════════════════════ FULL-BLEED VISUAL -->
+        <div class="wd1-band">
+            <div class="wd1-band-inner">
+                <div class="wd1-mockup-hero">
+                    <!-- Browser chrome -->
+                    <div class="wd1-browser-bar">
+                        <span class="wd1-dot"></span>
+                        <span class="wd1-dot"></span>
+                        <span class="wd1-dot"></span>
+                        <div class="wd1-urlbar">forma.studio</div>
                     </div>
-                ))
-            }
+                    <!-- Mock landing content inside browser -->
+                    <div class="wd1-mock-page">
+                        <div class="wd1-mock-nav">
+                            <span class="wd1-mock-logo">Forma</span>
+                            <div class="wd1-mock-links">
+                                <div class="wd1-mock-link"></div>
+                                <div class="wd1-mock-link"></div>
+                                <div class="wd1-mock-link wd1-mock-link--btn">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wd1-mock-hero-content">
+                            <div class="wd1-mock-h1"></div>
+                            <div class="wd1-mock-h1 wd1-mock-h1--short"></div>
+                            <div class="wd1-mock-body"></div>
+                            <div class="wd1-mock-body wd1-mock-body--short">
+                            </div>
+                            <div class="wd1-mock-cta"></div>
+                        </div>
+                        <div class="wd1-mock-image-block"></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Screen mockup placeholders -->
-        <div class="space-y-6">
-            <h2
-                class="text-xs uppercase tracking-[0.3em] font-bold text-zinc-500 mb-8"
-            >
-                Screens
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- ═══════════════════════════════════ CASE STUDY SECTION -->
+        <section class="wd1-case" id="case">
+            <!-- Intro row -->
+            <div class="wd1-case-intro">
+                <h2 class="wd1-section-title">01 — Challenge</h2>
+                <div class="wd1-case-text">
+                    <p>
+                        Forma's existing site buried its craft under heavy
+                        visuals and unclear hierarchy. Users struggled to
+                        understand the offering within ten seconds of landing.
+                    </p>
+                    <p>
+                        Our task was to create a digital system that spoke
+                        quietly and confidently — letting the work lead.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Stats strip -->
+            <div class="wd1-stats">
                 {
-                    [1, 2, 3, 4].map((n) => (
-                        <div class="aspect-video bg-zinc-900 border border-white/5 flex items-center justify-center animate-pulse">
-                            <span class="text-zinc-700 text-xs uppercase tracking-widest font-bold">
-                                Screen {n}
-                            </span>
+                    [
+                        { n: "+340%", label: "Time on page" },
+                        { n: "0.8s", label: "Avg. load time" },
+                        { n: "94", label: "Lighthouse score" },
+                        { n: "2×", label: "Inquiry rate" },
+                    ].map((s) => (
+                        <div class="wd1-stat">
+                            <span class="wd1-stat-n">{s.n}</span>
+                            <span class="wd1-stat-l">{s.label}</span>
                         </div>
                     ))
                 }
             </div>
-        </div>
-    </section>
+
+            <!-- Design principles -->
+            <div class="wd1-principles">
+                <h2 class="wd1-section-title">02 — Principles</h2>
+                <div class="wd1-principle-grid">
+                    {
+                        [
+                            {
+                                n: "01",
+                                title: "Radical Clarity",
+                                body: "Every element earns its place. When in doubt, remove it.",
+                            },
+                            {
+                                n: "02",
+                                title: "Asymmetric Grid",
+                                body: "Off-grid compositions create tension and visual interest without clutter.",
+                            },
+                            {
+                                n: "03",
+                                title: "Type as Image",
+                                body: "Large, expressive typography carries meaning before the eye reads a word.",
+                            },
+                            {
+                                n: "04",
+                                title: "Motion with Purpose",
+                                body: "Transitions guide attention. Nothing moves unless it reveals something.",
+                            },
+                        ].map((p) => (
+                            <div class="wd1-principle">
+                                <span class="wd1-principle-n">{p.n}</span>
+                                <h3 class="wd1-principle-title">{p.title}</h3>
+                                <p class="wd1-principle-body">{p.body}</p>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <!-- Screen gallery -->
+            <div class="wd1-screens">
+                <h2 class="wd1-section-title">03 — Screens</h2>
+                <div class="wd1-screen-grid">
+                    <!-- Screen A — large left -->
+                    <div class="wd1-screen wd1-screen--a">
+                        <div class="wd1-screen-inner wd1-screen-inner--dark">
+                            <div class="wd1-si-logo">Forma</div>
+                            <div class="wd1-si-headline">
+                                <div class="wd1-si-line wd1-si-line--wide">
+                                </div>
+                                <div class="wd1-si-line wd1-si-line--med"></div>
+                            </div>
+                            <div class="wd1-si-image-placeholder"></div>
+                        </div>
+                        <span class="wd1-screen-label">Home — Hero</span>
+                    </div>
+
+                    <!-- Screen B — top right -->
+                    <div class="wd1-screen wd1-screen--b">
+                        <div class="wd1-screen-inner wd1-screen-inner--light">
+                            <div class="wd1-si-tag">Services</div>
+                            <div class="wd1-si-cards">
+                                {
+                                    [1, 2, 3].map(() => (
+                                        <div class="wd1-si-card" />
+                                    ))
+                                }
+                            </div>
+                        </div>
+                        <span class="wd1-screen-label">Services Grid</span>
+                    </div>
+
+                    <!-- Screen C — bottom right -->
+                    <div class="wd1-screen wd1-screen--c">
+                        <div class="wd1-screen-inner wd1-screen-inner--accent">
+                            <div class="wd1-si-big-n">01</div>
+                            <div class="wd1-si-case-lines">
+                                <div class="wd1-si-line wd1-si-line--med"></div>
+                                <div class="wd1-si-line wd1-si-line--sm"></div>
+                                <div class="wd1-si-line wd1-si-line--sm"></div>
+                            </div>
+                        </div>
+                        <span class="wd1-screen-label">Case Study Detail</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Type specimen -->
+            <div class="wd1-type-spec">
+                <h2 class="wd1-section-title">04 — Typography</h2>
+                <div class="wd1-type-showcase">
+                    <div class="wd1-type-giant">Aa</div>
+                    <div class="wd1-type-scale">
+                        <span style="font-size:2.5rem;font-weight:700"
+                            >Display</span
+                        >
+                        <span style="font-size:1.5rem;font-weight:400"
+                            >Heading</span
+                        >
+                        <span style="font-size:1rem;font-weight:400"
+                            >Body text — regular</span
+                        >
+                        <span
+                            style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase"
+                            >Label · Caption</span
+                        >
+                    </div>
+                </div>
+                <div class="wd1-palette">
+                    {
+                        [
+                            { c: "#1c1c1c", name: "Charcoal" },
+                            { c: "#3a3a3a", name: "Ink" },
+                            { c: "#8a8a8a", name: "Ash" },
+                            { c: "#d4d0c8", name: "Linen" },
+                            { c: "#f5f3ee", name: "Paper" },
+                            { c: "#fafafa", name: "White" },
+                        ].map((sw) => (
+                            <div class="wd1-swatch">
+                                <div
+                                    class="wd1-swatch-color"
+                                    style={`background:${sw.c}`}
+                                />
+                                <span class="wd1-swatch-name">{sw.name}</span>
+                                <span class="wd1-swatch-hex">{sw.c}</span>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <!-- Closing CTA -->
+            <div class="wd1-cta-row">
+                <p class="wd1-cta-text">Interested in working together?</p>
+                <a href="/about" class="wd1-btn wd1-btn--dark">Get in touch →</a
+                >
+            </div>
+        </section>
+    </div>
+
+    <style>
+        /* ─── RESET & ROOT ───────────────────────────────────────── */
+        .wd1-root {
+            background: #fafafa;
+            color: #1c1c1c;
+            font-family: "Inter", system-ui, sans-serif;
+            /* Override the dark body applied globally */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* force the page bg light even under nav/footer */
+        :global(body):has(.wd1-root) {
+            background: #fafafa !important;
+        }
+
+        /* ─── BACK LINK ─────────────────────────────────────────── */
+        .wd1-back {
+            display: inline-block;
+            margin: 0 0 0 clamp(1.5rem, 6vw, 6rem);
+            padding-top: 0.5rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #8a8a8a;
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+        .wd1-back:hover {
+            color: #1c1c1c;
+        }
+
+        /* ─── LABELS ────────────────────────────────────────────── */
+        .wd1-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #3a3a3a;
+        }
+        .wd1-label--dim {
+            color: #8a8a8a;
+            margin-left: 1.5rem;
+        }
+
+        /* ─── HERO ──────────────────────────────────────────────── */
+        .wd1-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 0;
+            padding: 3rem clamp(1.5rem, 6vw, 6rem) 0;
+            max-width: 1400px;
+        }
+
+        .wd1-hero-meta {
+            grid-column: 1 / -1;
+            margin-bottom: 2rem;
+        }
+
+        .wd1-hero-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(4rem, 10vw, 10rem);
+            font-weight: 400;
+            line-height: 0.95;
+            letter-spacing: -0.02em;
+            color: #1c1c1c;
+            margin: 0;
+            grid-column: 1;
+            /* Off-grid: push right on odd rhythm */
+            padding-left: 0;
+            padding-right: 2rem;
+        }
+
+        .wd1-hero-title em {
+            font-style: italic;
+            color: #3a3a3a;
+        }
+
+        .wd1-hero-aside {
+            grid-column: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-left: 4rem;
+            padding-bottom: 1rem;
+            gap: 2rem;
+        }
+
+        .wd1-hero-desc {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: #3a3a3a;
+            max-width: 38ch;
+            margin: 0;
+        }
+
+        /* ─── BUTTON ────────────────────────────────────────────── */
+        .wd1-btn {
+            display: inline-block;
+            border: 1.5px solid #1c1c1c;
+            color: #1c1c1c;
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 0.85rem 2rem;
+            transition: background 0.25s, color 0.25s;
+            align-self: flex-start;
+        }
+        .wd1-btn:hover {
+            background: #1c1c1c;
+            color: #fafafa;
+        }
+        .wd1-btn--dark {
+            background: #1c1c1c;
+            color: #fafafa;
+        }
+        .wd1-btn--dark:hover {
+            background: transparent;
+            color: #1c1c1c;
+        }
+
+        /* ─── FULL-BLEED BAND ───────────────────────────────────── */
+        .wd1-band {
+            margin-top: 5rem;
+            background: #f0ede6;
+            padding: 5rem clamp(1.5rem, 6vw, 6rem);
+        }
+        .wd1-band-inner {
+            max-width: 1400px;
+        }
+
+        /* ─── BROWSER MOCKUP ────────────────────────────────────── */
+        .wd1-mockup-hero {
+            background: #fff;
+            border: 1px solid #d4d0c8;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(28, 28, 28, 0.1);
+        }
+        .wd1-browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.75rem 1rem;
+            background: #f5f3ee;
+            border-bottom: 1px solid #d4d0c8;
+        }
+        .wd1-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #d4d0c8;
+        }
+        .wd1-urlbar {
+            margin-left: 0.75rem;
+            background: #fff;
+            border: 1px solid #d4d0c8;
+            border-radius: 4px;
+            padding: 0.2rem 0.75rem;
+            font-size: 0.65rem;
+            color: #8a8a8a;
+            letter-spacing: 0.04em;
+            flex: 1;
+            max-width: 280px;
+        }
+        .wd1-mock-page {
+            padding: 2rem 3rem 3rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 340px;
+        }
+        .wd1-mock-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+        .wd1-mock-logo {
+            font-family: "Playfair Display", serif;
+            font-size: 1.1rem;
+            color: #1c1c1c;
+            font-weight: 700;
+        }
+        .wd1-mock-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .wd1-mock-link {
+            width: 3rem;
+            height: 8px;
+            border-radius: 2px;
+            background: #d4d0c8;
+        }
+        .wd1-mock-link--btn {
+            width: 5rem;
+            height: 28px;
+            border-radius: 0;
+            background: #1c1c1c;
+        }
+        .wd1-mock-hero-content {
+            max-width: 55%;
+        }
+        .wd1-mock-h1 {
+            height: 28px;
+            background: #1c1c1c;
+            border-radius: 2px;
+            margin-bottom: 0.6rem;
+            width: 80%;
+        }
+        .wd1-mock-h1--short {
+            width: 55%;
+        }
+        .wd1-mock-body {
+            height: 8px;
+            background: #d4d0c8;
+            border-radius: 2px;
+            width: 70%;
+            margin-top: 1.5rem;
+            margin-bottom: 0.4rem;
+        }
+        .wd1-mock-body--short {
+            width: 45%;
+            margin-top: 0;
+        }
+        .wd1-mock-cta {
+            margin-top: 2rem;
+            width: 7rem;
+            height: 36px;
+            background: #1c1c1c;
+            border-radius: 0;
+        }
+        .wd1-mock-image-block {
+            position: absolute;
+            right: 0;
+            top: 3rem;
+            width: 38%;
+            height: calc(100% - 3rem);
+            background: linear-gradient(135deg, #3a3a3a 0%, #8a8a8a 100%);
+        }
+
+        /* ─── CASE STUDY ────────────────────────────────────────── */
+        .wd1-case {
+            max-width: 1400px;
+            padding: 6rem clamp(1.5rem, 6vw, 6rem);
+        }
+
+        .wd1-section-title {
+            font-size: 0.65rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #8a8a8a;
+            margin: 0 0 3rem;
+        }
+
+        /* Challenge intro */
+        .wd1-case-intro {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem 5rem;
+            align-items: start;
+            margin-bottom: 5rem;
+        }
+        .wd1-case-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .wd1-case-text p {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            color: #3a3a3a;
+            margin: 0;
+            max-width: 65ch;
+        }
+
+        /* Stats */
+        .wd1-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid #d4d0c8;
+            border-left: 1px solid #d4d0c8;
+            margin-bottom: 6rem;
+        }
+        .wd1-stat {
+            padding: 2.5rem 2rem;
+            border-right: 1px solid #d4d0c8;
+            border-bottom: 1px solid #d4d0c8;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .wd1-stat-n {
+            font-family: "Playfair Display", serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #1c1c1c;
+            line-height: 1;
+        }
+        .wd1-stat-l {
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #8a8a8a;
+        }
+
+        /* Principles */
+        .wd1-principles {
+            margin-bottom: 6rem;
+        }
+        .wd1-principle-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            border-top: 1px solid #d4d0c8;
+        }
+        .wd1-principle {
+            padding: 3rem 3rem 3rem 0;
+            border-bottom: 1px solid #d4d0c8;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            /* off-grid: odd items get extra left push */
+        }
+        .wd1-principle:nth-child(even) {
+            padding-left: 3rem;
+            border-left: 1px solid #d4d0c8;
+        }
+        .wd1-principle-n {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            font-weight: 700;
+            color: #8a8a8a;
+            text-transform: uppercase;
+        }
+        .wd1-principle-title {
+            font-family: "Playfair Display", serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #1c1c1c;
+            margin: 0;
+        }
+        .wd1-principle-body {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #3a3a3a;
+            margin: 0;
+            max-width: 38ch;
+        }
+
+        /* Screens */
+        .wd1-screens {
+            margin-bottom: 6rem;
+        }
+        .wd1-screen-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 1.5rem;
+        }
+        .wd1-screen {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .wd1-screen--a {
+            grid-column: 1;
+            grid-row: 1 / 3;
+        }
+        .wd1-screen--b {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        .wd1-screen--c {
+            grid-column: 2;
+            grid-row: 2;
+        }
+        .wd1-screen-inner {
+            flex: 1;
+            padding: 2.5rem;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            min-height: 220px;
+        }
+        .wd1-screen-inner--dark {
+            background: #1c1c1c;
+        }
+        .wd1-screen-inner--light {
+            background: #f5f3ee;
+            border: 1px solid #d4d0c8;
+        }
+        .wd1-screen-inner--accent {
+            background: #3a3a3a;
+        }
+        .wd1-screen-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #8a8a8a;
+        }
+
+        /* mini mockup elements inside screens */
+        .wd1-si-logo {
+            font-family: "Playfair Display", serif;
+            font-size: 0.9rem;
+            color: #fafafa;
+            font-weight: 700;
+        }
+        .wd1-si-headline {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .wd1-si-line {
+            height: 10px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.25);
+        }
+        .wd1-si-line--wide {
+            width: 80%;
+        }
+        .wd1-si-line--med {
+            width: 55%;
+        }
+        .wd1-si-line--sm {
+            width: 35%;
+            height: 7px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .wd1-screen-inner--light .wd1-si-line {
+            background: rgba(28, 28, 28, 0.18);
+        }
+        .wd1-si-image-placeholder {
+            flex: 1;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.06) 0%,
+                rgba(255, 255, 255, 0.02) 100%
+            );
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 2px;
+        }
+        .wd1-si-tag {
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #8a8a8a;
+        }
+        .wd1-si-cards {
+            display: flex;
+            gap: 0.6rem;
+            flex: 1;
+        }
+        .wd1-si-card {
+            flex: 1;
+            background: #fff;
+            border: 1px solid #d4d0c8;
+            border-radius: 2px;
+        }
+        .wd1-si-big-n {
+            font-family: "Playfair Display", serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.15);
+            line-height: 1;
+        }
+        .wd1-si-case-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        /* Type specimen */
+        .wd1-type-spec {
+            margin-bottom: 6rem;
+        }
+        .wd1-type-showcase {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding: 4rem;
+            background: #f5f3ee;
+            border: 1px solid #d4d0c8;
+        }
+        .wd1-type-giant {
+            font-family: "Playfair Display", serif;
+            font-size: 9rem;
+            font-weight: 400;
+            color: #1c1c1c;
+            line-height: 1;
+        }
+        .wd1-type-scale {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            font-family: "Playfair Display", serif;
+            color: #1c1c1c;
+        }
+
+        /* Palette */
+        .wd1-palette {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
+        }
+        .wd1-swatch {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .wd1-swatch-color {
+            aspect-ratio: 1;
+            border: 1px solid rgba(28, 28, 28, 0.08);
+        }
+        .wd1-swatch-name {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #1c1c1c;
+            letter-spacing: 0.05em;
+        }
+        .wd1-swatch-hex {
+            font-size: 0.6rem;
+            color: #8a8a8a;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* CTA Row */
+        .wd1-cta-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #d4d0c8;
+            padding-top: 4rem;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .wd1-cta-text {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 400;
+            color: #1c1c1c;
+            margin: 0;
+        }
+
+        /* ─── RESPONSIVE ─────────────────────────────────────────── */
+        @media (max-width: 900px) {
+            .wd1-hero {
+                grid-template-columns: 1fr;
+            }
+            .wd1-hero-title {
+                font-size: clamp(3.5rem, 14vw, 6rem);
+            }
+            .wd1-hero-aside {
+                grid-column: 1;
+                padding-left: 0;
+            }
+            .wd1-case-intro {
+                grid-template-columns: 1fr;
+            }
+            .wd1-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .wd1-principle-grid {
+                grid-template-columns: 1fr;
+            }
+            .wd1-principle:nth-child(even) {
+                padding-left: 0;
+                border-left: none;
+            }
+            .wd1-screen-grid {
+                grid-template-columns: 1fr;
+            }
+            .wd1-screen--a,
+            .wd1-screen--b,
+            .wd1-screen--c {
+                grid-column: 1;
+                grid-row: auto;
+            }
+            .wd1-palette {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .wd1-type-showcase {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .wd1-type-giant {
+                font-size: 5rem;
+            }
+        }
+    </style>
 </BaseLayout>
