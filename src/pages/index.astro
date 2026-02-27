@@ -62,7 +62,7 @@ const t = useTranslations(lang);
                  work.category}
               </p>
               <h3 class="text-3xl font-serif leading-tight">{work.title}</h3>
-              <div class="mt-6 h-[1px] w-0 group-hover:w-full bg-white transition-all duration-700 delay-100"></div>
+              <div class="mt-6 h-[1px] w-0 group-hover:w-full bg-white transition-[width] duration-700 delay-100"></div>
             </div>
           </div>
         </a>
@@ -125,7 +125,7 @@ const t = useTranslations(lang);
     .reveal-item {
       opacity: 0;
       transform: translateY(30px);
-      transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     .reveal-item.visible {
       opacity: 1;

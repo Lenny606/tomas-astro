@@ -6,7 +6,7 @@ const t = useTranslations(lang);
 ---
 
 <nav
-  class="fixed top-0 left-0 right-0 z-50 py-6 md:py-8 px-6 md:px-12 bg-bg-primary/90 backdrop-blur-md transition-all duration-300 border-b border-transparent"
+  class="fixed top-0 left-0 right-0 z-50 py-6 md:py-8 px-6 md:px-12 bg-bg-primary/90 backdrop-blur-md transition-[padding,background-color,border-color] duration-300 border-b border-transparent"
   id="main-nav"
 >
   <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -46,7 +46,7 @@ const t = useTranslations(lang);
           Object.entries(languages).map(([code, label]) => (
             <a
               href={code === "cz" ? "/" : `/${code}/`}
-              class={`transition-all hover:text-white ${
+              class={`transition-colors hover:text-white ${
                 lang === code ? "text-white" : "text-zinc-600"
               }`}
               aria-label={`Switch to ${label}`}
@@ -61,17 +61,18 @@ const t = useTranslations(lang);
     <!-- Mobile Menu Button -->
     <button
       id="mobile-menu-btn"
-      class="md:hidden flex flex-col justify-center items-end gap-1.5 w-8 h-8 z-50 text-white cursor-pointer"
+      class="md:hidden flex flex-col justify-center items-end gap-1.5 w-8 h-8 z-50 text-white cursor-pointer group/btn"
       aria-label="Toggle Navigation Menu"
       aria-expanded="false"
     >
       <span
-        class="w-full h-[2px] bg-current transition-all duration-300 origin-right"
-      ></span>
-      <span class="w-full h-[2px] bg-current transition-all duration-300"
+        class="w-full h-[2px] bg-current transition-[transform,opacity] duration-300 origin-right group-aria-expanded/btn:rotate-[-45deg] group-aria-expanded/btn:translate-y-[-1px]"
       ></span>
       <span
-        class="w-3/4 h-[2px] bg-current transition-all duration-300 origin-right"
+        class="w-full h-[2px] bg-current transition-[transform,opacity] duration-300 group-aria-expanded/btn:opacity-0 group-aria-expanded/btn:translate-x-full"
+      ></span>
+      <span
+        class="w-3/4 h-[2px] bg-current transition-[transform,width] duration-300 origin-right group-aria-expanded/btn:w-full group-aria-expanded/btn:rotate-[45deg] group-aria-expanded/btn:translate-y-[1px]"
       ></span>
     </button>
   </div>
@@ -106,7 +107,7 @@ const t = useTranslations(lang);
       Object.entries(languages).map(([code, label]) => (
         <a
           href={code === "cz" ? "/" : `/${code}/`}
-          class={`transition-all hover:text-white ${
+          class={`transition-colors hover:text-white ${
             lang === code ? "text-white" : "text-zinc-600"
           }`}
           aria-label={`Switch to ${label}`}
@@ -140,14 +141,6 @@ const t = useTranslations(lang);
         "backdrop-blur-md",
         "border-transparent"
       );
-
-      if (spans) {
-        spans[0].style.transform = "rotate(-45deg) translateY(-1px)";
-        spans[1].style.opacity = "0";
-        spans[1].style.transform = "translateX(100%)";
-        spans[2].style.width = "100%";
-        spans[2].style.transform = "rotate(45deg) translateY(1px)";
-      }
     } else {
       menu?.classList.add("opacity-0", "pointer-events-none");
       menu?.classList.remove("opacity-100", "pointer-events-auto");
@@ -159,14 +152,6 @@ const t = useTranslations(lang);
         "backdrop-blur-md",
         "border-transparent"
       );
-
-      if (spans) {
-        spans[0].style.transform = "none";
-        spans[1].style.opacity = "1";
-        spans[1].style.transform = "none";
-        spans[2].style.width = "75%";
-        spans[2].style.transform = "none";
-      }
     }
   });
 </script>

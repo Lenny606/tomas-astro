@@ -12,7 +12,7 @@ const { title, description, image, href, subtitle } = Astro.props;
 
 <a
     href={href}
-    class="group block relative overflow-hidden bg-zinc-900 border border-white/5 transition-all duration-500 hover:border-white/20"
+    class="group block relative overflow-hidden bg-zinc-900 border border-white/5 transition-[border-color] duration-500 hover:border-white/20"
 >
     <div class="aspect-[4/5] overflow-hidden">
         {
@@ -20,7 +20,7 @@ const { title, description, image, href, subtitle } = Astro.props;
                 <img
                     src={image}
                     alt={title}
-                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-[filter,transform] duration-700 ease-out"
                 />
             ) : (
                 <div class="w-full h-full bg-linear-to-br from-zinc-800 to-zinc-900 group-hover:scale-105 transition-transform duration-700 ease-out" />
@@ -50,7 +50,7 @@ const { title, description, image, href, subtitle } = Astro.props;
                 )
             }
             <div
-                class="mt-4 h-[1px] w-0 group-hover:w-full bg-white/50 transition-all duration-700 delay-100"
+                class="mt-4 h-[1px] w-0 group-hover:w-full bg-white/50 transition-[width] duration-700 delay-100"
             >
             </div>
         </div>
