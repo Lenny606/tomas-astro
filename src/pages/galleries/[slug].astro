@@ -46,7 +46,10 @@ const t = useTranslations(lang);
                         title={item.title}
                         description={item.medium}
                         image={item.url}
-                        href={`/galleries/${gallery.slug}/${item.slug}`}
+                        href={
+                            item.pageUrl ??
+                            `/galleries/${gallery.slug}/${item.slug}`
+                        }
                         subtitle={item.year}
                     />
                 ))

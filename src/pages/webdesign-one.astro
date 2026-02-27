@@ -1,0 +1,125 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getLangFromUrl, useTranslations } from "../utils/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// TODO: Replace with real project data
+const project = {
+    title: "Webdesign One",
+    subtitle: "UI / Digital Experience",
+    year: "2024",
+    description:
+        "A premium digital experience built around clarity, motion, and thoughtful interaction design. Coming soon.",
+    tags: ["UI Design", "Interaction Design", "Prototype"],
+    href: "/galleries/web-design",
+};
+---
+
+<BaseLayout title={`${project.title} | Web Design`}>
+    <section class="max-w-7xl mx-auto px-12 pt-16 pb-32">
+        <!-- Back link -->
+        <a
+            href={project.href}
+            class="text-xs uppercase tracking-[0.2em] font-bold text-zinc-500 hover:text-white transition-colors mb-16 inline-block"
+        >
+            ← Web Design
+        </a>
+
+        <!-- Hero -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32">
+            <!-- Placeholder visual -->
+            <div
+                class="aspect-video bg-zinc-900 border border-white/5 flex items-center justify-center overflow-hidden relative"
+            >
+                <!-- Skeleton shimmer -->
+                <div
+                    class="absolute inset-0 bg-linear-to-br from-zinc-800/60 via-zinc-900 to-zinc-800/60 animate-pulse"
+                >
+                </div>
+                <span
+                    class="relative z-10 text-zinc-600 text-xs uppercase tracking-widest font-bold"
+                    >Preview Coming Soon</span
+                >
+            </div>
+
+            <!-- Info -->
+            <div>
+                <p
+                    class="text-xs uppercase tracking-[0.3em] text-zinc-500 mb-4 font-bold"
+                >
+                    {project.subtitle} / {project.year}
+                </p>
+                <h1 class="text-6xl font-serif mb-8 leading-tight">
+                    {project.title}
+                </h1>
+                <p
+                    class="text-xl text-zinc-400 font-light leading-relaxed mb-10"
+                >
+                    {project.description}
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-3 mb-12">
+                    {
+                        project.tags.map((tag) => (
+                            <span class="text-[10px] uppercase tracking-widest font-bold border border-white/10 text-zinc-400 px-4 py-2">
+                                {tag}
+                            </span>
+                        ))
+                    }
+                </div>
+
+                <!-- CTA placeholder -->
+                <button
+                    disabled
+                    class="py-5 px-10 bg-white/5 border border-white/10 text-zinc-500 text-sm uppercase tracking-widest font-bold cursor-not-allowed"
+                >
+                    Live Preview Coming Soon
+                </button>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="border-t border-white/5 mb-20"></div>
+
+        <!-- Skeleton sections -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-24">
+            {
+                ["Overview", "Technology", "Outcome"].map((section) => (
+                    <div class="space-y-4">
+                        <h3 class="text-xs uppercase tracking-widest font-bold text-zinc-500">
+                            {section}
+                        </h3>
+                        <div class="space-y-2">
+                            <div class="h-3 bg-zinc-800 rounded-sm w-full animate-pulse" />
+                            <div class="h-3 bg-zinc-800 rounded-sm w-4/5 animate-pulse" />
+                            <div class="h-3 bg-zinc-800 rounded-sm w-3/5 animate-pulse" />
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+
+        <!-- Screen mockup placeholders -->
+        <div class="space-y-6">
+            <h2
+                class="text-xs uppercase tracking-[0.3em] font-bold text-zinc-500 mb-8"
+            >
+                Screens
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {
+                    [1, 2, 3, 4].map((n) => (
+                        <div class="aspect-video bg-zinc-900 border border-white/5 flex items-center justify-center animate-pulse">
+                            <span class="text-zinc-700 text-xs uppercase tracking-widest font-bold">
+                                Screen {n}
+                            </span>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+</BaseLayout>
