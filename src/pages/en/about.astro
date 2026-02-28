@@ -2,9 +2,12 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ContactForm from "../../components/ContactForm.astro";
 import { getLangFromUrl, useTranslations } from "../../utils/i18n";
+import { getGitHubUser } from "../../utils/github";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const githubUser = await getGitHubUser("Lenny606");
 ---
 
 <BaseLayout title={`${t("about.title")} | TomasAstro`}>
@@ -24,6 +27,26 @@ const t = useTranslations(lang);
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-40">
             <div>
+                {
+                    githubUser && (
+                        <div class="flex items-center gap-6 mb-12 animate-in fade-in slide-in-from-left-8 duration-700">
+                            <img
+                                src={githubUser.avatar_url}
+                                alt={githubUser.name || githubUser.login}
+                                class="w-24 h-24 rounded-full border-2 border-white/10 p-1 bg-zinc-900"
+                            />
+                            <div>
+                                <h2 class="text-2xl font-serif">
+                                    {githubUser.name || githubUser.login}
+                                </h2>
+                                <p class="text-zinc-500 text-sm tracking-widest uppercase mt-1">
+                                    GitHub: {githubUser.login} •{" "}
+                                    {githubUser.public_repos} Repos
+                                </p>
+                            </div>
+                        </div>
+                    )
+                }
                 <h2 class="text-4xl font-serif mb-10">
                     {t("about.bio_title")}
                 </h2>
@@ -38,7 +61,7 @@ const t = useTranslations(lang);
                     </p>
                 </div>
 
-                <div class="mt-12">
+                <div class="mt-12 flex flex-wrap gap-4">
                     <a
                         href="https://github.com/Lenny606"
                         target="_blank"
@@ -64,6 +87,36 @@ const t = useTranslations(lang);
                             class="text-sm uppercase tracking-widest font-bold"
                             >GitHub Profile</span
                         >
+                    </a>
+
+                    <a
+                        href={lang === "cz" ? "/cv" : "/en/cv"}
+                        class="inline-flex items-center gap-4 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-white hover:bg-white hover:text-black transition-all duration-300 group"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="w-5 h-5 transition-transform group-hover:scale-110"
+                        >
+                            <path
+                                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                            ></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <span
+                            class="text-sm uppercase tracking-widest font-bold"
+                            >{t("about.cv")}
+                        </span>
                     </a>
                 </div>
             </div>
