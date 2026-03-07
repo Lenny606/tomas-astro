@@ -54,7 +54,7 @@
         "id": "3",
         "title": "Web Design",
         "slug": "web-design",
-        "description": "Premium user interfaces and digital experiences designed for performance and aesthetics.",
+        "description": "Uživatelská rozhraní navržené pro výkon a estetiku.",
         "coverImage": "/images/galleries/web-design-cover.jpg",
         "items": [
             {
@@ -92,6 +92,18 @@
                 "status": "available",
                 "url": "/images/galleries/micro-web-lumina-thumb.png",
                 "pageUrl": "/lumina-web"
+            },
+            {
+                "id": "item-8",
+                "filename": "nexus-landing-thumb.png",
+                "slug": "landing-page-demo",
+                "title": "Nexus — Produktová Studie",
+                "description": "Efektivní produktová landing page v White & Blue barevném schématu s důrazem na konverzi a profesionální prezentaci.",
+                "medium": "Digital Design",
+                "year": "2026",
+                "status": "available",
+                "url": "/images/galleries/nexus-landing-thumb.png",
+                "pageUrl": "/landing-page-demo"
             }
         ]
     }
