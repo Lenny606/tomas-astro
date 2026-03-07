@@ -1,0 +1,717 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getLangFromUrl, useTranslations } from "../utils/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<BaseLayout title="Alex Creator | Digitální umělec a vývojář">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet"
+    />
+
+    <div class="neo-brutalism-wrapper min-h-screen py-20 px-5">
+        <div class="max-w-7xl mx-auto">
+            <!-- Zpět do galerie -->
+            <a
+                href="/galleries/web-design"
+                class="inline-block text-xs uppercase tracking-[0.2em] font-bold text-zinc-500 hover:text-black transition-colors mb-16"
+            >
+                {t("galleries.back")}
+            </a>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <!-- Levá strana: Popisný text -->
+                <div class="space-y-12 order-2 lg:order-1">
+                    <div
+                        class="description-card p-10 bg-white border-[3px] border-black shadow-[8px_8px_0_0_#000]"
+                    >
+                        <h2
+                            class="text-4xl font-black uppercase tracking-tight mb-10 font-space italic underline decoration-[#FFD028] decoration-8 underline-offset-4"
+                        >
+                            Obsažené sekce
+                        </h2>
+                        <ul class="space-y-8">
+                            <li class="flex gap-6">
+                                <span
+                                    class="flex-shrink-0 w-8 h-8 bg-[#FF6B6B] border-2 border-black flex items-center justify-center font-bold text-sm"
+                                    >1</span
+                                >
+                                <div>
+                                    <h3
+                                        class="font-bold uppercase tracking-widest text-sm mb-1"
+                                    >
+                                        Hero/Profil
+                                    </h3>
+                                    <p
+                                        class="text-sm text-zinc-600 font-medium"
+                                    >
+                                        Avatar s plovoucí animací, jméno a
+                                        odznak role
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="flex gap-6">
+                                <span
+                                    class="flex-shrink-0 w-8 h-8 bg-[#FFD028] border-2 border-black flex items-center justify-center font-bold text-sm"
+                                    >2</span
+                                >
+                                <div>
+                                    <h3
+                                        class="font-bold uppercase tracking-widest text-sm mb-1"
+                                    >
+                                        Bio
+                                    </h3>
+                                    <p
+                                        class="text-sm text-zinc-600 font-medium"
+                                    >
+                                        Žlutě zvýrazněná úvodní sekce
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="flex gap-6">
+                                <span
+                                    class="flex-shrink-0 w-8 h-8 bg-[#4D4DFF] border-2 border-black flex items-center justify-center font-bold text-sm text-white"
+                                    >3</span
+                                >
+                                <div>
+                                    <h3
+                                        class="font-bold uppercase tracking-widest text-sm mb-1"
+                                    >
+                                        Rychlé odkazy
+                                    </h3>
+                                    <p
+                                        class="text-sm text-zinc-600 font-medium"
+                                    >
+                                        4 akční tlačítka s hover efekty a
+                                        barevnými variacemi
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="flex gap-6">
+                                <span
+                                    class="flex-shrink-0 w-8 h-8 bg-[#00D9A5] border-2 border-black flex items-center justify-center font-bold text-sm"
+                                    >4</span
+                                >
+                                <div>
+                                    <h3
+                                        class="font-bold uppercase tracking-widest text-sm mb-1"
+                                    >
+                                        Mřížka obsahu
+                                    </h3>
+                                    <p
+                                        class="text-sm text-zinc-600 font-medium"
+                                    >
+                                        Galerie 2x2 s překryvy při najetí myší,
+                                        zobrazující kategorie projektů
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="flex gap-6">
+                                <span
+                                    class="flex-shrink-0 w-8 h-8 bg-[#4D4DFF] border-2 border-black flex items-center justify-center font-bold text-sm text-white"
+                                    >5</span
+                                >
+                                <div>
+                                    <h3
+                                        class="font-bold uppercase tracking-widest text-sm mb-1"
+                                    >
+                                        Newsletter
+                                    </h3>
+                                    <p
+                                        class="text-sm text-zinc-600 font-medium"
+                                    >
+                                        Formulář pro odběr novinek s modrým
+                                        akcentem
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="flex gap-6">
+                                <span
+                                    class="flex-shrink-0 w-8 h-8 bg-black border-2 border-black flex items-center justify-center font-bold text-sm text-white"
+                                    >6</span
+                                >
+                                <div>
+                                    <h3
+                                        class="font-bold uppercase tracking-widest text-sm mb-1"
+                                    >
+                                        Sociální sítě
+                                    </h3>
+                                    <p
+                                        class="text-sm text-zinc-600 font-medium"
+                                    >
+                                        Ikony sociálních sítí se značkovými
+                                        barvami při najetí myší
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div
+                        class="description-card p-10 bg-[#FFD028] border-[3px] border-black shadow-[8px_8px_0_0_#000]"
+                    >
+                        <h2
+                            class="text-3xl font-black uppercase tracking-tight mb-8 font-space"
+                        >
+                            Designové prvky
+                        </h2>
+                        <ul class="space-y-4">
+                            {
+                                [
+                                    "Výrazná paleta barev: Cyber Yellow, Soft Red, Electric Blue a zelené akcenty",
+                                    "Silné 3px černé okraje s tvrdými stíny",
+                                    "Interaktivní animace tlačítek (zdvih a stín při najetí)",
+                                    "Vzor pozadí s tečkovanou mřížkou",
+                                    "Responzivní layout prioritně pro mobily (max-width 420px vycentrovaná karta)",
+                                    "Vlastní typografie pomocí písem Space Grotesk a Inter",
+                                ].map((feature) => (
+                                    <li class="flex items-center gap-4 text-sm font-bold uppercase tracking-tight">
+                                        <span class="w-3 h-3 bg-black border border-black rotate-45" />
+                                        {feature}
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pravá strana: Karta -->
+                <div
+                    class="flex justify-center items-start lg:sticky lg:top-20 order-1 lg:order-2"
+                >
+                    <div class="container relative">
+                        <div class="decoration top-right"></div>
+                        <div class="decoration bottom-left"></div>
+
+                        <!-- Hero sekce -->
+                        <section class="hero">
+                            <div class="avatar-wrapper">AC</div>
+                            <h1>Alex Creator</h1>
+                            <span class="role-badge"
+                                >Digitální umělec a vývojář</span
+                            >
+                        </section>
+
+                        <!-- Bio sekce -->
+                        <section class="bio">
+                            <p>
+                                Vytvářím chaos pomocí kódu a barev. Buduji
+                                digitální zážitky, které přinášejí radost a
+                                překonávají konvence. Podívejte se na mé
+                                nejnovější experimenty níže!
+                            </p>
+                        </section>
+
+                        <!-- Sekce odkazů -->
+                        <section class="links-section">
+                            <h2 class="section-title">Rychlé odkazy</h2>
+                            <a href="#" class="link-btn primary">
+                                Zobrazit portfolio 2024
+                                <span class="arrow">→</span>
+                            </a>
+                            <a href="#" class="link-btn secondary">
+                                Přečíst si případovou studii
+                                <span class="arrow">→</span>
+                            </a>
+                            <a href="#" class="link-btn tertiary">
+                                Objednat si konzultaci
+                                <span class="arrow">→</span>
+                            </a>
+                            <a href="#" class="link-btn tertiary">
+                                Stáhnout zdroje zdarma
+                                <span class="arrow">→</span>
+                            </a>
+                        </section>
+
+                        <!-- Mřížka obsahu -->
+                        <section class="content-grid">
+                            <h2 class="section-title">Nejnovější práce</h2>
+                            <div class="grid-container">
+                                <div class="grid-item">
+                                    <img
+                                        src="https://picsum.photos/seed/micro1/300/300"
+                                        alt="Projekt 1"
+                                    />
+                                    <div class="overlay">Identita značky</div>
+                                </div>
+                                <div class="grid-item">
+                                    <img
+                                        src="https://picsum.photos/seed/micro2/300/300"
+                                        alt="Projekt 2"
+                                    />
+                                    <div class="overlay">Webový design</div>
+                                </div>
+                                <div class="grid-item">
+                                    <img
+                                        src="https://picsum.photos/seed/micro3/300/300"
+                                        alt="Projekt 3"
+                                    />
+                                    <div class="overlay">3D umění</div>
+                                </div>
+                                <div class="grid-item">
+                                    <img
+                                        src="https://picsum.photos/seed/micro4/300/300"
+                                        alt="Projekt 4"
+                                    />
+                                    <div class="overlay">Motion design</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Newsletter sekce -->
+                        <section class="newsletter">
+                            <h3>Přidejte se k týmu</h3>
+                            <p>
+                                Získejte týdenní tipy na design, zdroje zdarma a
+                                pohled do zákulisí přímo do vaší schránky.
+                            </p>
+                            <form
+                                class="newsletter-form"
+                                onsubmit="event.preventDefault(); alert('Díky za odběr!');"
+                            >
+                                <input
+                                    type="email"
+                                    class="newsletter-input"
+                                    placeholder="vase@email.cz"
+                                    required
+                                />
+                                <button type="submit" class="newsletter-btn"
+                                    >Přidat se</button
+                                >
+                            </form>
+                        </section>
+
+                        <!-- Sociální patička -->
+                        <footer class="social-footer">
+                            <div class="social-icons">
+                                <a
+                                    href="#"
+                                    class="social-icon instagram"
+                                    title="Instagram">📷</a
+                                >
+                                <a
+                                    href="#"
+                                    class="social-icon twitter"
+                                    title="Twitter">🐦</a
+                                >
+                                <a
+                                    href="#"
+                                    class="social-icon linkedin"
+                                    title="LinkedIn">💼</a
+                                >
+                                <a
+                                    href="#"
+                                    class="social-icon youtube"
+                                    title="YouTube">▶️</a
+                                >
+                            </div>
+                            <p class="footer-text">
+                                © 2024 Alex Creator. Všechna práva vyhrazena.
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .font-space {
+            font-family: "Space Grotesk", sans-serif;
+        }
+
+        .neo-brutalism-wrapper {
+            --bg-color: #f0f0f0;
+            --card-bg: #ffffff;
+            --text-black: #000000;
+            --accent-yellow: #ffd028;
+            --accent-red: #ff6b6b;
+            --accent-blue: #4d4dff;
+            --accent-green: #00d9a5;
+            --border-width: 3px;
+            --shadow-offset: 4px;
+
+            font-family: "Inter", sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(
+                var(--text-black) 1px,
+                transparent 1px
+            );
+            background-size: 20px 20px;
+            color: var(--text-black);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            background: var(--card-bg);
+            border: var(--border-width) solid var(--text-black);
+            box-shadow: 12px 12px 0 0 var(--text-black);
+            padding: 32px 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .avatar-wrapper {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 16px;
+            border: var(--border-width) solid var(--text-black);
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0
+                var(--accent-blue);
+            background: var(--accent-yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text-black);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .role-badge {
+            display: inline-block;
+            background: var(--accent-red);
+            color: var(--text-black);
+            padding: 6px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: var(--border-width) solid var(--text-black);
+            box-shadow: 2px 2px 0 0 var(--text-black);
+        }
+
+        /* Bio Section */
+        .bio {
+            background: var(--accent-yellow);
+            border: var(--border-width) solid var(--text-black);
+            padding: 16px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0
+                var(--text-black);
+        }
+
+        .bio p {
+            font-size: 14px;
+            line-height: 1.6;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Links Section */
+        .links-section {
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: var(--accent-blue);
+            border: 2px solid var(--text-black);
+        }
+
+        .link-btn {
+            display: block;
+            width: 100%;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            background: var(--card-bg);
+            border: var(--border-width) solid var(--text-black);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0
+                var(--text-black);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            color: var(--text-black);
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            position: relative;
+        }
+
+        .link-btn:last-child {
+            margin-bottom: 0;
+        }
+
+        .link-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 0 var(--text-black);
+        }
+
+        .link-btn.primary {
+            background: var(--accent-yellow);
+        }
+
+        .link-btn.secondary {
+            background: var(--accent-green);
+        }
+
+        .link-btn .arrow {
+            position: absolute;
+            right: 16px;
+            opacity: 0;
+            transition: opacity 0.15s ease;
+        }
+
+        .link-btn:hover .arrow {
+            opacity: 1;
+        }
+
+        /* Content Grid Section */
+        .content-grid {
+            margin-bottom: 28px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .grid-item {
+            aspect-ratio: 1;
+            border: var(--border-width) solid var(--text-black);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0
+                var(--text-black);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            background: var(--accent-blue);
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .grid-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--text-black);
+            color: var(--card-bg);
+            padding: 8px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: translateY(100%);
+            transition: transform 0.2s ease;
+        }
+
+        .grid-item:hover .overlay {
+            transform: translateY(0);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: var(--accent-blue);
+            border: var(--border-width) solid var(--text-black);
+            padding: 20px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0
+                var(--text-black);
+        }
+
+        .newsletter h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: var(--card-bg);
+        }
+
+        .newsletter p {
+            font-size: 12px;
+            color: var(--card-bg);
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px;
+            border: var(--border-width) solid var(--text-black);
+            font-family: "Inter", sans-serif;
+            font-size: 12px;
+            background: var(--card-bg);
+            outline: none;
+        }
+
+        .newsletter-btn {
+            padding: 12px 20px;
+            background: var(--accent-yellow);
+            border: var(--border-width) solid var(--text-black);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 2px 2px 0 0 var(--text-black);
+            transition: all 0.15s ease;
+        }
+
+        .newsletter-btn:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 3px 3px 0 0 var(--text-black);
+        }
+
+        /* Social Footer */
+        .social-footer {
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: var(--border-width) solid var(--text-black);
+            background: var(--card-bg);
+            box-shadow: 2px 2px 0 0 var(--text-black);
+            transition: all 0.15s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-black);
+            font-size: 18px;
+        }
+
+        .social-icon:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 0 var(--text-black);
+        }
+
+        .social-icon.instagram:hover {
+            background: #e1306c;
+            color: white;
+        }
+        .social-icon.twitter:hover {
+            background: #1da1f2;
+            color: white;
+        }
+        .social-icon.linkedin:hover {
+            background: #0077b5;
+            color: white;
+        }
+        .social-icon.youtube:hover {
+            background: #ff0000;
+            color: white;
+        }
+
+        .footer-text {
+            font-size: 10px;
+            color: var(--text-black);
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Decorative Elements */
+        .decoration {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--text-black);
+            z-index: 10;
+        }
+
+        .decoration.top-right {
+            top: -10px;
+            right: -10px;
+            background: var(--accent-red);
+            transform: rotate(45deg);
+        }
+
+        .decoration.bottom-left {
+            bottom: -10px;
+            left: -10px;
+            background: var(--accent-green);
+            transform: rotate(45deg);
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container {
+                padding: 24px 16px;
+            }
+            .hero h1 {
+                font-size: 24px;
+            }
+            .avatar-wrapper {
+                width: 100px;
+                height: 100px;
+                font-size: 40px;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</BaseLayout>

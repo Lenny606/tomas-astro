@@ -68,6 +68,18 @@
                 "status": "available",
                 "url": "/images/galleries/ui-study-1.jpg",
                 "pageUrl": "/webdesign-one"
+            },
+            {
+                "id": "item-5",
+                "filename": "micro-web-neo-thumb.png",
+                "slug": "micro-web",
+                "title": "Micro Web Structure",
+                "description": "A dynamic and creative micro-web architectural study.",
+                "medium": "Digital Design",
+                "year": "2024",
+                "status": "available",
+                "url": "/images/galleries/micro-web-neo-thumb.png",
+                "pageUrl": "/micro-web"
             }
         ]
     }
