@@ -92,6 +92,18 @@
                 "status": "available",
                 "url": "/images/galleries/micro-web-fluid-thumb.png",
                 "pageUrl": "/micro-web-2"
+            },
+            {
+                "id": "item-7",
+                "filename": "micro-web-lumina-thumb.png",
+                "slug": "lumina-web",
+                "title": "One Page Web Example",
+                "description": "A premium landing page design with a high-end presentation style, featuring gold accents and sophisticated layouts.",
+                "medium": "Digital Design",
+                "year": "2024",
+                "status": "available",
+                "url": "/images/galleries/micro-web-lumina-thumb.png",
+                "pageUrl": "/lumina-web"
             }
         ]
     }
