@@ -57,6 +57,31 @@ This skill provides context and patterns for developing in the `tomas-astro` cod
 1. Update `src/data/galleries.json`.
 2. Ensure images mentioned exist or are reachable via the `image-service`.
 
+## Web Design Showcase Patterns
+
+When creating a "Web Design Showcase" or "Micro-web" demo (e.g., for presenting designs in the web-design gallery):
+
+### 1. Standalone Design & Styles
+- The design and styles should be independent of the rest of the website to avoid style leakage.
+- CSS should be scoped using a specific class prefix (e.g., `.lpd-root`, `.wd1-root`) or placed directly within the `.astro` file's `<style>` tag.
+- If necessary, use `:global(body):has(.your-root-class)` to override global body styles for that specific showcase.
+
+### 2. Device Switcher & Viewport Simulation
+- Provide a feature to toggle between **Desktop** and **Mobile** views dynamically on the page.
+- **Viewport Frame**: Wrap the showcase content in a container that simulates a device screen.
+    - For Mobile: Use a fixed frame (e.g., 390x844px) with a border, rounded corners, and `overflow-y: auto`.
+    - For Desktop: Use full width or a standard max-width container.
+- **Toggle Logic**: Use a `data-device` attribute on a root wrapper and simple vanilla JavaScript to switch the attribute, which in turn updates the CSS layout.
+
+### 3. Content & Presentation
+- **Language**: Content must be in Czech (`cz`).
+- **Descriptive Elements**: The content should explicitly describe the design elements (e.g., color palette, typography, conversion principles) to serve as a design presentation.
+- **Themes**: Implement specialized themes as requested (e.g., "White & Blue" for product efficiency, "Blue & Gold" for premium elegance).
+
+### 4. Assets & Gallery Integration
+- **Thumbnails**: Generate a high-quality 1:1 or 4:3 thumbnail depicting the design.
+- **Data**: Link the page in `src/data/galleries.json` under the appropriate gallery section, ensuring the `pageUrl` points to the new `.astro` page.
+
 ## Best Practices
 
 - **Strict Typing**: Use TypeScript interfaces from `src/types/` for all data structures.
