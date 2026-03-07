@@ -455,10 +455,10 @@ const project = {
         /* Mobile Frame Styling */
         [data-device="mobile"] .wd1-viewport-container {
             padding: 4rem 2rem;
-            background: #e5e7eb; /* Slightly darker bg to emphasize the frame */
+            background: #e5e7eb;
         }
         [data-device="mobile"] .wd1-viewport-frame {
-            max-width: 390px; /* iPhone 14/15 Pro width */
+            max-width: 390px;
             height: 844px;
             border: 12px solid #1c1c1c;
             border-radius: 44px;
@@ -466,24 +466,40 @@ const project = {
             overflow-x: hidden;
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
             background: #fafafa;
+            /* Ensure all children conform to the frame width */
+            box-sizing: border-box;
+        }
+        /* Every direct child of the frame must not exceed its width */
+        [data-device="mobile"] .wd1-viewport-frame > * {
+            max-width: 100%;
+            box-sizing: border-box;
         }
         /* Custom scrollbar for mobile frame */
         [data-device="mobile"] .wd1-viewport-frame::-webkit-scrollbar {
             width: 0;
         }
 
-        /* Hide back link and some spacing in mobile mode to focus on content */
         [data-device="mobile"] .wd1-back {
             margin: 2rem 2rem 0;
+            display: block;
         }
         [data-device="mobile"] .wd1-hero {
             padding: 2rem 2rem 0;
+            max-width: 100%;
+            box-sizing: border-box;
         }
         [data-device="mobile"] .wd1-case {
-            padding: 4rem 2rem;
+            padding: 3rem 1.5rem;
+            max-width: 100%;
+            box-sizing: border-box;
         }
         [data-device="mobile"] .wd1-band {
-            padding: 3rem 2rem;
+            padding: 2rem 1.5rem;
+            box-sizing: border-box;
+        }
+        [data-device="mobile"] .wd1-band-inner {
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         /* Disable BaseLayout navigation and footer if they interfere - optional based on user need */
@@ -761,6 +777,8 @@ const project = {
             border-top: 1px solid #d4d0c8;
             border-left: 1px solid #d4d0c8;
             margin-bottom: 6rem;
+            width: 100%;
+            box-sizing: border-box;
         }
         .wd1-stat {
             padding: 2.5rem 2rem;
@@ -769,6 +787,8 @@ const project = {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
+            align-items: center;
+            text-align: center;
         }
         .wd1-stat-n {
             font-family: "Playfair Display", serif;
@@ -1099,16 +1119,32 @@ const project = {
         }
         [data-device="mobile"] .wd1-stats {
             grid-template-columns: repeat(2, 1fr);
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        [data-device="mobile"] .wd1-stat {
+            padding: 1.5rem 1rem;
+        }
+        [data-device="mobile"] .wd1-stat-n {
+            font-size: 2rem;
         }
         [data-device="mobile"] .wd1-principle-grid {
             grid-template-columns: 1fr;
+            width: 100%;
+            box-sizing: border-box;
         }
         [data-device="mobile"] .wd1-principle:nth-child(even) {
             padding-left: 0;
             border-left: none;
         }
+        [data-device="mobile"] .wd1-principle {
+            padding: 2rem 0;
+        }
         [data-device="mobile"] .wd1-screen-grid {
             grid-template-columns: 1fr;
+            width: 100%;
+            box-sizing: border-box;
         }
         [data-device="mobile"] .wd1-screen--a,
         [data-device="mobile"] .wd1-screen--b,
@@ -1118,11 +1154,14 @@ const project = {
         }
         [data-device="mobile"] .wd1-palette {
             grid-template-columns: repeat(3, 1fr);
+            width: 100%;
+            box-sizing: border-box;
         }
         [data-device="mobile"] .wd1-type-showcase {
             grid-template-columns: 1fr;
             gap: 2rem;
-            padding: 2rem;
+            padding: 1.5rem;
+            box-sizing: border-box;
         }
         [data-device="mobile"] .wd1-type-giant {
             font-size: 5rem;
@@ -1130,6 +1169,9 @@ const project = {
         [data-device="mobile"] .wd1-cta-row {
             flex-direction: column;
             align-items: flex-start;
+        }
+        [data-device="mobile"] .wd1-case-text p {
+            max-width: 100%;
         }
     </style>
 </BaseLayout>
