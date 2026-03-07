@@ -58,7 +58,7 @@ export const ui = {
         'cv.subtitle': 'Moje profesní cesta a zkušenosti',
         'cv.experience': 'Zkušenosti',
         'cv.education': 'Vzdělání',
-        'cv.skills': 'Dovednosti',
+        'cv.skills': 'Tech Stack',
         'cv.download': 'Stáhnout CV',
         'cv.github_stats': 'GitHub Statistiky',
         'cv.languages': 'Top Jazyky',
