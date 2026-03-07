@@ -70,27 +70,69 @@ const t = useTranslations(lang);
   </section>
   <section class="max-w-7xl mx-auto px-12 py-32 reveal-section">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-20">
-      <div class="lg:col-span-12">
-        <div class="text-4xl md:text-6xl leading-[1.3] font-serif">
-          <span class="text-alabaster reveal-item block mb-8">
-            {t('about.agency_text_1')}
-            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#ff0080] text-alabaster text-xl font-bold mx-2 align-middle font-sans">b</span>
-            <span class="underline decoration-1 underline-offset-[12px] decoration-alabaster/20 italic">{t('about.agency_text_agency')}</span>
-            {t('about.agency_text_specialising')}
-          </span>
-          
-          <span class="text-zinc-600 reveal-item block">
-            {t('about.agency_text_2')}
-            <span class="text-alabaster underline decoration-1 underline-offset-[12px] decoration-alabaster/30">{t('about.agency_text_tiny')}</span>
-            {t('about.agency_text_3')}
-            <span class="inline-flex items-center px-2 py-0.5 rounded bg-[#9eff7a] text-[10px] uppercase font-black text-black mx-2 align-middle transform -rotate-12 shadow-sm font-sans">New Start</span>
-            {t('about.agency_text_4')}
-          </span>
-        </div>
-        
-        <p class="mt-24 text-4xl md:text-5xl font-serif text-zinc-300 reveal-item">
-          {t('about.involvement_title')}
+      <div class="lg:col-span-5">
+        <h2 class="text-6xl md:text-8xl font-serif mb-12 reveal-item leading-tight">
+          {t('process.title')}
+        </h2>
+        <p class="text-2xl text-zinc-400 reveal-item max-w-md">
+          {t('process.subtitle')}
         </p>
+      </div>
+
+      <div class="lg:col-span-7 space-y-32">
+        <div class="reveal-item group">
+          <div class="flex items-center gap-6 mb-8">
+            <span class="w-12 h-12 rounded-full bg-accent-pink text-black flex items-center justify-center font-bold font-sans">1</span>
+            <div class="h-[1px] flex-grow bg-alabaster/10 group-hover:bg-accent-pink/50 transition-colors duration-500"></div>
+          </div>
+          <h3 class="text-4xl font-serif mb-6">{t('process.step1.title')}</h3>
+          <p class="text-xl text-zinc-500 leading-relaxed max-w-xl">{t('process.step1.text')}</p>
+        </div>
+
+        <div class="reveal-item group">
+          <div class="flex items-center gap-6 mb-8">
+            <span class="w-12 h-12 rounded-full bg-accent-green text-black flex items-center justify-center font-bold font-sans">2</span>
+            <div class="h-[1px] flex-grow bg-alabaster/10 group-hover:bg-accent-green/50 transition-colors duration-500"></div>
+          </div>
+          <h3 class="text-4xl font-serif mb-6">{t('process.step2.title')}</h3>
+          <p class="text-xl text-zinc-500 leading-relaxed max-w-xl">{t('process.step2.text')}</p>
+        </div>
+
+        <div class="reveal-item group">
+          <div class="flex items-center gap-6 mb-8">
+            <span class="w-12 h-12 rounded-full bg-accent-pink text-black flex items-center justify-center font-bold font-sans">3</span>
+            <div class="h-[1px] flex-grow bg-alabaster/10 group-hover:bg-accent-pink/50 transition-colors duration-500"></div>
+          </div>
+          <h3 class="text-4xl font-serif mb-6">{t('process.step3.title')}</h3>
+          <p class="text-xl text-zinc-500 leading-relaxed max-w-xl">{t('process.step3.text')}</p>
+        </div>
+
+        <div class="reveal-item group">
+          <div class="flex items-center gap-6 mb-8">
+            <span class="w-12 h-12 rounded-full bg-accent-green text-black flex items-center justify-center font-bold font-sans">4</span>
+            <div class="h-[1px] flex-grow bg-alabaster/10 group-hover:bg-accent-green/50 transition-colors duration-500"></div>
+          </div>
+          <h3 class="text-4xl font-serif mb-6">{t('process.step4.title')}</h3>
+          <p class="text-xl text-zinc-500 leading-relaxed max-w-xl">{t('process.step4.text')}</p>
+        </div>
+
+        <div class="reveal-item group">
+          <div class="flex items-center gap-6 mb-8">
+            <span class="w-12 h-12 rounded-full bg-accent-pink text-black flex items-center justify-center font-bold font-sans">5</span>
+            <div class="h-[1px] flex-grow bg-alabaster/10 group-hover:bg-accent-pink/50 transition-colors duration-500"></div>
+          </div>
+          <h3 class="text-4xl font-serif mb-6">{t('process.step5.title')}</h3>
+          <p class="text-xl text-zinc-500 leading-relaxed max-w-xl">{t('process.step5.text')}</p>
+        </div>
+
+        <div class="reveal-item group">
+          <div class="flex items-center gap-6 mb-8">
+            <span class="w-12 h-12 rounded-full bg-accent-green text-black flex items-center justify-center font-bold font-sans">6</span>
+            <div class="h-[1px] flex-grow bg-alabaster/10 group-hover:bg-accent-green/50 transition-colors duration-500"></div>
+          </div>
+          <h3 class="text-4xl font-serif mb-6">{t('process.step6.title')}</h3>
+          <p class="text-xl text-zinc-500 leading-relaxed max-w-xl">{t('process.step6.text')}</p>
+        </div>
       </div>
     </div>
   </section>
