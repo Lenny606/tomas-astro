@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-    --color-brand-primary: #ffffff;
+    --color-brand-primary: #f2f2f2;
+    --color-alabaster: #f2f2f2;
     --color-brand-secondary: #a1a1aa;
     --color-bg-primary: #050505;
     --color-border-subtle: #1a1a1a;
@@ -16,7 +17,7 @@
 
 body {
     font-family: var(--font-sans);
-    @apply bg-bg-primary text-white antialiased selection:bg-white selection:text-black;
+    @apply bg-bg-primary text-alabaster antialiased selection:bg-alabaster selection:text-black;
 }
 
 h1,
@@ -32,7 +33,7 @@ h4,
 }
 
 .text-contrast {
-    @apply text-white/90 leading-relaxed;
+    @apply text-alabaster/90 leading-relaxed;
 }
 
 .text-subtle {
@@ -40,7 +41,7 @@ h4,
 }
 
 .link-hover {
-    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:duration-300 hover:after:w-full;
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-alabaster after:duration-300 hover:after:w-full;
 
     &::after {
         transition: width 0.3s;

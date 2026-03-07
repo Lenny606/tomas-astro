@@ -42,7 +42,7 @@ export const ui = {
         'about.title': 'O mně',
         'about.subtitle': 'Full-stack vývojář',
         'about.bio_title': 'Můj příběh',
-        'about.bio_text': 'Jsem vývojář, který věří, že kód by měl být stejně krásný jako design. S více než 5 lety zkušeností v digitálním prostoru se zaměřuji na vytváření vysoce výkonných webových aplikací a jedinečných digitálních zážitků.',
+        'about.bio_text': 'Jsem vývojář, který věří, že kód by měl být stejně krásný jako design. S více než 5 lety zkušeností v digitálním prostoru se zaměřuji na vytváření  webových stránek, aplikací a jedinečných digitálních zážitků.',
         'about.bio_text_2': 'Věnuji se neustálému vzdělávání a objevování nových způsobů, jak posouvat hranice webu. Můj přístup kombinuje technickou preciznost s estetickým cítěním.',
         'about.contact_title': 'Pojďme spolupracovat',
         'about.contact_subtitle': 'Máte projekt na mysli? Pojďme se spojit.',
