@@ -1,8 +1,17 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
 import { galleryService } from "../../../services/gallery-service";
 import { getLangFromUrl, useTranslations } from "../../../utils/i18n";
-import { Image } from "astro:assets";
+
+export async function getStaticPaths() {
+    const galleries = await galleryService.getGalleries();
+    return galleries.flatMap((gallery) =>
+        (gallery.items || []).map((item) => ({
+            params: { gallery: gallery.slug, item: item.slug },
+        }))
+    );
+}
 
 const { gallery: gallerySlug, item: itemSlug } = Astro.params;
 const gallery = await galleryService.getGalleryBySlug(gallerySlug as string);
