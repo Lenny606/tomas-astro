@@ -80,6 +80,18 @@
                 "status": "available",
                 "url": "/images/galleries/micro-web-neo-thumb.png",
                 "pageUrl": "/micro-web"
+            },
+            {
+                "id": "item-6",
+                "filename": "micro-web-fluid-thumb.png",
+                "slug": "micro-web-2",
+                "title": "Fluid Glassmorphism Study",
+                "description": "A modern micro-web structure utilizing fluid glassmorphism and organic animations.",
+                "medium": "Digital Design",
+                "year": "2024",
+                "status": "available",
+                "url": "/images/galleries/micro-web-fluid-thumb.png",
+                "pageUrl": "/micro-web-2"
             }
         ]
     }
