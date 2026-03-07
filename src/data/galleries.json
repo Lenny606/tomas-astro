@@ -70,27 +70,15 @@
                 "pageUrl": "/webdesign-one"
             },
             {
-                "id": "item-5",
-                "filename": "micro-web-neo-thumb.png",
-                "slug": "micro-web",
-                "title": "Micro Web Structure",
-                "description": "A dynamic and creative micro-web architectural study.",
-                "medium": "Digital Design",
-                "year": "2024",
-                "status": "available",
-                "url": "/images/galleries/micro-web-neo-thumb.png",
-                "pageUrl": "/micro-web"
-            },
-            {
                 "id": "item-6",
-                "filename": "micro-web-fluid-thumb.png",
+                "filename": "micro-web-brutalist-thumb.png",
                 "slug": "micro-web-2",
-                "title": "Fluid Glassmorphism Study",
-                "description": "A modern micro-web structure utilizing fluid glassmorphism and organic animations.",
+                "title": "Minimal Pastel Brutalist",
+                "description": "A study in minimal brutalist web design combined with a soft, unconventional pastel color palette.",
                 "medium": "Digital Design",
                 "year": "2024",
                 "status": "available",
-                "url": "/images/galleries/micro-web-fluid-thumb.png",
+                "url": "/images/galleries/micro-web-brutalist-thumb.png",
                 "pageUrl": "/micro-web-2"
             },
             {

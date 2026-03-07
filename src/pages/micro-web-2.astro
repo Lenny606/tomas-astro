@@ -6,1103 +6,547 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<BaseLayout title="Alex Creator | Fluid Glassmorphism Study">
+<BaseLayout title="Alex Creator | Minimal Brutalist Study">
     <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Outfit:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;800&family=Outfit:wght@400;700;800&display=swap"
         rel="stylesheet"
     />
 
-    <div
-        class="fluid-glass-wrapper min-h-screen py-20 px-5 relative overflow-hidden"
-    >
-        <!-- Background Blobs -->
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-
-        <div class="max-w-7xl mx-auto relative z-10">
-            <!-- Back to Gallery -->
-            <a
-                href="/galleries/web-design"
-                class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-bold text-slate-500 hover:text-indigo-600 transition-colors mb-16"
-            >
-                <span class="text-lg">←</span>
-                {t("galleries.back")}
-            </a>
-
-            <div
-                id="main-grid"
-                class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start transition-all duration-700"
-            >
-                <!-- Left Side: Descriptive Text -->
-                <div
-                    class="description-sidebar space-y-12 order-2 lg:order-1 transition-all duration-500 overflow-hidden"
-                >
-                    <div
-                        class="description-card p-12 bg-white/20 backdrop-blur-2xl border border-white/50 rounded-[40px] shadow-[0_32px_64px_-16px_rgba(99,102,241,0.2)]"
-                    >
-                        <h2
-                            class="text-4xl font-bold mb-10 font-fraunces italic bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent"
-                        >
-                            Obsažené sekce
-                        </h2>
-                        <ul class="space-y-10">
-                            <li class="flex gap-8 group">
-                                <span
-                                    class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-2xl flex items-center justify-center font-bold text-sm text-white shadow-lg transition-transform group-hover:scale-110"
-                                    >1</span
-                                >
-                                <div>
-                                    <h3
-                                        class="font-bold uppercase tracking-widest text-xs text-indigo-900/60 mb-2"
-                                    >
-                                        Hero / Profile
-                                    </h3>
-                                    <p
-                                        class="text-slate-700 font-medium leading-relaxed"
-                                    >
-                                        Morfující se organický avatar, jméno s
-                                        přechodem a skleněný odznak role.
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="flex gap-8 group">
-                                <span
-                                    class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-pink-400 to-rose-500 rounded-2xl flex items-center justify-center font-bold text-sm text-white shadow-lg transition-transform group-hover:scale-110"
-                                    >2</span
-                                >
-                                <div>
-                                    <h3
-                                        class="font-bold uppercase tracking-widest text-xs text-indigo-900/60 mb-2"
-                                    >
-                                        Bio / Intro
-                                    </h3>
-                                    <p
-                                        class="text-slate-700 font-medium leading-relaxed"
-                                    >
-                                        Karta s jemným skleněným efektem a
-                                        vycentrovaným textem na rozostřeném
-                                        pozadí.
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="flex gap-8 group">
-                                <span
-                                    class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-2xl flex items-center justify-center font-bold text-sm text-white shadow-lg transition-transform group-hover:scale-110"
-                                    >3</span
-                                >
-                                <div>
-                                    <h3
-                                        class="font-bold uppercase tracking-widest text-xs text-indigo-900/60 mb-2"
-                                    >
-                                        Rychlé odkazy
-                                    </h3>
-                                    <p
-                                        class="text-slate-700 font-medium leading-relaxed"
-                                    >
-                                        Interaktivní tlačítka s plynulou animací
-                                        barevné výplně při přejetí myší.
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="flex gap-8 group">
-                                <span
-                                    class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center font-bold text-sm text-white shadow-lg transition-transform group-hover:scale-110"
-                                    >4</span
-                                >
-                                <div>
-                                    <h3
-                                        class="font-bold uppercase tracking-widest text-xs text-indigo-900/60 mb-2"
-                                    >
-                                        Ukázky prací
-                                    </h3>
-                                    <p
-                                        class="text-slate-700 font-medium leading-relaxed"
-                                    >
-                                        Zaoblené karty s efektem přiblížení a
-                                        dynamickým popiskem v dolní části.
-                                    </p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div
-                        class="description-card p-12 bg-white/40 backdrop-blur-md border border-white/60 rounded-[40px] shadow-[0_24px_48px_rgba(99,102,241,0.15)] overflow-hidden relative group"
-                    >
-                        <div
-                            class="absolute inset-0 bg-gradient-to-br from-indigo-600/5 to-purple-600/5 -z-10 group-hover:scale-110 transition-transform duration-500"
-                        >
-                        </div>
-                        <h2
-                            class="text-3xl font-bold mb-10 font-fraunces text-indigo-950"
-                        >
-                            Designové prvky
-                        </h2>
-                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {
-                                [
-                                    {
-                                        title: "Fluidní skleněný efekt",
-                                        desc: "Pokročilé rozostření (backdrop-filter) pro hloubku.",
-                                    },
-                                    {
-                                        title: "Morfující organické tvary",
-                                        desc: "Avatar i pozadí s plynulou animací geometrie.",
-                                    },
-                                    {
-                                        title: "Pastelová barevná paleta",
-                                        desc: "Jemné snové gradienty v tónech fialové a růžové.",
-                                    },
-                                    {
-                                        title: "Barevné stíny a záře",
-                                        desc: "Využití odstínů gradientu pro měkké vyznění prvků.",
-                                    },
-                                    {
-                                        title: "Prémiová typografie",
-                                        desc: "Spojení Outfit (sans) a Fraunces (serif).",
-                                    },
-                                    {
-                                        title: "Plovoucí pozadí (Blobs)",
-                                        desc: "Animované elementy na pozadí tvoří pocit pohybu.",
-                                    },
-                                ].map((feature) => (
-                                    <li class="space-y-1">
-                                        <h4 class="text-xs font-bold uppercase tracking-widest text-indigo-600 flex items-center gap-2">
-                                            <span class="w-1.5 h-1.5 bg-indigo-500 rounded-full" />
-                                            {feature.title}
-                                        </h4>
-                                        <p class="text-xs text-slate-600 font-medium leading-relaxed pl-3.5">
-                                            {feature.desc}
-                                        </p>
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    </div>
+    <div class="brutal-root" id="brutal-root" data-device="desktop">
+        <!-- ═══════════════════════════════════ DEVICE SWITCHER -->
+        <div class="switcher-bar">
+            <div class="switcher-inner">
+                <span class="switcher-label">Prezentace Designu:</span>
+                <div class="switcher-btns">
+                    <button class="switcher-btn active" data-switch="desktop">
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><rect
+                                x="2"
+                                y="3"
+                                width="20"
+                                height="14"
+                                rx="2"
+                                ry="2"></rect><line
+                                x1="8"
+                                y1="21"
+                                x2="16"
+                                y2="21"></line><line
+                                x1="12"
+                                y1="17"
+                                x2="12"
+                                y2="21"></line>
+                        </svg>
+                        Desktop
+                    </button>
+                    <button class="switcher-btn" data-switch="mobile">
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><rect
+                                x="5"
+                                y="2"
+                                width="14"
+                                height="20"
+                                rx="2"
+                                ry="2"></rect><line
+                                x1="12"
+                                y1="18"
+                                x2="12.01"
+                                y2="18"></line>
+                        </svg>
+                        Mobil
+                    </button>
                 </div>
+            </div>
+        </div>
 
-                <!-- Right Side: The Preview area -->
-                <div
-                    class="flex flex-col items-center lg:sticky lg:top-20 order-1 lg:order-2 space-y-8"
-                >
-                    <!-- Device Switcher -->
-                    <div
-                        class="device-switcher p-1.5 bg-white/20 backdrop-blur-xl border border-white/50 rounded-2xl shadow-lg flex gap-1 relative z-20"
-                    >
-                        <button
-                            class="switcher-btn active px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2"
-                            data-mode="mobile"
-                        >
-                            <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                ><rect
-                                    x="5"
-                                    y="2"
-                                    width="14"
-                                    height="20"
-                                    rx="2"
-                                    ry="2"></rect><line
-                                    x1="12"
-                                    y1="18"
-                                    x2="12.01"
-                                    y2="18"></line>
-                            </svg>
-                            Mobile
-                        </button>
-                        <button
-                            class="switcher-btn px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2"
-                            data-mode="desktop"
-                        >
-                            <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                ><rect
-                                    x="2"
-                                    y="3"
-                                    width="20"
-                                    height="14"
-                                    rx="2"
-                                    ry="2"></rect><line
-                                    x1="8"
-                                    y1="21"
-                                    x2="16"
-                                    y2="21"></line><line
-                                    x1="12"
-                                    y1="17"
-                                    x2="12"
-                                    y2="21"></line>
-                            </svg>
-                            Desktop
-                        </button>
-                    </div>
+        <div class="viewport-container">
+            <div class="viewport-frame">
+                <!-- Back to Gallery -->
+                <a href="/galleries/web-design" class="back-link">
+                    ← Zpět na galerii
+                </a>
 
-                    <div
-                        id="preview-wrapper"
-                        class="preview-wrapper mode-mobile w-full transition-all duration-500 ease-in-out flex justify-center"
-                    >
-                        <div
-                            class="container relative transition-all duration-500 overflow-hidden"
-                        >
-                            <!-- Desktop Nav (Inside Preview) -->
-                            <nav class="desktop-nav-internal">
-                                <div class="nav-logo font-fraunces">AC</div>
-                                <div class="nav-links">
-                                    <a href="#">Domů</a>
-                                    <a href="#">Práce</a>
-                                    <a href="#">O mně</a>
-                                    <a href="#" class="nav-cta">Kontakt</a>
-                                </div>
-                            </nav>
-
-                            <!-- Hero Section -->
-                            <section class="hero">
-                                <div class="hero-content">
-                                    <div class="avatar-wrapper">AC</div>
-                                    <div class="hero-text">
-                                        <h1 class="font-fraunces">
-                                            Alex Creator
-                                        </h1>
-                                        <span class="role-badge"
-                                            >Digitální umělec a vývojář</span
-                                        >
-                                    </div>
-                                </div>
-                            </section>
-
-                            <!-- Bio Section -->
-                            <section class="bio">
-                                <p>
-                                    Vytvářím chaos pomocí kódu a barev. Buduji
-                                    digitální zážitky, které přinášejí radost a
-                                    překonávají konvence. Podívejte se na mé
-                                    nejnovější experimenty níže!
-                                </p>
-                            </section>
-
-                            <!-- Main Layout Grid (Desktop optimization) -->
-                            <div class="desktop-main-grid">
-                                <!-- Links Section -->
-                                <section class="links-section">
-                                    <h2 class="section-title font-fraunces">
-                                        Rychlé odkazy
-                                    </h2>
-                                    <div class="links-grid">
-                                        <a href="#" class="link-btn">
-                                            Zobrazit portfolio 2024
-                                            <span class="arrow">→</span>
-                                        </a>
-                                        <a href="#" class="link-btn">
-                                            Přečíst si případovou studii
-                                            <span class="arrow">→</span>
-                                        </a>
-                                        <a href="#" class="link-btn">
-                                            Objednat si konzultaci
-                                            <span class="arrow">→</span>
-                                        </a>
-                                        <a href="#" class="link-btn">
-                                            Stáhnout zdroje zdarma
-                                            <span class="arrow">→</span>
-                                        </a>
-                                    </div>
-                                </section>
-
-                                <!-- Content Grid Section -->
-                                <section class="content-grid">
-                                    <h2 class="section-title font-fraunces">
-                                        Nejnovější práce
-                                    </h2>
-                                    <div class="grid-container">
-                                        <div class="grid-item group/item">
-                                            <img
-                                                src="https://picsum.photos/seed/fluid1/300/300"
-                                                alt="Project 1"
-                                            />
-                                            <div class="overlay">
-                                                Identita značky
-                                            </div>
-                                        </div>
-                                        <div class="grid-item group/item">
-                                            <img
-                                                src="https://picsum.photos/seed/fluid2/300/300"
-                                                alt="Project 2"
-                                            />
-                                            <div class="overlay">
-                                                Webový design
-                                            </div>
-                                        </div>
-                                        <div class="grid-item group/item">
-                                            <img
-                                                src="https://picsum.photos/seed/fluid3/300/300"
-                                                alt="Project 3"
-                                            />
-                                            <div class="overlay">3D umění</div>
-                                        </div>
-                                        <div class="grid-item group/item">
-                                            <img
-                                                src="https://picsum.photos/seed/fluid4/300/300"
-                                                alt="Project 4"
-                                            />
-                                            <div class="overlay">
-                                                Motion design
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-                            </div>
-
-                            <div class="desktop-footer-row">
-                                <!-- Newsletter Section -->
-                                <section class="newsletter">
-                                    <h3 class="font-fraunces">
-                                        Přidejte se k týmu
-                                    </h3>
-                                    <p>
-                                        Získejte týdenní tipy na design, zdroje
-                                        zdarma a pohled do zákulisí.
-                                    </p>
-                                    <form
-                                        class="newsletter-form"
-                                        onsubmit="event.preventDefault(); alert('Díky za odběr!');"
-                                    >
-                                        <input
-                                            type="email"
-                                            class="newsletter-input"
-                                            placeholder="vase@email.cz"
-                                            required
-                                        />
-                                        <button
-                                            type="submit"
-                                            class="newsletter-btn"
-                                            >Přidat se</button
-                                        >
-                                    </form>
-                                </section>
-
-                                <!-- Social Footer -->
-                                <footer class="social-footer">
-                                    <div class="social-icons">
-                                        <a
-                                            href="#"
-                                            class="social-icon instagram"
-                                            title="Instagram"
-                                        >
-                                            <svg
-                                                width="20"
-                                                height="20"
-                                                fill="currentColor"
-                                                viewBox="0 0 24 24"
-                                                ><path
-                                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                                                ></path>
-                                            </svg>
-                                        </a>
-                                        <a
-                                            href="#"
-                                            class="social-icon twitter"
-                                            title="Twitter"
-                                        >
-                                            <svg
-                                                width="20"
-                                                height="20"
-                                                fill="currentColor"
-                                                viewBox="0 0 24 24"
-                                                ><path
-                                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-                                                ></path>
-                                            </svg>
-                                        </a>
-                                        <a
-                                            href="#"
-                                            class="social-icon linkedin"
-                                            title="LinkedIn"
-                                        >
-                                            <svg
-                                                width="20"
-                                                height="20"
-                                                fill="currentColor"
-                                                viewBox="0 0 24 24"
-                                                ><path
-                                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                                                ></path>
-                                            </svg>
-                                        </a>
-                                    </div>
-                                    <p class="footer-text">
-                                        © 2024 Alex Creator.
-                                    </p>
-                                </footer>
-                            </div>
+                <div class="showcase-layout">
+                    <!-- Sidebar: Design Notes (Brutalist style) -->
+                    <aside class="design-side">
+                        <div class="side-card pastel-green">
+                            <h2 class="brutal-h2">Design Concept</h2>
+                            <p>
+                                Minimalistický brutalismus s pastelovým
+                                nádechem. Zaměřeno na surovou typografii a
+                                asymetrické bloky.
+                            </p>
                         </div>
-                    </div>
+                        <div class="side-card pastel-yellow">
+                            <h2 class="brutal-h2">Vlastnosti</h2>
+                            <ul class="side-list">
+                                <li><strong>6px</strong> černé okraje</li>
+                                <li><strong>Outfit</strong> font</li>
+                                <li>Asymetrický layout</li>
+                                <li>Vysoký kontrast</li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                    <!-- Main Content (The Minimal Brutalist Site) -->
+                    <main class="brutal-site">
+                        <!-- 1. Hero Section -->
+                        <section class="brutal-section hero pastel-pink">
+                            <h1 class="brutal-h1">
+                                Vytváříme Budoucnost Designu.
+                            </h1>
+                            <p class="subtitle">
+                                Minimalistický přístup, maximální dopad.
+                                Brutální estetičnost pro digitální věk.
+                            </p>
+                            <a href="#" class="brutal-cta">Začněme Spolu</a>
+                        </section>
+
+                        <!-- 2. About Section -->
+                        <section class="brutal-section about">
+                            <p class="about-p">
+                                Tento projekt zkoumá hranice mezi syrovým
+                                brutalismem a jemnou pastelovou estetikou. Každý
+                                prvek je záměrně výrazný a funkční.
+                            </p>
+                            <div class="benefit-row">
+                                <div class="benefit-box pastel-blue">
+                                    <h3>Rychlost</h3>
+                                    <p>
+                                        Optimalizováno pro extrémní výkon bez
+                                        zbytečných prvků.
+                                    </p>
+                                </div>
+                                <div class="benefit-box pastel-yellow">
+                                    <h3>Odlišnost</h3>
+                                    <p>
+                                        Design, který se nebojí vybočit z řady a
+                                        šokovat.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 3. Features Section -->
+                        <section class="brutal-section features">
+                            <h2 class="brutal-h2">Klíčové Prvky</h2>
+                            <div class="features-grid">
+                                <div class="feature-card pastel-green">
+                                    <h3>Bold Typo</h3>
+                                    <p>
+                                        Velká písma, která mluví jasně a nahlas.
+                                    </p>
+                                </div>
+                                <div class="feature-card pastel-pink">
+                                    <h3>Kontrast</h3>
+                                    <p>
+                                        Vizuální hierarchie tvořená silnými
+                                        konturami.
+                                    </p>
+                                </div>
+                                <div class="feature-card pastel-blue">
+                                    <h3>Whitespace</h3>
+                                    <p>Prostor pro dech uprostřed brutality.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 4. Contact Section -->
+                        <section class="brutal-section contact pastel-yellow">
+                            <p>Máte zájem o podobně odvážný projekt?</p>
+                            <a
+                                href="mailto:hello@alex.design"
+                                class="brutal-cta">Napište mi</a
+                            >
+                        </section>
+
+                        <footer class="brutal-footer">
+                            <p>© 2024 Alex Creator — Brutalist Study</p>
+                        </footer>
+                    </main>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- ═══════════════════════════════════ SCRIPTS -->
     <script is:inline>
-        document.addEventListener("DOMContentLoaded", () => {
-            const btns = document.querySelectorAll(".switcher-btn");
-            const wrapper = document.getElementById("preview-wrapper");
+        const root = document.getElementById("brutal-root");
+        const btns = document.querySelectorAll(".switcher-btn");
 
-            btns.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    const mode = btn.dataset.mode;
-                    const mainGrid = document.getElementById("main-grid");
-
-                    // Update active state
-                    btns.forEach((b) => b.classList.remove("active"));
-                    btn.classList.add("active");
-
-                    // Update wrapper mode
-                    wrapper.classList.remove("mode-mobile", "mode-desktop");
-                    wrapper.classList.add(`mode-${mode}`);
-
-                    // Global layout transformation
-                    if (mode === "desktop") {
-                        mainGrid.classList.add("preview-mode-desktop");
-                    } else {
-                        mainGrid.classList.remove("preview-mode-desktop");
-                    }
-                });
+        btns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const device = btn.getAttribute("data-switch");
+                root.setAttribute("data-device", device);
+                btns.forEach((b) => b.classList.remove("active"));
+                btn.classList.add("active");
             });
         });
     </script>
 
     <style>
-        /* Switcher Styles */
-        .device-switcher {
-            margin-bottom: 1rem;
+        :root {
+            --p-pink: #ffd1dc;
+            --p-blue: #aec6cf;
+            --p-yellow: #fdfd96;
+            --p-green: #77dd77;
+            --b-black: #000000;
+            --b-size: 6px;
+        }
+
+        .brutal-root {
+            font-family: "Outfit", sans-serif;
+            background: #ffffff;
+            color: var(--b-black);
+            min-height: 100vh;
+            line-height: 1.4;
+        }
+
+        /* Switcher */
+        .switcher-bar {
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            background: #fff;
+            border-bottom: var(--b-size) solid var(--b-black);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+        }
+        .switcher-inner {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .switcher-label {
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+        .switcher-btns {
+            display: flex;
+            background: var(--b-black);
+            padding: 0.4rem;
+            border-radius: 4px;
+            gap: 0.4rem;
         }
         .switcher-btn {
-            color: var(--text-secondary);
-            background: transparent;
-            cursor: pointer;
             border: none;
+            background: transparent;
+            color: #fff;
+            padding: 0.6rem 1.4rem;
+            font-size: 0.8rem;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            text-transform: uppercase;
+            transition: all 0.2s;
         }
         .switcher-btn.active {
-            background: white;
-            color: var(--text-primary);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
-        }
-        .switcher-btn:not(.active):hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: #fff;
+            color: var(--b-black);
         }
 
-        /* Preview Wrapper Transition Logic */
-        .preview-wrapper.mode-mobile .container {
-            max-width: 420px;
-        }
-        .preview-wrapper.mode-desktop .container {
-            max-width: 1400px; /* Fully expanded for immersive view */
-            border-radius: 48px;
-            padding: 0; /* Nav handles inner padding */
-        }
-
-        /* Desktop Internal Navbar */
-        .desktop-nav-internal {
-            display: none;
-            padding: 30px 60px;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--glass-border);
-            margin-bottom: 40px;
-        }
-        .mode-desktop .desktop-nav-internal {
+        /* General Layout */
+        .viewport-container {
+            padding: 5rem 2rem;
             display: flex;
-        }
-        .nav-logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 14px;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
-        .nav-cta {
-            background: var(--gradient-primary);
-            color: white !important;
-            padding: 10px 24px;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
-        }
-
-        /* Desktop Layout Adaptations */
-        .mode-desktop .container > section {
-            padding-left: 60px;
-            padding-right: 60px;
-        }
-        .mode-desktop .hero-content {
-            display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 40px;
-            text-align: left;
+            background: #e5e5e5;
+            min-height: 100vh;
         }
-        .mode-desktop .avatar-wrapper {
+        .viewport-frame {
+            width: 100%;
+            max-width: 1400px;
+            transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+            position: relative;
+        }
+
+        /* Mobile Simulation */
+        [data-device="mobile"] .viewport-container {
+            background: #999;
+        }
+        [data-device="mobile"] .viewport-frame {
+            max-width: 390px;
+            height: 844px;
+            background: #fff;
+            border: var(--b-size) solid var(--b-black);
+            overflow-y: auto;
+            overflow-x: hidden;
+            box-shadow: 20px 20px 0 0 var(--b-black);
+        }
+        [data-device="mobile"] .viewport-frame::-webkit-scrollbar {
+            width: 0;
+        }
+        [data-device="mobile"] .showcase-layout {
+            grid-template-columns: 1fr;
+            padding: 0;
+        }
+        [data-device="mobile"] .design-side {
+            display: none;
+        }
+        [data-device="mobile"] .brutal-site {
+            border: none;
             margin: 0;
-            width: 150px;
-            height: 150px;
+            padding: 0;
         }
-        .mode-desktop .hero h1 {
-            font-size: 48px;
-            margin-bottom: 8px;
+        [data-device="mobile"] .brutal-section {
+            padding: 3rem 1.5rem;
+            border-left: none;
+            border-right: none;
+        }
+        [data-device="mobile"] .brutal-h1 {
+            font-size: 3rem;
+        }
+        [data-device="mobile"] .benefit-row,
+        [data-device="mobile"] .features-grid {
+            grid-template-columns: 1fr;
+        }
+        [data-device="mobile"] .back-link {
+            margin: 2rem 1.5rem;
         }
 
-        .mode-desktop .desktop-main-grid {
+        /* Core Elements */
+        .back-link {
+            display: inline-block;
+            text-decoration: none;
+            color: #555;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 3rem;
+        }
+        .back-link:hover {
+            color: var(--b-black);
+        }
+
+        .showcase-layout {
             display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 40px;
-            margin-top: 20px;
+            grid-template-columns: 380px 1fr;
+            gap: 4rem;
+            align-items: start;
         }
 
-        .mode-desktop .links-grid {
+        /* Sidebar */
+        .design-side {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 2rem;
         }
-
-        .mode-desktop .grid-container {
-            grid-template-columns: repeat(4, 1fr);
+        .side-card {
+            padding: 2.5rem;
+            border: var(--b-size) solid var(--b-black);
+            box-shadow: 10px 10px 0 0 var(--b-black);
         }
-
-        .mode-desktop .desktop-footer-row {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .mode-desktop .newsletter {
-            margin-bottom: 0;
-            margin-top: 20px;
-        }
-        .mode-desktop .social-footer {
-            margin-top: 0;
-        }
-
-        /* Global Layout Transformation */
-        .preview-mode-desktop {
-            grid-template-columns: 1fr !important;
-        }
-        .preview-mode-desktop .description-sidebar {
-            opacity: 0;
-            max-height: 0;
-            margin: 0 !important;
-            padding: 0 !important;
-            pointer-events: none;
-        }
-
-        .fluid-glass-wrapper {
-            --bg-base: #faf9f6;
-            --glass-bg: rgba(255, 255, 255, 0.35);
-            --glass-border: rgba(255, 255, 255, 0.6);
-            --text-primary: #1e293b;
-            --text-secondary: #475569;
-            --gradient-primary: linear-gradient(
-                135deg,
-                #c084fc 0%,
-                #6366f1 100%
-            );
-            --gradient-secondary: linear-gradient(
-                135deg,
-                #f472b6 0%,
-                #fb7185 100%
-            );
-            --gradient-accent: linear-gradient(
-                135deg,
-                #38bdf8 0%,
-                #818cf8 100%
-            );
-            --shadow-soft: 0 10px 40px -10px rgba(99, 102, 241, 0.25);
-            --shadow-glow: 0 0 30px rgba(192, 132, 252, 0.3);
-
-            font-family: "Outfit", sans-serif;
-            background: var(--bg-base);
-            color: var(--text-primary);
-        }
-
-        .font-fraunces {
-            font-family: "Fraunces", serif;
-        }
-
-        /* Animated Background Blobs */
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            z-index: 1;
-            animation: blobFloat 20s ease-in-out infinite;
-        }
-
-        .blob-1 {
-            width: 400px;
-            height: 400px;
-            background: var(--gradient-primary);
-            top: -100px;
-            left: -100px;
-            animation-delay: 0s;
-        }
-
-        .blob-2 {
-            width: 350px;
-            height: 350px;
-            background: var(--gradient-secondary);
-            bottom: 20%;
-            right: -50px;
-            animation-delay: -5s;
-        }
-
-        .blob-3 {
-            width: 250px;
-            height: 250px;
-            background: var(--gradient-accent);
-            top: 40%;
-            right: 10%;
-            animation-delay: -10s;
-        }
-
-        @keyframes blobFloat {
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-            25% {
-                transform: translate(30px, -30px) scale(1.1);
-            }
-            50% {
-                transform: translate(-20px, 20px) scale(0.95);
-            }
-            75% {
-                transform: translate(20px, 10px) scale(1.05);
-            }
-        }
-
-        .container {
-            width: 100%;
-            max-width: 420px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 32px;
-            padding: 40px 28px;
-            box-shadow: 0 24px 64px -12px rgba(99, 102, 241, 0.3);
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .avatar-wrapper {
-            width: 130px;
-            height: 130px;
-            margin: 0 auto 20px;
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            overflow: hidden;
-            background: var(--gradient-primary);
+        .side-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: "Fraunces", serif;
-            font-size: 42px;
+            flex-direction: column;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+        }
+        .side-list li::before {
+            content: "→";
+            margin-right: 0.5rem;
+            font-weight: 800;
+        }
+
+        /* Site Components */
+        .brutal-site {
+            background: #fff;
+            border: var(--b-size) solid var(--b-black);
+        }
+        .brutal-section {
+            padding: 5rem 4rem;
+            border-bottom: var(--b-size) solid var(--b-black);
+            position: relative;
+            overflow: hidden;
+        }
+        .brutal-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .pastel-pink {
+            background: var(--p-pink);
+        }
+        .pastel-blue {
+            background: var(--p-blue);
+        }
+        .pastel-yellow {
+            background: var(--p-yellow);
+        }
+        .pastel-green {
+            background: var(--p-green);
+        }
+
+        .brutal-h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+        .brutal-h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+        .subtitle {
+            font-size: 1.25rem;
             font-weight: 700;
-            color: white;
-            animation: morph 8s ease-in-out infinite,
-                float 6s ease-in-out infinite;
-            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.35);
+            max-width: 600px;
+            margin-bottom: 3rem;
         }
 
-        @keyframes morph {
-            0%,
-            100% {
-                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            }
-            25% {
-                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-            }
-            50% {
-                border-radius: 50% 50% 30% 60% / 40% 60% 50% 60%;
-            }
-            75% {
-                border-radius: 60% 40% 50% 50% / 60% 40% 60% 40%;
-            }
-        }
-
-        @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-12px);
-            }
-        }
-
-        .hero h1 {
-            font-size: 32px;
-            font-weight: 700;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 12px;
-        }
-
-        .role-badge {
+        .brutal-cta {
             display: inline-block;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 8px 20px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-radius: 50px;
-            border: 1px solid var(--glass-border);
-            color: var(--text-secondary);
-        }
-
-        /* Bio Section */
-        .bio {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            padding: 24px;
-            margin-bottom: 28px;
-            border-radius: 24px;
-            border: 1px solid var(--glass-border);
-        }
-
-        .bio p {
-            font-size: 14px;
-            line-height: 1.8;
-            text-align: center;
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-
-        /* Links Section */
-        .section-title {
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 16px;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::before {
-            content: "";
-            width: 6px;
-            height: 6px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.5);
-                opacity: 0.7;
-            }
-        }
-
-        .link-btn {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            padding: 18px 24px;
-            margin-bottom: 14px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
             text-decoration: none;
-            color: var(--text-primary);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .link-btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-primary);
-            transition: left 0.3s ease;
-            z-index: -1;
-        }
-
-        .link-btn:hover::before {
-            left: 0;
-        }
-        .link-btn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 28px rgba(99, 102, 241, 0.25);
-            color: white;
-        }
-
-        .link-btn .arrow {
-            font-size: 18px;
-            transition: transform 0.3s ease;
-        }
-        .link-btn:hover .arrow {
-            transform: translateX(6px);
-        }
-
-        /* Content Grid Section */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-        }
-
-        .grid-item {
-            aspect-ratio: 1;
-            border-radius: 24px;
-            overflow: hidden;
-            position: relative;
-            border: 1px solid var(--glass-border);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .grid-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .grid-item:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
-        }
-
-        .grid-item:hover img {
-            transform: scale(1.15);
-        }
-
-        .grid-item .overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(
-                to top,
-                rgba(30, 41, 59, 0.9),
-                transparent
-            );
-            color: white;
-            padding: 40px 12px 12px;
-            font-size: 10px;
-            font-weight: 600;
+            color: var(--b-black);
+            background: #fff;
+            padding: 1.5rem 3rem;
+            border: var(--b-size) solid var(--b-black);
+            font-size: 1.2rem;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
+            box-shadow: 8px 8px 0 0 var(--b-black);
+            transition: all 0.1s;
+        }
+        .brutal-cta:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 12px 12px 0 0 var(--b-black);
         }
 
-        .grid-item:hover .overlay {
-            transform: translateY(0);
-        }
-
-        /* Newsletter Section */
-        .newsletter {
-            background: var(--gradient-primary);
-            padding: 28px;
-            margin-bottom: 28px;
-            margin-top: 40px; /* Added requested margin top */
-            border-radius: 24px;
-            box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.4);
-            color: white;
-        }
-
-        .newsletter h3 {
-            font-size: 20px;
+        /* About & Benefits */
+        .about-p {
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 4rem;
+            max-width: 800px;
         }
-        .newsletter p {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 16px;
+        .benefit-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
         }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
+        .benefit-box {
+            padding: 3rem;
+            border: var(--b-size) solid var(--b-black);
+            box-shadow: 10px 10px 0 0 var(--b-black);
+            transform: rotate(-1deg);
         }
-        .newsletter-input {
-            flex: 1;
-            padding: 14px 18px;
-            border: none;
-            border-radius: 16px;
-            font-size: 13px;
-            background: rgba(255, 255, 255, 0.95);
-            outline: none;
-            color: black;
+        .benefit-box:nth-child(even) {
+            transform: rotate(1deg) translateY(10px);
         }
-
-        .newsletter-btn {
-            padding: 14px 24px;
-            background: white;
-            border: none;
-            border-radius: 16px;
-            font-size: 13px;
-            font-weight: 600;
-            color: #6366f1;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .newsletter-btn:hover {
-            transform: scale(1.05);
-        }
-
-        /* Social Footer */
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        .social-icon {
-            width: 52px;
-            height: 52px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 50%;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            color: var(--text-primary);
-        }
-
-        .social-icon:hover {
-            transform: translateY(-4px) scale(1.1);
-            box-shadow: 0 12px 24px rgba(99, 102, 241, 0.25);
-            color: white;
-        }
-        .social-icon.instagram:hover {
-            background: linear-gradient(135deg, #e1306c, #c13584);
-        }
-        .social-icon.twitter:hover {
-            background: linear-gradient(135deg, #1da1f2, #0d8bd9);
-        }
-        .social-icon.linkedin:hover {
-            background: linear-gradient(135deg, #0077b5, #005885);
-        }
-        .social-icon.youtube:hover {
-            background: linear-gradient(135deg, #ff0000, #cc0000);
-        }
-
-        .footer-text {
-            font-size: 10px;
-            color: var(--text-secondary);
-            opacity: 0.6;
+        .benefit-box h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+        }
+        .benefit-box p {
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .feature-card {
+            padding: 2.5rem;
+            border: var(--b-size) solid var(--b-black);
+            box-shadow: 8px 8px 0 0 var(--b-black);
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .feature-card p {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Contact */
+        .contact {
             text-align: center;
         }
-
-        /* Scroll Reveal Animation */
-        .container > * {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: reveal 0.6s ease forwards;
-        }
-        .container > *:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-        .container > *:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        .container > *:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-        .container > *:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-        .container > *:nth-child(5) {
-            animation-delay: 0.5s;
-        }
-        .container > *:nth-child(6) {
-            animation-delay: 0.6s;
+        .contact p {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
         }
 
-        @keyframes reveal {
-            to {
-                opacity: 1;
-                transform: translateY(0);
+        /* Footer */
+        .brutal-footer {
+            padding: 3rem;
+            text-align: center;
+            border-top: var(--b-size) solid var(--b-black);
+            background: #eee;
+        }
+        .brutal-footer p {
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Desktop Asymmetry */
+        @media (min-width: 1100px) {
+            .hero .brutal-cta {
+                margin-left: -20px;
+            }
+            .feature-card:nth-child(2) {
+                transform: translateY(-20px);
             }
         }
 
-        /* Responsive */
-        @media (max-width: 520px) {
-            .container {
-                padding: 32px 20px;
+        @media (max-width: 1000px) {
+            .showcase-layout {
+                grid-template-columns: 1fr;
             }
-            .hero h1 {
-                font-size: 26px;
+            .design-side {
+                grid-template-columns: 1fr 1fr;
+                display: grid;
             }
-            .avatar-wrapper {
-                width: 110px;
-                height: 110px;
-                font-size: 36px;
+        }
+
+        @media (max-width: 600px) {
+            .design-side {
+                grid-template-columns: 1fr;
             }
-            .newsletter-form {
-                flex-direction: column;
+            .brutal-h1 {
+                font-size: 3.5rem;
             }
-            .newsletter-btn {
-                width: 100%;
+            .brutal-section {
+                padding: 4rem 2rem;
             }
         }
     </style>
