@@ -82,17 +82,128 @@ const t = useTranslations(lang);
 		/>
 	</head>
 	<body>
+		<!-- Global Grey Nebula Overlay -->
+		<div class="nebula-grey-container" aria-hidden="true">
+			<div class="nebula-grey nebula-grey-1"></div>
+			<div class="nebula-grey nebula-grey-2"></div>
+			<div class="nebula-grey nebula-grey-3"></div>
+		</div>
+
 		<Navigation />
 		<main class="min-h-screen pt-32 pb-20">
 			<slot />
 		</main>
 		<Footer />
-		<style>
+		<style is:global>
 			html,
 			body {
 				margin: 0;
 				width: 100%;
 				height: 100%;
+				background-color: #000;
+			}
+
+			/* Global Grey Nebula Styles */
+			.nebula-grey-container {
+				position: fixed;
+				inset: 0;
+				z-index: 20;
+				pointer-events: none;
+				overflow: hidden;
+			}
+
+			.nebula-grey {
+				position: absolute;
+				border-radius: 50%;
+				will-change: transform, opacity;
+				mix-blend-mode: screen;
+			}
+
+			.nebula-grey-1 {
+				width: 80vw;
+				height: 60vh;
+				top: -10%;
+				right: -10%;
+				background: radial-gradient(
+					ellipse at center,
+					rgba(160, 160, 160, 0.18) 0%,
+					rgba(120, 120, 120, 0.08) 40%,
+					transparent 70%
+				);
+				filter: blur(100px);
+				animation: ng-drift-1 25s ease-in-out infinite;
+			}
+
+			.nebula-grey-2 {
+				width: 70vw;
+				height: 80vh;
+				bottom: -15%;
+				left: 10%;
+				background: radial-gradient(
+					ellipse at center,
+					rgba(200, 200, 200, 0.12) 0%,
+					rgba(150, 150, 150, 0.06) 45%,
+					transparent 70%
+				);
+				filter: blur(120px);
+				animation: ng-drift-2 30s ease-in-out infinite;
+			}
+
+			.nebula-grey-3 {
+				width: 50vw;
+				height: 50vh;
+				top: 40%;
+				left: -5%;
+				background: radial-gradient(
+					ellipse at center,
+					rgba(180, 180, 180, 0.1) 0%,
+					rgba(100, 100, 100, 0.04) 50%,
+					transparent 72%
+				);
+				filter: blur(80px);
+				animation: ng-drift-3 20s ease-in-out infinite;
+			}
+
+			@keyframes ng-drift-1 {
+				0%,
+				100% {
+					transform: translate(0, 0) scale(1);
+					opacity: 0.8;
+				}
+				35% {
+					transform: translate(-5vw, 8vh) scale(1.1);
+					opacity: 1;
+				}
+				70% {
+					transform: translate(3vw, -6vh) scale(0.95);
+					opacity: 0.7;
+				}
+			}
+			@keyframes ng-drift-2 {
+				0%,
+				100% {
+					transform: translate(0, 0) scale(1);
+					opacity: 0.7;
+				}
+				45% {
+					transform: translate(6vw, -10vh) scale(1.1);
+					opacity: 0.9;
+				}
+				80% {
+					transform: translate(-4vw, 5vh) scale(0.9);
+					opacity: 0.6;
+				}
+			}
+			@keyframes ng-drift-3 {
+				0%,
+				100% {
+					transform: translate(0, 0) scale(1);
+					opacity: 0.6;
+				}
+				50% {
+					transform: translate(4vw, 7vh) scale(1.15);
+					opacity: 0.8;
+				}
 			}
 		</style>
 	</body>
