@@ -59,14 +59,14 @@
         "items": [
             {
                 "id": "item-4",
-                "filename": "ui-study-1.jpg",
+                "filename": "webdesign-forma-thumb.png",
                 "slug": "minimalist-ui",
-                "title": "Minimalist UI",
-                "description": "A study in white space and elegant typography.",
+                "title": "Forma Studio — Design bez šumu",
+                "description": "Minimální editorial design zaměřený na typografii, negativní prostor a vizuální hierarchii.",
                 "medium": "Digital Design",
                 "year": "2024",
                 "status": "available",
-                "url": "/images/galleries/ui-study-1.jpg",
+                "url": "/images/galleries/webdesign-forma-thumb.png",
                 "pageUrl": "/webdesign-one"
             },
             {
