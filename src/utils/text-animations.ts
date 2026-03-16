@@ -6,28 +6,40 @@ export function splitText(element: HTMLElement | string): HTMLElement[] {
   
   if (!target) return [];
 
-  const text = target.textContent || "";
-  const words = text.split(/\s+/);
-  
+  // Save original nodes
+  const nodes = Array.from(target.childNodes);
   target.innerHTML = "";
   
   const spanElements: HTMLElement[] = [];
   
-  words.forEach((word, index) => {
-    const wrapper = document.createElement("span");
-    wrapper.className = "split-word-wrapper";
-    wrapper.style.display = "inline-block";
-    wrapper.style.overflow = "hidden";
-    wrapper.style.verticalAlign = "top";
-    
-    const inner = document.createElement("span");
-    inner.className = "split-word-inner";
-    inner.style.display = "inline-block";
-    inner.textContent = word + (index < words.length - 1 ? "\u00A0" : "");
-    
-    wrapper.appendChild(inner);
-    target.appendChild(wrapper);
-    spanElements.push(inner);
+  nodes.forEach((node) => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const words = (node.textContent || "").split(/(\s+)/);
+      words.forEach((word) => {
+        if (word.trim() === "") {
+          target.appendChild(document.createTextNode(word));
+          return;
+        }
+
+        const wrapper = document.createElement("span");
+        wrapper.className = "split-word-wrapper";
+        wrapper.style.display = "inline-block";
+        wrapper.style.overflow = "hidden";
+        wrapper.style.verticalAlign = "top";
+        
+        const inner = document.createElement("span");
+        inner.className = "split-word-inner";
+        inner.style.display = "inline-block";
+        inner.textContent = word;
+        
+        wrapper.appendChild(inner);
+        target.appendChild(wrapper);
+        spanElements.push(inner);
+      });
+    } else {
+      // Keep existing elements like <br />
+      target.appendChild(node.cloneNode(true));
+    }
   });
   
   return spanElements;

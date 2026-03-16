@@ -12,7 +12,7 @@ const t = useTranslations(lang);
   <div class="max-w-7xl mx-auto flex justify-between items-center">
     <a
       href={lang === "cz" ? "/" : "/en/"}
-      class="text-xl font-serif tracking-tight hover:opacity-70 transition-opacity relative z-50"
+      class="text-xl font-serif tracking-tight hover:opacity-70 transition-opacity relative z-50 nav-logo"
       aria-label="Home"
     >
       NebulaLab<span class="text-zinc-500">.</span>
@@ -122,38 +122,120 @@ const t = useTranslations(lang);
 </div>
 
 <script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
   const btn = document.getElementById("mobile-menu-btn");
   const menu = document.getElementById("mobile-menu");
   const nav = document.getElementById("main-nav");
-  const spans = btn?.querySelectorAll("span");
+  const navLinks = document.querySelectorAll("#main-nav ul li");
+  const langSwitcher = document.querySelector("#main-nav .border-l");
+  const logo = document.querySelector(".nav-logo");
+  
   let isOpen = false;
 
+  // 1. Entrance Animations
+  function initEntrance() {
+    const tl = gsap.timeline({ defaults: { ease: "expo.out", duration: 1.2 }});
+    
+    tl.from(nav, {
+      y: -20,
+      opacity: 0,
+      duration: 1
+    })
+    .from(logo, {
+      x: -20,
+      opacity: 0,
+    }, "-=0.8")
+    .from(navLinks, {
+      y: -10,
+      opacity: 0,
+      stagger: 0.1,
+    }, "-=1")
+    .from(langSwitcher, {
+      opacity: 0,
+      duration: 0.5
+    }, "-=0.5");
+  }
+
+  // 2. Scroll Animations
+  function initScroll() {
+    ScrollTrigger.create({
+      start: "top -50",
+      onEnter: () => {
+        gsap.to(nav, {
+          py: 4, // This is a Tailwind class, but we can animate the style directly
+          paddingTop: "1.25rem",
+          paddingBottom: "1.25rem",
+          backgroundColor: "rgba(0, 0, 0, 0.95)",
+          borderColor: "rgba(255, 255, 255, 0.05)",
+          duration: 0.4,
+          ease: "power2.out"
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(nav, {
+          paddingTop: "2rem",
+          paddingBottom: "2rem",
+          backgroundColor: "rgba(0, 0, 0, 0.9)",
+          borderColor: "transparent",
+          duration: 0.4,
+          ease: "power2.out"
+        });
+      }
+    });
+  }
+
+  // 3. Mobile Menu Toggle
   btn?.addEventListener("click", () => {
     isOpen = !isOpen;
     btn.setAttribute("aria-expanded", isOpen.toString());
 
     if (isOpen) {
-      menu?.classList.remove("opacity-0", "pointer-events-none");
-      menu?.classList.add("opacity-100", "pointer-events-auto");
-      document.body.style.overflow = "hidden"; // Prevent scrolling
-
-      nav?.classList.add("border-alabaster/10", "bg-bg-primary");
-      nav?.classList.remove(
-        "bg-bg-primary/90",
-        "backdrop-blur-md",
-        "border-transparent"
-      );
+      // Open
+      document.body.style.overflow = "hidden";
+      gsap.to(menu, {
+        opacity: 1,
+        pointerEvents: "auto",
+        duration: 0.4,
+        ease: "power2.out"
+      });
+      // Stagger links in mobile menu
+      gsap.from("#mobile-menu li", {
+        y: 20,
+        opacity: 0,
+        stagger: 0.1,
+        ease: "expo.out",
+        duration: 0.8
+      });
     } else {
-      menu?.classList.add("opacity-0", "pointer-events-none");
-      menu?.classList.remove("opacity-100", "pointer-events-auto");
+      // Close
       document.body.style.overflow = "";
-
-      nav?.classList.remove("border-alabaster/10", "bg-bg-primary");
-      nav?.classList.add(
-        "bg-bg-primary/90",
-        "backdrop-blur-md",
-        "border-transparent"
-      );
+      gsap.to(menu, {
+        opacity: 0,
+        pointerEvents: "none",
+        duration: 0.3,
+        ease: "power2.in"
+      });
     }
   });
+
+  // Init
+  function init() {
+    // Ensure elements are at least visible if for some reason script is slow
+    if (nav) nav.style.opacity = "1";
+    if (logo) (logo as HTMLElement).style.opacity = "1";
+
+    initEntrance();
+    initScroll();
+  }
+
+  // Execute immediately or on DOM content ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 </script>
