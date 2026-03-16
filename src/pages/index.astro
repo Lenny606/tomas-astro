@@ -126,43 +126,89 @@ const t = useTranslations(lang);
   </section>
 
   <script>
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    import { splitText } from '../utils/text-animations';
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const items = entry.target.querySelectorAll('.reveal-item');
-          items.forEach((item, index) => {
-            setTimeout(() => {
-              item.classList.add('visible');
-            }, index * 150);
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Initial SplitText animations for Process section
+    function initAnimations() {
+      const revealSections = document.querySelectorAll('.reveal-section');
+      
+      revealSections.forEach(section => {
+        // Animate section headers and descriptions
+        const headers = section.querySelectorAll('h2, .reveal-item > h3');
+        const paragraphs = section.querySelectorAll('p.reveal-item, .reveal-item > p');
+
+        headers.forEach(header => {
+          const words = splitText(header as HTMLElement);
+          gsap.from(words, {
+            scrollTrigger: {
+              trigger: header,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            ease: 'expo.out',
+            stagger: 0.05
           });
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
+        });
 
-    document.querySelectorAll('.reveal-section').forEach(section => {
-      observer.observe(section);
-    });
+        paragraphs.forEach(p => {
+          const words = splitText(p as HTMLElement);
+          gsap.from(words, {
+            scrollTrigger: {
+              trigger: p,
+              start: 'top 90%',
+              toggleActions: 'play none none none',
+            },
+            y: 20,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            stagger: 0.02,
+            delay: 0.2
+          });
+        });
+
+        // Animate numbers and lines in process steps
+        const stepDecorations = section.querySelectorAll('.reveal-item .rounded-full, .reveal-item .flex-grow');
+        stepDecorations.forEach(deco => {
+          gsap.from(deco, {
+            scrollTrigger: {
+              trigger: deco,
+              start: 'top 90%',
+            },
+            scale: 0,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'back.out(1.7)',
+          });
+        });
+      });
+    }
+
+    // Run on load
+    window.addEventListener('load', initAnimations);
   </script>
 
   <style>
     .reveal-item {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-    .reveal-item.visible {
+      /* Remove old transition properties as GSAP handles them */
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
     
     .text-zinc-600 {
       color: #52525b;
+    }
+
+    /* Initial state for SplitText elements to prevent flash */
+    .split-word-inner {
+      will-change: transform, opacity;
     }
   </style>
 </BaseLayout>

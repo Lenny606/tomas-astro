@@ -128,6 +128,18 @@
                 "status": "available",
                 "url": "/images/galleries/geometric-thumb.png",
                 "pageUrl": "/geometric-portfolio"
+            },
+            {
+                "id": "item-11",
+                "filename": "glass-business-thumb.png",
+                "slug": "glass-business",
+                "title": "Aether Digital — Glassmorphism Story",
+                "description": "Moderní jednostránkový web s výrazným využitím glassmorphismu a GSAP storytellingu.",
+                "medium": "Digital Design",
+                "year": "2026",
+                "status": "available",
+                "url": "/images/galleries/glass-business-thumb.png",
+                "pageUrl": "/glass-business"
             }
         ]
     }
