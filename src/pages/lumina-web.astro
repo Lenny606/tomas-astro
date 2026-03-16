@@ -518,14 +518,198 @@ const principles = [
 
     <!-- SCRIPTS -->
     <script>
+        import { gsap } from "gsap";
+        import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // ─── INITIAL LOAD ANIMATIONS (HERO) ──────────────────────
+        const heroTl = gsap.timeline({
+            defaults: { ease: "expo.out", duration: 1.6 }
+        });
+
+        heroTl.from(".lw-hero-eyebrow", {
+            y: 30,
+            opacity: 0,
+            duration: 1.2
+        })
+        .from(".lw-hero-title", {
+            y: 60,
+            opacity: 0,
+            stagger: 0.2
+        }, "-=0.9")
+        .from(".lw-hero-desc", {
+            y: 30,
+            opacity: 0
+        }, "-=1.2")
+        .from(".lw-hero .lw-btn", {
+            y: 20,
+            opacity: 0
+        }, "-=1.4");
+
+        // ─── SCROLL TRIGGERED REVEALS ────────────────────────────
+        
+        // Mockup Band Reveal
+        gsap.from(".lw-mockup-hero", {
+            scrollTrigger: {
+                trigger: ".lw-band",
+                start: "top 80%",
+            },
+            y: 100,
+            opacity: 0,
+            duration: 1.5,
+            ease: "expo.out"
+        });
+
+        // Palette Swatches Stagger
+        gsap.from(".lw-swatch", {
+            scrollTrigger: {
+                trigger: ".lw-palette",
+                start: "top 85%",
+            },
+            y: 40,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 1,
+            ease: "power3.out"
+        });
+
+        // Type Showcase Reveal
+        gsap.from(".lw-type-block", {
+            scrollTrigger: {
+                trigger: ".lw-type-showcase",
+                start: "top 80%",
+            },
+            x: (i) => i % 2 === 0 ? -50 : 50,
+            opacity: 0,
+            duration: 1.4,
+            ease: "expo.out",
+            stagger: 0.2
+        });
+
+        // UI Components Grid
+        gsap.from(".lw-comp-group", {
+            scrollTrigger: {
+                trigger: ".lw-components-grid",
+                start: "top 80%",
+            },
+            y: 50,
+            opacity: 0,
+            stagger: 0.15,
+            duration: 1.2,
+            ease: "power2.out"
+        });
+
+        // Principles Stagger
+        gsap.from(".lw-principle", {
+            scrollTrigger: {
+                trigger: ".lw-principle-grid",
+                start: "top 80%",
+            },
+            y: 40,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 1,
+            ease: "power3.out"
+        });
+
+        // Stats Counter
+        gsap.from(".lw-stat", {
+            scrollTrigger: {
+                trigger: ".lw-stats",
+                start: "top 90%",
+            },
+            scale: 0.9,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 1,
+            ease: "back.out(1.7)"
+        });
+
+        // Mockup Parallax
+        gsap.to(".lw-mock-image-block", {
+            scrollTrigger: {
+                trigger: ".lw-band",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            },
+            y: -30,
+            ease: "none"
+        });
+
+        // ─── INTERACTIVE HOVER EFFECTS ───────────────────────────
+        
+        // Swatches Hover
+        const swatches = document.querySelectorAll(".lw-swatch");
+        swatches.forEach(swatch => {
+            swatch.addEventListener("mouseenter", () => {
+                gsap.to(swatch.querySelector(".lw-swatch-color"), {
+                    scale: 1.05,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
+            });
+            swatch.addEventListener("mouseleave", () => {
+                gsap.to(swatch.querySelector(".lw-swatch-color"), {
+                    scale: 1,
+                    duration: 0.4,
+                    ease: "power2.inOut"
+                });
+            });
+        });
+
+        // Demo Buttons Hover Enhancement
+        const demoBtns = document.querySelectorAll(".lw-demo-btn");
+        demoBtns.forEach(btn => {
+            btn.addEventListener("mouseenter", () => {
+                gsap.to(btn, {
+                    y: -2,
+                    boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+                    duration: 0.3
+                });
+            });
+            btn.addEventListener("mouseleave", () => {
+                gsap.to(btn, {
+                    y: 0,
+                    boxShadow: "0 0px 0px rgba(0,0,0,0)",
+                    duration: 0.3
+                });
+            });
+        });
+
+        // ─── DEVICE SWITCHER LOGIC ──────────────────────────────
         const root = document.getElementById("lw-root");
         const switcherBtns = document.querySelectorAll(".lw-switcher-btn");
+        const viewportFrame = document.querySelector(".lw-viewport-frame");
+
         switcherBtns.forEach((btn) => {
             btn.addEventListener("click", () => {
                 const device = btn.getAttribute("data-switch");
-                root!.setAttribute("data-device", device!);
-                switcherBtns.forEach((b) => b.classList.remove("active"));
-                btn.classList.add("active");
+                const currentDevice = root!.getAttribute("data-device");
+                
+                if (device === currentDevice) return;
+
+                // Animate transition using GSAP
+                const tl = gsap.timeline();
+
+                tl.to(viewportFrame, {
+                    opacity: 0,
+                    scale: 0.98,
+                    duration: 0.3,
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        root!.setAttribute("data-device", device!);
+                        switcherBtns.forEach((b) => b.classList.remove("active"));
+                        btn.classList.add("active");
+                    }
+                })
+                .to(viewportFrame, {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.5,
+                    ease: "expo.out"
+                });
             });
         });
     </script>
