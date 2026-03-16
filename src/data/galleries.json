@@ -116,6 +116,18 @@
                 "status": "available",
                 "url": "/images/vanguard/vanguard_hero_fashion_1773681135767.png",
                 "pageUrl": "/vanguard-fashion"
+            },
+            {
+                "id": "item-10",
+                "filename": "geometric-thumb.png",
+                "slug": "geometric-portfolio",
+                "title": "Geometric Symmetry — Studio Portfolio",
+                "description": "Minimalistický design zaměřený na geometrické tvary a jemné GSAP animace čar.",
+                "medium": "Digital Design",
+                "year": "2026",
+                "status": "available",
+                "url": "/images/galleries/geometric-thumb.png",
+                "pageUrl": "/geometric-portfolio"
             }
         ]
     }

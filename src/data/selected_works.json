@@ -20,7 +20,13 @@
     {
         "title": "Lumina",
         "category": "Web Development",
-        "url": "#",
+        "url": "/lumina-web",
         "image": "/images/projects/lumina-marketing.png"
+    },
+    {
+        "title": "Geometric Symmetry",
+        "category": "Web Development",
+        "url": "/geometric-portfolio",
+        "image": "/images/galleries/geometric-thumb.png"
     }
 ]
