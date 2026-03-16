@@ -104,6 +104,18 @@
                 "status": "available",
                 "url": "/images/galleries/nexus-landing-thumb.png",
                 "pageUrl": "/landing-page-demo"
+            },
+            {
+                "id": "item-9",
+                "filename": "vanguard_hero_fashion_1773681135767.png",
+                "slug": "vanguard-fashion",
+                "title": "Vanguard Fashion — Avant-Garde Showcase",
+                "description": "Odvážná produktová prezentace s využitím pokročilých GSAP animací a horizontálního scrollování.",
+                "medium": "Digital Design",
+                "year": "2026",
+                "status": "available",
+                "url": "/images/vanguard/vanguard_hero_fashion_1773681135767.png",
+                "pageUrl": "/vanguard-fashion"
             }
         ]
     }

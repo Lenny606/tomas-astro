@@ -1,0 +1,489 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// Image paths (generated assets)
+const heroImg = "/images/vanguard/vanguard_hero_fashion_1773681135767.png";
+const product1Img = "/images/vanguard/vanguard_product_1_1773681153161.png";
+const product2Img = "/images/vanguard/vanguard_product_2_1773681167581.png";
+
+---
+
+<BaseLayout title="Vanguard Fashion — Avant-Garde Showcase">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+    <div class="vf-container">
+        <!-- ─── HERO SECTION ───────────────────────────────────── -->
+        <section class="vf-hero">
+            <div class="vf-hero-bg">
+                <img src={heroImg} alt="Vanguard Fashion Hero" class="vf-hero-img" />
+                <div class="vf-hero-overlay"></div>
+            </div>
+            <div class="vf-hero-content">
+                <div class="vf-hero-eyebrow">Collection 2026</div>
+                <h1 class="vf-hero-title">
+                    <span class="vf-title-line">VANGUARD</span>
+                    <span class="vf-title-line vf-title-italic">SYSTEMS</span>
+                </h1>
+                <p class="vf-hero-tagline">Redefining the boundaries of wearable architecture.</p>
+                <div class="vf-hero-cta">
+                    <a href="#collection" class="vf-btn vf-btn--outline">Explore Archive</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── PHILOSOPHY ─────────────────────────────────────── -->
+        <section class="vf-philosophy">
+            <div class="vf-phil-grid">
+                <div class="vf-phil-text">
+                    <h2 class="vf-phil-title">The Future is<br/><em>Resilient</em></h2>
+                    <p class="vf-phil-body">
+                        Our designs prioritize function over decoration, integrating tactile materials with high-performance silhouettes. Every stitch serves a purpose in the urban landscape.
+                    </p>
+                </div>
+                <div class="vf-phil-visual">
+                    <div class="vf-reveal-wrapper">
+                        <img src={product1Img} alt="Leather Detail" class="vf-reveal-img" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── HORIZONTAL SCROLL SECTION ───────────────────────── -->
+        <section class="vf-horizontal-wrap" id="collection">
+            <div class="vf-horizontal-scroll">
+                <div class="vf-horizontal-inner">
+                    <!-- Slide 1 -->
+                    <div class="vf-slide vf-slide--intro">
+                        <div class="vf-slide-label">01 / Archives</div>
+                        <h2 class="vf-slide-title">Tactility</h2>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="vf-slide vf-slide--product">
+                        <div class="vf-product-card">
+                            <img src={product2Img} alt="SNEAKER V1" class="vf-product-img" />
+                            <div class="vf-product-info">
+                                <h3>SNEAKER V1</h3>
+                                <p>Kinetic propulsion sole system.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="vf-slide vf-slide--info">
+                        <div class="vf-info-block">
+                             <div class="vf-info-label">Materiality</div>
+                             <p>Using 100% recycled nylon and lab-grown leathers to create a sustainable future for techwear enthusiasts worldwide.</p>
+                        </div>
+                    </div>
+                     <!-- Slide 4 -->
+                    <div class="vf-slide vf-slide--product">
+                         <div class="vf-product-card">
+                            <img src={product1Img} alt="JACKET 03" class="vf-product-img" />
+                            <div class="vf-product-info">
+                                <h3>JACKET 03</h3>
+                                <p>Modular weather-shield layering.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FOOTER CTA ──────────────────────────────────────── -->
+        <section class="vf-cta-section">
+            <div class="vf-cta-content">
+                 <h2 class="vf-cta-title">Join the System</h2>
+                 <form class="vf-form">
+                     <input type="email" placeholder="Your Entry Point (Email)" class="vf-input" />
+                     <button type="submit" class="vf-submit">Connect →</button>
+                 </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        import { gsap } from "gsap";
+        import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // ─── HERO ANIMATION ────────────────────────────────────
+        const heroTl = gsap.timeline({ defaults: { ease: "power4.out", duration: 2 }});
+
+        heroTl.from(".vf-hero-img", {
+            scale: 1.2,
+            duration: 3,
+            ease: "expo.out"
+        })
+        .from(".vf-hero-overlay", {
+            opacity: 0,
+            duration: 2
+        }, "<")
+        .from(".vf-title-line", {
+            y: 100,
+            opacity: 0,
+            stagger: 0.2,
+            skewY: 5
+        }, "-=2")
+        .from(".vf-hero-eyebrow, .vf-hero-tagline, .vf-hero-cta", {
+            y: 30,
+            opacity: 0,
+            stagger: 0.1
+        }, "-=1.5");
+
+        // ─── PHILOSOPHY REVEAL ─────────────────────────────────
+        gsap.from(".vf-phil-text h2, .vf-phil-text p", {
+            scrollTrigger: {
+                trigger: ".vf-philosophy",
+                start: "top 70%",
+            },
+            y: 50,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 1.2
+        });
+
+        gsap.from(".vf-reveal-wrapper", {
+            scrollTrigger: {
+                trigger: ".vf-philosophy",
+                start: "top 60%",
+            },
+            clipPath: "inset(0 100% 0 0)",
+            duration: 1.5,
+            ease: "expo.inOut"
+        });
+
+        // ─── HORIZONTAL SCROLL ─────────────────────────────────
+        const horizontalSection = document.querySelector(".vf-horizontal-scroll");
+        const horizontalInner = document.querySelector(".vf-horizontal-inner");
+
+        if (horizontalSection && horizontalInner) {
+            const scrollAmount = horizontalInner.scrollWidth - window.innerWidth;
+
+            gsap.to(horizontalInner, {
+                x: -scrollAmount,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".vf-horizontal-wrap",
+                    pin: true,
+                    scrub: 1,
+                    end: () => "+=" + (scrollAmount + window.innerWidth),
+                    invalidateOnRefresh: true,
+                }
+            });
+        }
+
+        // Magnetic Button Effect (Simple)
+        const btn = document.querySelector(".vf-btn");
+        if (btn) {
+             btn.addEventListener("mousemove", (e: any) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.3 });
+            });
+            btn.addEventListener("mouseleave", () => {
+                gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
+            });
+        }
+    </script>
+
+    <style>
+        .vf-container {
+            --black: #000;
+            --white: #fff;
+            --accent: #0047FF;
+            --gray: #111;
+            --muted: #666;
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+            margin-top: -8rem; /* Offset BaseLayout padding */
+        }
+
+        /* ─── HERO ───────────────────────────────────────────── */
+        .vf-hero {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .vf-hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+        .vf-hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .vf-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+        }
+        .vf-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 1.5rem;
+        }
+        .vf-hero-eyebrow {
+            font-size: 0.75rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+        .vf-hero-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3.5rem, 12vw, 10rem);
+            line-height: 0.85;
+            font-weight: 800;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2rem;
+        }
+        .vf-title-italic {
+            font-style: italic;
+            -webkit-text-stroke: 1px var(--white);
+            color: transparent;
+        }
+        .vf-hero-tagline {
+            font-size: 1.1rem;
+            color: var(--muted);
+            max-width: 40ch;
+            margin: 0 auto 3rem;
+        }
+
+        .vf-btn {
+            display: inline-block;
+            padding: 1.25rem 3.5rem;
+            border: 1px solid var(--white);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: background 0.3s, color 0.3s;
+        }
+        .vf-btn:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        /* ─── PHILOSOPHY ─────────────────────────────────────── */
+        .vf-philosophy {
+            padding: 15rem 6vw;
+            background: var(--black);
+        }
+        .vf-phil-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10vw;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .vf-phil-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3rem, 5vw, 5rem);
+            line-height: 1;
+            margin-bottom: 3rem;
+        }
+        .vf-phil-title em {
+            color: var(--accent);
+            font-style: italic;
+        }
+        .vf-phil-body {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            color: #888;
+            max-width: 35ch;
+        }
+        .vf-reveal-wrapper {
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            background: var(--gray);
+            clip-path: inset(0 0 0 0);
+        }
+        .vf-reveal-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ─── HORIZONTAL SCROLL ──────────────────────────────── */
+        .vf-horizontal-wrap {
+            height: 100vh;
+            overflow: hidden;
+            background: #050505;
+        }
+        .vf-horizontal-scroll {
+            height: 100%;
+        }
+        .vf-horizontal-inner {
+            display: flex;
+            height: 100%;
+            width: max-content;
+            align-items: center;
+        }
+        .vf-slide {
+            height: 100%;
+            width: 80vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10vw;
+            border-right: 1px solid #111;
+        }
+        .vf-slide--intro {
+            width: 60vw;
+        }
+        .vf-slide-label {
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+        .vf-slide-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 12vw;
+            text-transform: uppercase;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .vf-product-card {
+            width: 100%;
+            max-width: 600px;
+            text-align: left;
+        }
+        .vf-product-img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            filter: grayscale(1);
+            transition: filter 0.8s, transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+        }
+        .vf-product-card:hover .vf-product-img {
+            filter: grayscale(0);
+            transform: scale(1.02);
+        }
+        .vf-product-info h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .vf-product-info p {
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+        .vf-info-block {
+            max-width: 35ch;
+        }
+        .vf-info-label {
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .vf-info-block p {
+            font-size: 2rem;
+            line-height: 1.3;
+            font-family: 'Syne', sans-serif;
+            font-weight: 500;
+        }
+
+        /* ─── CTA SECTION ───────────────────────────────────── */
+        .vf-cta-section {
+            padding: 20rem 6vw;
+            text-align: center;
+            border-top: 1px solid #111;
+            background: var(--black);
+        }
+        .vf-cta-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3rem, 10vw, 12rem);
+            margin-bottom: 8rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .vf-form {
+            display: flex;
+            max-width: 800px;
+            margin: 0 auto;
+            gap: 2rem;
+            align-items: flex-end;
+        }
+        .vf-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #222;
+            padding: 1.5rem 0;
+            color: var(--white);
+            font-size: 1.5rem;
+            outline: none;
+            transition: border-color 0.4s;
+            font-family: 'Syne', sans-serif;
+        }
+        .vf-input:focus {
+            border-color: var(--accent);
+        }
+        .vf-submit {
+            background: transparent;
+            border: none;
+            color: var(--white);
+            font-weight: 800;
+            text-transform: uppercase;
+            cursor: pointer;
+            letter-spacing: 0.2em;
+            font-size: 1.2rem;
+            padding-bottom: 1.5rem;
+            transition: color 0.3s;
+        }
+        .vf-submit:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 900px) {
+            .vf-phil-grid {
+                grid-template-columns: 1fr;
+                gap: 5rem;
+            }
+            .vf-philosophy {
+                padding: 10rem 6vw;
+            }
+            .vf-slide {
+                width: 100vw;
+                padding: 0 10vw;
+            }
+            .vf-slide--intro {
+                width: 100vw;
+            }
+            .vf-form {
+                flex-direction: column;
+                align-items: center;
+                gap: 4rem;
+            }
+            .vf-input {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</BaseLayout>
