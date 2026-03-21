@@ -18,6 +18,7 @@ const worksWithImages = await Promise.all(
 ---
 
 <BaseLayout title="NebulaLab | Creative Developer">
+  <!-- ─── HERO SECTION ───────────────────────────────────── -->
   <section class="max-w-7xl mx-auto px-12 pt-16 pb-32 relative overflow-hidden min-h-[80vh] flex items-center">
     <!-- Animated Background Elements -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
@@ -48,10 +49,14 @@ const worksWithImages = await Promise.all(
     </div>
   </section>
 
+  <!-- ─── SELECTED WORKS SECTION ──────────────────────────── -->
   <section id="work" class="max-w-7xl mx-auto px-12 py-32 border-t border-alabaster/5">
     <div class="flex justify-between items-end mb-20">
       <h2 class="text-5xl font-serif">{t('work.title')}</h2>
-      <a href={getLocalePath("/galleries", lang)} class="text-xs uppercase tracking-[0.2em] font-bold text-zinc-500 hover:text-alabaster transition-colors">{t('work.view_all')}</a>
+      <a href={getLocalePath("/galleries", lang)} class="group flex items-center gap-4 text-xs uppercase tracking-[0.2em] font-bold text-zinc-500 hover:text-alabaster transition-colors">
+        <span class="w-8 h-[1px] bg-zinc-800 group-hover:w-12 group-hover:bg-alabaster transition-all duration-500"></span>
+        {t('work.view_all')}
+      </a>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -80,9 +85,9 @@ const worksWithImages = await Promise.all(
     </div>
   </section>
 
-  <!-- Process Section -->
+  <!-- ─── PROCESS SECTION ────────────────────────────────── -->
   <section class="max-w-7xl mx-auto px-12 py-32 border-t border-alabaster/5">
-    <div class="max-w-3xl mb-24">
+    <div class="max-w-3xl mb-24 process-header">
       <h2 class="text-5xl font-serif mb-8">{t('process.title')}</h2>
       <p class="text-xl text-zinc-400 font-light leading-relaxed">
         {t('process.subtitle')}
@@ -91,7 +96,7 @@ const worksWithImages = await Promise.all(
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-20 gap-y-24">
       {[1, 2, 3, 4, 5, 6].map((step) => (
-        <div class="group">
+        <div class="group process-step">
           <div class="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-6 font-bold flex items-center gap-4">
             <span class="w-8 h-[1px] bg-zinc-800 group-hover:w-12 group-hover:bg-alabaster transition-all duration-500"></span>
             Step 0{step}
@@ -110,6 +115,9 @@ const worksWithImages = await Promise.all(
 
 <script>
   import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
   
   function initHero() {
     const tl = gsap.timeline({ defaults: { ease: 'expo.out', duration: 1.5 }});
@@ -154,10 +162,54 @@ const worksWithImages = await Promise.all(
     });
   }
 
+  function initScrollAnimations() {
+    // Process Header Reveal
+    gsap.from('.process-header', {
+      scrollTrigger: {
+        trigger: '.process-header',
+        start: 'top 85%',
+      },
+      y: 40,
+      opacity: 0,
+      duration: 1.2,
+      ease: 'power3.out'
+    });
+
+    // Process Steps Reveal
+    gsap.from('.process-step', {
+      scrollTrigger: {
+        trigger: '.process-step',
+        start: 'top 85%',
+      },
+      y: 50,
+      opacity: 0,
+      stagger: 0.15,
+      duration: 1,
+      ease: 'power2.out'
+    });
+
+    // Selected Works Reveal
+    gsap.from('#work .group', {
+      scrollTrigger: {
+        trigger: '#work',
+        start: 'top 80%',
+      },
+      y: 60,
+      opacity: 0,
+      stagger: 0.2,
+      duration: 1.2,
+      ease: 'expo.out'
+    });
+  }
+
   // Run on load
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHero);
+    document.addEventListener('DOMContentLoaded', () => {
+      initHero();
+      initScrollAnimations();
+    });
   } else {
     initHero();
+    initScrollAnimations();
   }
 </script>
