@@ -38,6 +38,7 @@ export const ui = {
         'galleries.subtitle': 'Objevte různé kolekce fotografií, digitálního umění a architektonických studií.',
         'galleries.view_collection': 'Zobrazit kolekci',
         'galleries.back': '← Zpět do galerií',
+        'nav.back_to_gallery': '← Zpět na galerii',
         'item.medium': 'Médium',
         'item.year': 'Rok',
         'item.status': 'Stav',
@@ -148,4 +149,10 @@ export function useTranslations(lang: keyof typeof ui) {
     return function t(key: keyof typeof ui[typeof defaultLang]) {
         return ui[lang][key] || ui[defaultLang][key];
     }
+}
+
+export function getLocalePath(path: string, lang: string) {
+    const cleanPath = path.startsWith('/') ? path : `/${path}`;
+    if (lang === defaultLang) return cleanPath;
+    return `/${lang}${cleanPath}`;
 }

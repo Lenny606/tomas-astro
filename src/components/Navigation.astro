@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations, languages } from "../utils/i18n";
+import { getLangFromUrl, useTranslations, languages, getLocalePath } from "../utils/i18n";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -11,7 +11,7 @@ const t = useTranslations(lang);
 >
   <div class="max-w-7xl mx-auto flex justify-between items-center">
     <a
-      href={lang === "cz" ? "/" : "/en/"}
+      href={getLocalePath("/", lang)}
       class="text-xl font-serif tracking-tight hover:opacity-70 transition-opacity relative z-50 nav-logo"
       aria-label="Home"
     >
@@ -25,14 +25,14 @@ const t = useTranslations(lang);
       >
         <li>
           <a
-            href="/galleries"
+            href={getLocalePath("/galleries", lang)}
             class="hover:text-alabaster transition-colors link-hover"
             >{t("nav.galleries")}
           </a>
         </li>
         <li>
           <a
-            href={lang === "cz" ? "/about" : "/en/about"}
+            href={getLocalePath("/about", lang)}
             class="hover:text-alabaster transition-colors link-hover"
             >{t("nav.about")}
           </a>
@@ -88,14 +88,14 @@ const t = useTranslations(lang);
   >
     <li>
       <a
-        href="/galleries"
+        href={getLocalePath("/galleries", lang)}
         class="block hover:text-alabaster transition-colors py-2"
         >{t("nav.galleries")}
       </a>
     </li>
     <li>
       <a
-        href={lang === "cz" ? "/about" : "/en/about"}
+        href={getLocalePath("/about", lang)}
         class="block hover:text-alabaster transition-colors py-2"
         >{t("nav.about")}
       </a>
@@ -120,7 +120,6 @@ const t = useTranslations(lang);
     }
   </div>
 </div>
-
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";

@@ -1,0 +1,1730 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const backHref = "/galleries/web-design";
+
+const palette = [
+    { c: "#0B1628", name: "Deep Navy", desc: "Základ" },
+    { c: "#122040", name: "Midnight", desc: "Tmavá plocha" },
+    { c: "#1E3A6E", name: "Royal Blue", desc: "Akcent" },
+    { c: "#C9A84C", name: "Gold", desc: "Zvýraznění" },
+    { c: "#E8C97A", name: "Light Gold", desc: "Hover" },
+    { c: "#8A9BB5", name: "Muted Blue", desc: "Popis" },
+    { c: "#F9F5EC", name: "Cream", desc: "Světlé BG" },
+    { c: "#FDFBF7", name: "Off-White", desc: "Základ stránky" },
+];
+
+const stats = [
+    { n: "+280%", label: "Čas na stránce" },
+    { n: "0.9s", label: "Rychlost načítání" },
+    { n: "97", label: "Skóre přístupnosti" },
+    { n: "3×", label: "Konverzní poměr" },
+];
+
+const principles = [
+    {
+        n: "01",
+        title: "Barevná hierarchie",
+        body: "Navy jako základ vytváří pocit důvěry a stability. Zlatá se používá cíleně — pouze tam, kde chceme přitáhnout pozornost.",
+    },
+    {
+        n: "02",
+        title: "Elegantní typografie",
+        body: "Cormorant Garamond pro display nadpisy přináší luxusní, klasický charakter. Inter zajišťuje čitelnost v těle textu.",
+    },
+    {
+        n: "03",
+        title: "Negativní prostor",
+        body: "Velkorysé odsazení a vzduch okolo prvků zvyšuje vnímání kvality. Přeplněné layouty působí lacině.",
+    },
+    {
+        n: "04",
+        title: "Konzistentní rytmus",
+        body: "Každá sekce dodržuje jednotný vertikální rytmus. Grid není jen mřížka — je to jazyk, který uživatel nevědomky čte.",
+    },
+];
+---
+
+<BaseLayout title="Lumina — Blue & Gold Design Showcase | Portfolio">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    />
+
+    <div class="lw-root" id="lw-root" data-device="desktop">
+        <!-- ═══════════════════════════════════ SWITCHER BAR -->
+        <div class="lw-switcher-bar">
+            <div class="lw-switcher-inner">
+                <span class="lw-switcher-label">Náhled designu</span>
+                <div class="lw-switcher-btns">
+                    <button
+                        class="lw-switcher-btn active"
+                        data-switch="desktop"
+                    >
+                        <svg
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <rect x="2" y="3" width="20" height="14" rx="2"
+                            ></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                        Desktop
+                    </button>
+                    <button class="lw-switcher-btn" data-switch="mobile">
+                        <svg
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <rect x="5" y="2" width="14" height="20" rx="2"
+                            ></rect>
+                            <line x1="12" y1="18" x2="12" y2="18.01"></line>
+                        </svg>
+                        Mobil
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════ VIEWPORT WRAPPER -->
+        <div class="lw-viewport-container">
+            <div class="lw-viewport-frame">
+                <!-- BACK LINK -->
+                <a href={backHref} class="lw-back">← Zpět na galerii</a>
+
+                <!-- ═══════════════════════════════════ HERO -->
+                <section class="lw-hero">
+                    <div class="lw-hero-eyebrow">
+                        <span class="lw-label">Ukázka designu</span>
+                        <span class="lw-label lw-label--muted"
+                            >2025 · Blue & Gold Studie</span
+                        >
+                    </div>
+
+                    <h1 class="lw-hero-title">
+                        Elegance<br /><em>ve</em><br />designu.
+                    </h1>
+
+                    <div class="lw-hero-aside">
+                        <p class="lw-hero-desc">
+                            Tato studie prezentuje designový systém postavený na
+                            kontrastu hlubokého námořního modrého a zlaté.
+                            Kombinace evokuje luxus, profesionalitu a
+                            nadčasovost.
+                        </p>
+                        <a href="#lw-sections" class="lw-btn"
+                            >Prozkoumat design ↓</a
+                        >
+                    </div>
+                </section>
+
+                <!-- ═══════════════════════════════════ BROWSER MOCKUP BAND -->
+                <div class="lw-band">
+                    <div class="lw-band-inner">
+                        <div class="lw-mockup-hero">
+                            <div class="lw-browser-bar">
+                                <span class="lw-dot lw-dot--r"></span>
+                                <span class="lw-dot lw-dot--y"></span>
+                                <span class="lw-dot lw-dot--g"></span>
+                                <div class="lw-urlbar">lumina.studio</div>
+                            </div>
+                            <div class="lw-mock-page">
+                                <div class="lw-mock-nav">
+                                    <span class="lw-mock-logo"
+                                        >Lumina<span class="lw-mock-logo-dot"
+                                            >.</span
+                                        >
+                                    </span>
+                                    <div class="lw-mock-links">
+                                        <div class="lw-mock-link"></div>
+                                        <div class="lw-mock-link"></div>
+                                        <div
+                                            class="lw-mock-link lw-mock-link--gold"
+                                        >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lw-mock-hero-content">
+                                    <div class="lw-mock-tag"></div>
+                                    <div class="lw-mock-h1"></div>
+                                    <div class="lw-mock-h1 lw-mock-h1--short">
+                                    </div>
+                                    <div class="lw-mock-body"></div>
+                                    <div
+                                        class="lw-mock-body lw-mock-body--short"
+                                    >
+                                    </div>
+                                    <div class="lw-mock-cta"></div>
+                                </div>
+                                <div class="lw-mock-image-block"></div>
+                            </div>
+                        </div>
+                        <p class="lw-band-caption">
+                            Vizualizace: Desktop náhled webu postaveného na Blue
+                            & Gold design systému
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ═══════════════════════════════════ DESIGN SECTIONS -->
+                <section class="lw-case" id="lw-sections">
+                    <!-- 01 BAREVNÁ PALETA -->
+                    <div class="lw-section-block">
+                        <div class="lw-section-header">
+                            <h2 class="lw-section-title">
+                                01 — Barevná paleta
+                            </h2>
+                            <p class="lw-section-desc">
+                                Osmibarvový systém postavený na kontrastu temné
+                                námořní modré a teplé zlaté. Každá barva má
+                                přesně definovanou roli v hierarchii rozhraní.
+                            </p>
+                        </div>
+                        <div class="lw-palette">
+                            {
+                                palette.map((sw) => (
+                                    <div class="lw-swatch">
+                                        <div
+                                            class="lw-swatch-color"
+                                            style={`background:${sw.c}`}
+                                        />
+                                        <div class="lw-swatch-info">
+                                            <span class="lw-swatch-name">
+                                                {sw.name}
+                                            </span>
+                                            <span class="lw-swatch-desc">
+                                                {sw.desc}
+                                            </span>
+                                            <span class="lw-swatch-hex">
+                                                {sw.c}
+                                            </span>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+
+                    <!-- 02 TYPOGRAFICKÝ SYSTÉM -->
+                    <div class="lw-section-block">
+                        <div class="lw-section-header">
+                            <h2 class="lw-section-title">
+                                02 — Typografický systém
+                            </h2>
+                            <p class="lw-section-desc">
+                                Dva kontrastní typy písma — serif pro
+                                reprezentaci a bezpatkový pro čitelnost.
+                                Hierarchie o 4 úrovních pokrývá všechny případy
+                                užití.
+                            </p>
+                        </div>
+                        <div class="lw-type-showcase">
+                            <div class="lw-type-block lw-type-block--dark">
+                                <span class="lw-type-label"
+                                    >Cormorant Garamond · Display</span
+                                >
+                                <div class="lw-type-giant">Aa</div>
+                                <div class="lw-type-scale">
+                                    <span class="lw-type-d1"
+                                        >Nadpis Display — 72px</span
+                                    >
+                                    <span class="lw-type-d2"
+                                        >Sekundární nadpis — 40px</span
+                                    >
+                                    <span class="lw-type-d3"
+                                        >Tertiary — 28px</span
+                                    >
+                                </div>
+                            </div>
+                            <div class="lw-type-block lw-type-block--light">
+                                <span class="lw-type-label-dark"
+                                    >Inter · UI & Tělo textu</span
+                                >
+                                <div class="lw-type-scale-light">
+                                    <span class="lw-type-ui1"
+                                        >Nadpis sekce — 20px Medium</span
+                                    >
+                                    <span class="lw-type-ui2"
+                                        >Tělo textu — 16px Regular. Používá se
+                                        pro odstavce a delší popisky s
+                                        dostatečnou řádkovou výškou 1.75.</span
+                                    >
+                                    <span class="lw-type-ui3"
+                                        >Popisek / Label — 11px · 0.15em ·
+                                        UPPERCASE</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 03 UI KOMPONENTY -->
+                    <div class="lw-section-block">
+                        <div class="lw-section-header">
+                            <h2 class="lw-section-title">03 — UI Komponenty</h2>
+                            <p class="lw-section-desc">
+                                Živé ukázky základních stavebních prvků
+                                rozhraní. Každá komponenta reflektuje barevný
+                                systém a typografický rytmus.
+                            </p>
+                        </div>
+                        <div class="lw-components-grid">
+                            <!-- Buttons -->
+                            <div class="lw-comp-group">
+                                <span class="lw-comp-label">Tlačítka</span>
+                                <div class="lw-comp-row">
+                                    <button
+                                        class="lw-demo-btn lw-demo-btn--primary"
+                                        >Primární akce</button
+                                    >
+                                    <button
+                                        class="lw-demo-btn lw-demo-btn--outline"
+                                        >Sekundární</button
+                                    >
+                                    <button
+                                        class="lw-demo-btn lw-demo-btn--ghost"
+                                        >Ghost</button
+                                    >
+                                </div>
+                                <p class="lw-comp-note">
+                                    Zlatá pro primární CTA → maximální kontrast
+                                    na tmavém pozadí
+                                </p>
+                            </div>
+                            <!-- Badges -->
+                            <div class="lw-comp-group">
+                                <span class="lw-comp-label">Štítky & Badge</span
+                                >
+                                <div class="lw-comp-row">
+                                    <span
+                                        class="lw-demo-badge lw-demo-badge--gold"
+                                        >Design</span
+                                    >
+                                    <span
+                                        class="lw-demo-badge lw-demo-badge--blue"
+                                        >Premium</span
+                                    >
+                                    <span
+                                        class="lw-demo-badge lw-demo-badge--outline"
+                                        >Studio</span
+                                    >
+                                </div>
+                                <p class="lw-comp-note">
+                                    Tři varianty pro různou hierarchii kategorií
+                                    a stavů
+                                </p>
+                            </div>
+                            <!-- Input -->
+                            <div class="lw-comp-group">
+                                <span class="lw-comp-label"
+                                    >Formulářové prvky</span
+                                >
+                                <div class="lw-comp-col">
+                                    <input
+                                        class="lw-demo-input"
+                                        type="text"
+                                        placeholder="Váš e-mail"
+                                    />
+                                    <textarea
+                                        class="lw-demo-textarea"
+                                        placeholder="Zpráva..."
+                                        rows="3"></textarea>
+                                </div>
+                                <p class="lw-comp-note">
+                                    Zlatý focus border — jasný signál aktivního
+                                    stavu
+                                </p>
+                            </div>
+                            <!-- Card -->
+                            <div class="lw-comp-group">
+                                <span class="lw-comp-label">Karta obsahu</span>
+                                <div class="lw-demo-card">
+                                    <div class="lw-demo-card-tag">
+                                        Portfolio
+                                    </div>
+                                    <h4 class="lw-demo-card-title">
+                                        Název projektu
+                                    </h4>
+                                    <p class="lw-demo-card-text">
+                                        Stručný popis projektu nebo služby.
+                                        Maximálně dvě věty.
+                                    </p>
+                                    <a href="#" class="lw-demo-card-link"
+                                        >Zobrazit →</a
+                                    >
+                                </div>
+                                <p class="lw-comp-note">
+                                    Zlatá čára vlevo signalizuje aktivní nebo
+                                    featured stav
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 04 DESIGNOVÉ PRINCIPY -->
+                    <div class="lw-section-block">
+                        <div class="lw-section-header">
+                            <h2 class="lw-section-title">
+                                04 — Designové principy
+                            </h2>
+                            <p class="lw-section-desc">
+                                Čtyři pilíře, na kterých stojí celý vizuální
+                                systém. Bez těchto principů by design ztratil
+                                svou jednotu.
+                            </p>
+                        </div>
+                        <div class="lw-principle-grid">
+                            {
+                                principles.map((p) => (
+                                    <div class="lw-principle">
+                                        <span class="lw-principle-n">
+                                            {p.n}
+                                        </span>
+                                        <h3 class="lw-principle-title">
+                                            {p.title}
+                                        </h3>
+                                        <p class="lw-principle-body">
+                                            {p.body}
+                                        </p>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+
+                    <!-- STATS -->
+                    <div class="lw-stats">
+                        {
+                            stats.map((s) => (
+                                <div class="lw-stat">
+                                    <span class="lw-stat-n">{s.n}</span>
+                                    <span class="lw-stat-l">{s.label}</span>
+                                </div>
+                            ))
+                        }
+                    </div>
+
+                    <!-- 05 MOBILNÍ DESIGN -->
+                    <div class="lw-section-block">
+                        <div class="lw-section-header">
+                            <h2 class="lw-section-title">
+                                05 — Mobilní design
+                            </h2>
+                            <p class="lw-section-desc">
+                                Každý prvek systému je navržen <em
+                                    >mobile-first</em
+                                >. Na mobilním zařízení design nezdegeneruje —
+                                jen se transformuje. Přepněte na „Mobil" v
+                                přepínači nahoře a prohlédněte si tuto stránku v
+                                rámci smartphone obrazovky.
+                            </p>
+                        </div>
+
+                        <div class="lw-mobile-callout">
+                            <div class="lw-mobile-callout-icon">
+                                <svg
+                                    width="28"
+                                    height="28"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                >
+                                    <rect
+                                        x="5"
+                                        y="2"
+                                        width="14"
+                                        height="20"
+                                        rx="2"></rect>
+                                    <line
+                                        x1="12"
+                                        y1="18"
+                                        x2="12"
+                                        y2="18.01"
+                                        stroke-width="2.5"></line>
+                                </svg>
+                            </div>
+                            <div class="lw-mobile-callout-text">
+                                <strong>Vyzkoušejte mobilní náhled</strong>
+                                <span
+                                    >Přepněte na „Mobil" v přepínači nahoře —
+                                    celý design se zobrazí v rámci smartphone
+                                    obrazovky (390 × 844 px).</span
+                                >
+                            </div>
+                        </div>
+
+                        <div class="lw-mobile-features">
+                            {
+                                [
+                                    {
+                                        title: "Dotykové cíle",
+                                        desc: "Minimální velikost 44×44 px pro všechny interaktivní prvky.",
+                                    },
+                                    {
+                                        title: "Vertikální rytmus",
+                                        desc: "Sekce se přeskládají do jednoho sloupce bez ztráty hierarchie.",
+                                    },
+                                    {
+                                        title: "Fluid typografie",
+                                        desc: "Nadpisy škálují pomocí clamp() — žádný pevný breakpoint.",
+                                    },
+                                    {
+                                        title: "Výkon na mobilech",
+                                        desc: "Lazy-load obrázků a minimální JavaScript zajišťují rychlé načítání.",
+                                    },
+                                ].map((f) => (
+                                    <div class="lw-mobile-feat">
+                                        <div class="lw-mobile-feat-dot" />
+                                        <div>
+                                            <strong class="lw-mobile-feat-title">
+                                                {f.title}
+                                            </strong>
+                                            <p class="lw-mobile-feat-desc">
+                                                {f.desc}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+
+                    <!-- CTA ROW -->
+                    <div class="lw-cta-row">
+                        <p class="lw-cta-text">
+                            Zájem o podobný<br /><em>design systém?</em>
+                        </p>
+                        <a href="/about" class="lw-btn lw-btn--gold"
+                            >Napište mi →</a
+                        >
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        import { gsap } from "gsap";
+        import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // ─── INITIAL LOAD ANIMATIONS (HERO) ──────────────────────
+        const heroTl = gsap.timeline({
+            defaults: { ease: "expo.out", duration: 1.6 }
+        });
+
+        heroTl.from(".lw-hero-eyebrow", {
+            y: 30,
+            opacity: 0,
+            duration: 1.2
+        })
+        .from(".lw-hero-title", {
+            y: 60,
+            opacity: 0,
+            stagger: 0.2
+        }, "-=0.9")
+        .from(".lw-hero-desc", {
+            y: 30,
+            opacity: 0
+        }, "-=1.2")
+        .from(".lw-hero .lw-btn", {
+            y: 20,
+            opacity: 0
+        }, "-=1.4");
+
+        // ─── SCROLL TRIGGERED REVEALS ────────────────────────────
+        
+        // Mockup Band Reveal
+        gsap.from(".lw-mockup-hero", {
+            scrollTrigger: {
+                trigger: ".lw-band",
+                start: "top 80%",
+            },
+            y: 100,
+            opacity: 0,
+            duration: 1.5,
+            ease: "expo.out"
+        });
+
+        // Palette Swatches Stagger
+        gsap.from(".lw-swatch", {
+            scrollTrigger: {
+                trigger: ".lw-palette",
+                start: "top 85%",
+            },
+            y: 40,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 1,
+            ease: "power3.out"
+        });
+
+        // Type Showcase Reveal
+        gsap.from(".lw-type-block", {
+            scrollTrigger: {
+                trigger: ".lw-type-showcase",
+                start: "top 80%",
+            },
+            x: (i) => i % 2 === 0 ? -50 : 50,
+            opacity: 0,
+            duration: 1.4,
+            ease: "expo.out",
+            stagger: 0.2
+        });
+
+        // UI Components Grid
+        gsap.from(".lw-comp-group", {
+            scrollTrigger: {
+                trigger: ".lw-components-grid",
+                start: "top 80%",
+            },
+            y: 50,
+            opacity: 0,
+            stagger: 0.15,
+            duration: 1.2,
+            ease: "power2.out"
+        });
+
+        // Principles Stagger
+        gsap.from(".lw-principle", {
+            scrollTrigger: {
+                trigger: ".lw-principle-grid",
+                start: "top 80%",
+            },
+            y: 40,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 1,
+            ease: "power3.out"
+        });
+
+        // Stats Counter
+        gsap.from(".lw-stat", {
+            scrollTrigger: {
+                trigger: ".lw-stats",
+                start: "top 90%",
+            },
+            scale: 0.9,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 1,
+            ease: "back.out(1.7)"
+        });
+
+        // Mockup Parallax
+        gsap.to(".lw-mock-image-block", {
+            scrollTrigger: {
+                trigger: ".lw-band",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            },
+            y: -30,
+            ease: "none"
+        });
+
+        // ─── INTERACTIVE HOVER EFFECTS ───────────────────────────
+        
+        // Swatches Hover
+        const swatches = document.querySelectorAll(".lw-swatch");
+        swatches.forEach(swatch => {
+            swatch.addEventListener("mouseenter", () => {
+                gsap.to(swatch.querySelector(".lw-swatch-color"), {
+                    scale: 1.05,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
+            });
+            swatch.addEventListener("mouseleave", () => {
+                gsap.to(swatch.querySelector(".lw-swatch-color"), {
+                    scale: 1,
+                    duration: 0.4,
+                    ease: "power2.inOut"
+                });
+            });
+        });
+
+        // Demo Buttons Hover Enhancement
+        const demoBtns = document.querySelectorAll(".lw-demo-btn");
+        demoBtns.forEach(btn => {
+            btn.addEventListener("mouseenter", () => {
+                gsap.to(btn, {
+                    y: -2,
+                    boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+                    duration: 0.3
+                });
+            });
+            btn.addEventListener("mouseleave", () => {
+                gsap.to(btn, {
+                    y: 0,
+                    boxShadow: "0 0px 0px rgba(0,0,0,0)",
+                    duration: 0.3
+                });
+            });
+        });
+
+        // ─── DEVICE SWITCHER LOGIC ──────────────────────────────
+        const root = document.getElementById("lw-root");
+        const switcherBtns = document.querySelectorAll(".lw-switcher-btn");
+        const viewportFrame = document.querySelector(".lw-viewport-frame");
+
+        switcherBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const device = btn.getAttribute("data-switch");
+                const currentDevice = root!.getAttribute("data-device");
+                
+                if (device === currentDevice) return;
+
+                // Animate transition using GSAP
+                const tl = gsap.timeline();
+
+                tl.to(viewportFrame, {
+                    opacity: 0,
+                    scale: 0.98,
+                    duration: 0.3,
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        root!.setAttribute("data-device", device!);
+                        switcherBtns.forEach((b) => b.classList.remove("active"));
+                        btn.classList.add("active");
+                    }
+                })
+                .to(viewportFrame, {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.5,
+                    ease: "expo.out"
+                });
+            });
+        });
+    </script>
+
+    <style>
+        /* ═══════════════════════════════════════════════════════════
+           LUMINA-WEB  —  Standalone Blue & Gold Design Showcase
+           All styles scoped with .lw- prefix. No global dependencies.
+           ═══════════════════════════════════════════════════════════ */
+
+        /* ─── DESIGN TOKENS ─────────────────────────────────────── */
+        .lw-root {
+            --navy: #0b1628;
+            --midnight: #122040;
+            --royal: #1e3a6e;
+            --gold: #c9a84c;
+            --gold-light: #e8c97a;
+            --gold-subtle: rgba(201, 168, 76, 0.12);
+            --muted: #8a9bb5;
+            --cream: #f9f5ec;
+            --off-white: #fdfbf7;
+            --border: rgba(201, 168, 76, 0.2);
+            background: var(--off-white);
+            color: var(--navy);
+            font-family: "Inter", system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        :global(body):has(.lw-root) {
+            background: var(--off-white) !important;
+            overflow-x: hidden;
+        }
+
+        /* ─── SWITCHER BAR ──────────────────────────────────────── */
+        .lw-switcher-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(11, 22, 40, 0.92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+        .lw-switcher-inner {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .lw-switcher-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+        .lw-switcher-btns {
+            display: flex;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 0.2rem;
+            border-radius: 100px;
+            gap: 0.2rem;
+            border: 1px solid rgba(201, 168, 76, 0.15);
+        }
+        .lw-switcher-btn {
+            border: none;
+            background: transparent;
+            padding: 0.4rem 1.1rem;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: "Inter", sans-serif;
+        }
+        .lw-switcher-btn svg {
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        .lw-switcher-btn:hover {
+            color: #fff;
+        }
+        .lw-switcher-btn.active {
+            background: var(--gold);
+            color: var(--navy);
+            box-shadow: 0 2px 16px rgba(201, 168, 76, 0.35);
+        }
+        .lw-switcher-btn.active svg {
+            opacity: 1;
+        }
+
+        /* ─── VIEWPORT ──────────────────────────────────────────── */
+        .lw-viewport-container {
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            background: var(--off-white);
+            transition: background 0.5s,
+                padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .lw-viewport-frame {
+            width: 100%;
+            max-width: 100%;
+            background: var(--off-white);
+            position: relative;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        /* Mobile frame */
+        [data-device="mobile"] .lw-viewport-container {
+            padding: 3rem 1.5rem 5rem;
+            background: var(--midnight);
+        }
+        [data-device="mobile"] .lw-viewport-frame {
+            max-width: 390px;
+            height: 844px;
+            border: 12px solid var(--navy);
+            border-radius: 44px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.3),
+                0 40px 80px rgba(0, 0, 0, 0.5);
+            background: var(--off-white);
+            box-sizing: border-box;
+        }
+        [data-device="mobile"] .lw-viewport-frame > * {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        [data-device="mobile"] .lw-viewport-frame::-webkit-scrollbar {
+            width: 0;
+        }
+
+        /* ─── BACK LINK ─────────────────────────────────────────── */
+        .lw-back {
+            display: inline-block;
+            margin: 0 0 0 clamp(1.5rem, 6vw, 6rem);
+            padding-top: 2rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+        .lw-back:hover {
+            color: var(--gold);
+        }
+        [data-device="mobile"] .lw-back {
+            margin: 1.5rem 1.5rem 0;
+            display: block;
+            padding-top: 0;
+        }
+
+        /* ─── LABELS ────────────────────────────────────────────── */
+        .lw-label {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        .lw-label--muted {
+            color: var(--muted);
+            margin-left: 1.5rem;
+        }
+
+        /* ─── HERO ──────────────────────────────────────────────── */
+        .lw-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 0;
+            padding: 3rem clamp(1.5rem, 6vw, 6rem) 0;
+            max-width: 1400px;
+        }
+        .lw-hero-eyebrow {
+            grid-column: 1 / -1;
+            margin-bottom: 2rem;
+        }
+        .lw-hero-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(4rem, 9vw, 9rem);
+            font-weight: 300;
+            line-height: 0.92;
+            letter-spacing: -0.01em;
+            color: var(--navy);
+            margin: 0;
+            grid-column: 1;
+            padding-right: 2rem;
+        }
+        .lw-hero-title em {
+            font-style: italic;
+            color: var(--gold);
+        }
+        .lw-hero-aside {
+            grid-column: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-left: 4rem;
+            padding-bottom: 1rem;
+            gap: 2rem;
+        }
+        .lw-hero-desc {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: #3a4f6a;
+            max-width: 38ch;
+            margin: 0;
+        }
+
+        [data-device="mobile"] .lw-hero {
+            grid-template-columns: 1fr;
+            padding: 2rem 1.5rem 0;
+        }
+        [data-device="mobile"] .lw-hero-eyebrow {
+            margin-bottom: 1.5rem;
+        }
+        [data-device="mobile"] .lw-hero-title {
+            font-size: 3.5rem;
+            padding-right: 0;
+        }
+        [data-device="mobile"] .lw-hero-aside {
+            grid-column: 1;
+            padding-left: 0;
+            margin-top: 1.5rem;
+        }
+
+        /* ─── BUTTONS ────────────────────────────────────────────── */
+        .lw-btn {
+            display: inline-block;
+            border: 1.5px solid var(--navy);
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 0.65rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 0.85rem 2rem;
+            transition: all 0.25s;
+            align-self: flex-start;
+            font-family: "Inter", sans-serif;
+        }
+        .lw-btn:hover {
+            background: var(--navy);
+            color: var(--cream);
+        }
+        .lw-btn--gold {
+            background: var(--gold);
+            color: var(--navy);
+            border-color: var(--gold);
+        }
+        .lw-btn--gold:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+        }
+
+        /* ─── BAND ───────────────────────────────────────────────── */
+        .lw-band {
+            margin-top: 5rem;
+            background: var(--midnight);
+            padding: 4rem clamp(1.5rem, 6vw, 6rem);
+        }
+        .lw-band-inner {
+            max-width: 1400px;
+        }
+        .lw-band-caption {
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 1.5rem;
+            margin-bottom: 0;
+            text-transform: uppercase;
+        }
+        [data-device="mobile"] .lw-band {
+            padding: 2.5rem 1.5rem;
+            margin-top: 2.5rem;
+        }
+        [data-device="mobile"] .lw-band-inner {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* ─── BROWSER MOCKUP ────────────────────────────────────── */
+        .lw-mockup-hero {
+            background: #fff;
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+        }
+        .lw-browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.65rem 1rem;
+            background: var(--navy);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+        }
+        .lw-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .lw-dot--r {
+            background: #ff5f57;
+        }
+        .lw-dot--y {
+            background: #febc2e;
+        }
+        .lw-dot--g {
+            background: #28c840;
+        }
+        .lw-urlbar {
+            margin-left: 0.75rem;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 0.2rem 0.75rem;
+            font-size: 0.6rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+            flex: 1;
+            max-width: 260px;
+        }
+        .lw-mock-page {
+            padding: 2rem 3rem 3rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+            background: var(--navy);
+        }
+        .lw-mock-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3.5rem;
+        }
+        .lw-mock-logo {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.1rem;
+            color: #fff;
+            font-weight: 600;
+        }
+        .lw-mock-logo-dot {
+            color: var(--gold);
+        }
+        .lw-mock-links {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+        .lw-mock-link {
+            width: 2.5rem;
+            height: 6px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .lw-mock-link--gold {
+            width: 4.5rem;
+            height: 26px;
+            border-radius: 0;
+            background: var(--gold);
+        }
+        .lw-mock-hero-content {
+            max-width: 55%;
+        }
+        .lw-mock-tag {
+            width: 6rem;
+            height: 14px;
+            border-radius: 2px;
+            background: var(--gold-subtle);
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+        }
+        .lw-mock-h1 {
+            height: 24px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 2px;
+            margin-bottom: 0.5rem;
+            width: 80%;
+        }
+        .lw-mock-h1--short {
+            width: 55%;
+            background: rgba(255, 255, 255, 0.6);
+        }
+        .lw-mock-body {
+            height: 7px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            width: 70%;
+            margin-top: 1.5rem;
+            margin-bottom: 0.4rem;
+        }
+        .lw-mock-body--short {
+            width: 45%;
+            margin-top: 0;
+        }
+        .lw-mock-cta {
+            margin-top: 2rem;
+            width: 8rem;
+            height: 32px;
+            background: var(--gold);
+            border-radius: 0;
+        }
+        .lw-mock-image-block {
+            position: absolute;
+            right: 0;
+            top: 2rem;
+            width: 36%;
+            height: calc(100% - 2rem);
+            background: linear-gradient(
+                135deg,
+                var(--royal) 0%,
+                var(--midnight) 100%
+            );
+            border-left: 1px solid var(--gold-subtle);
+        }
+
+        /* ─── CASE SECTIONS ──────────────────────────────────────── */
+        .lw-case {
+            max-width: 1400px;
+            padding: 5rem clamp(1.5rem, 6vw, 6rem) 5rem;
+        }
+        [data-device="mobile"] .lw-case {
+            padding: 3rem 1.5rem;
+            box-sizing: border-box;
+        }
+
+        .lw-section-block {
+            margin-bottom: 7rem;
+        }
+        .lw-section-block:last-child {
+            margin-bottom: 0;
+        }
+        .lw-section-header {
+            margin-bottom: 3rem;
+        }
+        .lw-section-title {
+            font-size: 0.6rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--gold);
+            margin: 0 0 1rem;
+        }
+        .lw-section-desc {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: #3a4f6a;
+            max-width: 60ch;
+            margin: 0;
+        }
+        .lw-section-desc em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        /* ─── PALETTE ────────────────────────────────────────────── */
+        .lw-palette {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 1rem;
+        }
+        .lw-swatch {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .lw-swatch-color {
+            aspect-ratio: 1;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+        .lw-swatch-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+        .lw-swatch-name {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .lw-swatch-desc {
+            font-size: 0.55rem;
+            color: var(--muted);
+        }
+        .lw-swatch-hex {
+            font-size: 0.55rem;
+            color: var(--muted);
+            font-variant-numeric: tabular-nums;
+        }
+        [data-device="mobile"] .lw-palette {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        /* ─── TYPOGRAPHY ─────────────────────────────────────────── */
+        .lw-type-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            border: 1px solid var(--border);
+        }
+        .lw-type-block {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .lw-type-block--dark {
+            background: var(--navy);
+        }
+        .lw-type-block--light {
+            background: var(--cream);
+        }
+        .lw-type-label {
+            font-size: 0.55rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--muted);
+        }
+        .lw-type-label-dark {
+            font-size: 0.55rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--royal);
+        }
+        .lw-type-giant {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 7rem;
+            font-weight: 300;
+            color: #fff;
+            line-height: 1;
+        }
+        .lw-type-scale {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .lw-type-d1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: var(--gold);
+            line-height: 1.1;
+        }
+        .lw-type-d2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .lw-type-d3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.4);
+        }
+        .lw-type-scale-light {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        .lw-type-ui1 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--navy);
+        }
+        .lw-type-ui2 {
+            font-size: 0.95rem;
+            line-height: 1.75;
+            color: #3a4f6a;
+        }
+        .lw-type-ui3 {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+        [data-device="mobile"] .lw-type-showcase {
+            grid-template-columns: 1fr;
+        }
+        [data-device="mobile"] .lw-type-block {
+            padding: 2rem 1.5rem;
+        }
+        [data-device="mobile"] .lw-type-giant {
+            font-size: 4.5rem;
+        }
+
+        /* ─── UI COMPONENTS ──────────────────────────────────────── */
+        .lw-components-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            border: 1px solid var(--border);
+        }
+        .lw-comp-group {
+            padding: 2.5rem;
+            background: var(--cream);
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        .lw-comp-label {
+            font-size: 0.6rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        .lw-comp-note {
+            font-size: 0.75rem;
+            line-height: 1.6;
+            color: var(--muted);
+            margin: 0;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+        .lw-comp-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+        }
+        .lw-comp-col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .lw-demo-btn {
+            font-family: "Inter", sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.65rem 1.5rem;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .lw-demo-btn--primary {
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+        }
+        .lw-demo-btn--primary:hover {
+            background: var(--gold-light);
+        }
+        .lw-demo-btn--outline {
+            background: transparent;
+            color: var(--navy);
+            border: 1.5px solid var(--navy);
+        }
+        .lw-demo-btn--outline:hover {
+            background: var(--navy);
+            color: var(--cream);
+        }
+        .lw-demo-btn--ghost {
+            background: transparent;
+            color: var(--muted);
+            border: 1.5px solid var(--border);
+        }
+        .lw-demo-btn--ghost:hover {
+            color: var(--navy);
+            border-color: var(--navy);
+        }
+
+        .lw-demo-badge {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.85rem;
+            border-radius: 100px;
+        }
+        .lw-demo-badge--gold {
+            background: var(--gold-subtle);
+            color: var(--gold);
+            border: 1px solid var(--border);
+        }
+        .lw-demo-badge--blue {
+            background: var(--midnight);
+            color: #fff;
+        }
+        .lw-demo-badge--outline {
+            background: transparent;
+            color: var(--navy);
+            border: 1px solid var(--navy);
+        }
+
+        .lw-demo-input,
+        .lw-demo-textarea {
+            font-family: "Inter", sans-serif;
+            font-size: 0.9rem;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid rgba(30, 58, 110, 0.2);
+            border-radius: 4px;
+            background: #fff;
+            color: var(--navy);
+            outline: none;
+            transition: border-color 0.2s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .lw-demo-input:focus,
+        .lw-demo-textarea:focus {
+            border-color: var(--gold);
+        }
+        .lw-demo-input::placeholder,
+        .lw-demo-textarea::placeholder {
+            color: var(--muted);
+        }
+        .lw-demo-textarea {
+            resize: vertical;
+        }
+
+        .lw-demo-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--gold);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            border-radius: 0 4px 4px 0;
+        }
+        .lw-demo-card-tag {
+            font-size: 0.55rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        .lw-demo-card-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin: 0;
+        }
+        .lw-demo-card-text {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #3a4f6a;
+            margin: 0;
+        }
+        .lw-demo-card-link {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+        .lw-demo-card-link:hover {
+            color: var(--gold-light);
+        }
+
+        [data-device="mobile"] .lw-components-grid {
+            grid-template-columns: 1fr;
+        }
+        [data-device="mobile"] .lw-comp-group {
+            padding: 1.75rem 1.5rem;
+        }
+
+        /* ─── PRINCIPLES ─────────────────────────────────────────── */
+        .lw-principle-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            border-top: 1px solid var(--border);
+        }
+        .lw-principle {
+            padding: 3rem 3rem 3rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .lw-principle:nth-child(even) {
+            padding-left: 3rem;
+            border-left: 1px solid var(--border);
+        }
+        .lw-principle-n {
+            font-size: 0.55rem;
+            letter-spacing: 0.2em;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+        .lw-principle-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin: 0;
+        }
+        .lw-principle-body {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #3a4f6a;
+            margin: 0;
+            max-width: 38ch;
+        }
+        [data-device="mobile"] .lw-principle-grid {
+            grid-template-columns: 1fr;
+        }
+        [data-device="mobile"] .lw-principle {
+            padding: 2rem 0;
+        }
+        [data-device="mobile"] .lw-principle:nth-child(even) {
+            padding-left: 0;
+            border-left: none;
+        }
+
+        /* ─── STATS ──────────────────────────────────────────────── */
+        .lw-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid var(--border);
+            margin-bottom: 7rem;
+            background: var(--navy);
+        }
+        .lw-stat {
+            padding: 2.5rem 2rem;
+            border-right: 1px solid rgba(201, 168, 76, 0.12);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+            text-align: center;
+        }
+        .lw-stat:last-child {
+            border-right: none;
+        }
+        .lw-stat-n {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .lw-stat-l {
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--muted);
+        }
+        [data-device="mobile"] .lw-stats {
+            grid-template-columns: repeat(2, 1fr);
+            margin-bottom: 4rem;
+            overflow: hidden;
+        }
+        [data-device="mobile"] .lw-stat {
+            padding: 1.75rem 1rem;
+        }
+        [data-device="mobile"] .lw-stat-n {
+            font-size: 2.2rem;
+        }
+        [data-device="mobile"] .lw-stat:nth-child(2) {
+            border-right: none;
+        }
+
+        /* ─── MOBILE CALLOUT ─────────────────────────────────────── */
+        .lw-mobile-callout {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            background: var(--gold-subtle);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--gold);
+            padding: 1.5rem 2rem;
+            margin-bottom: 3rem;
+        }
+        .lw-mobile-callout-icon {
+            color: var(--gold);
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+        .lw-mobile-callout-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            color: var(--navy);
+        }
+        .lw-mobile-callout-text strong {
+            font-weight: 700;
+        }
+        .lw-mobile-callout-text span {
+            color: #3a4f6a;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        [data-device="mobile"] .lw-mobile-callout {
+            padding: 1.25rem;
+        }
+
+        .lw-mobile-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        .lw-mobile-feat {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .lw-mobile-feat-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold);
+            flex-shrink: 0;
+            margin-top: 0.45rem;
+        }
+        .lw-mobile-feat-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--navy);
+            display: block;
+            margin-bottom: 0.35rem;
+        }
+        .lw-mobile-feat-desc {
+            font-size: 0.85rem;
+            line-height: 1.65;
+            color: #3a4f6a;
+            margin: 0;
+        }
+        [data-device="mobile"] .lw-mobile-features {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        /* ─── CTA ROW ────────────────────────────────────────────── */
+        .lw-cta-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+            padding-top: 4rem;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .lw-cta-text {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(1.75rem, 3.5vw, 3rem);
+            font-weight: 300;
+            color: var(--navy);
+            margin: 0;
+            line-height: 1.15;
+        }
+        .lw-cta-text em {
+            font-style: italic;
+            color: var(--gold);
+        }
+        [data-device="mobile"] .lw-cta-row {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        [data-device="mobile"] .lw-cta-text {
+            font-size: 2rem;
+        }
+
+        /* ─── RESPONSIVE (real screen breakpoints) ───────────────── */
+        @media (max-width: 900px) {
+            .lw-hero {
+                grid-template-columns: 1fr;
+            }
+            .lw-hero-title {
+                font-size: clamp(3rem, 12vw, 5rem);
+            }
+            .lw-hero-aside {
+                grid-column: 1;
+                padding-left: 0;
+            }
+            .lw-palette {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .lw-type-showcase {
+                grid-template-columns: 1fr;
+            }
+            .lw-components-grid {
+                grid-template-columns: 1fr;
+            }
+            .lw-principle-grid {
+                grid-template-columns: 1fr;
+            }
+            .lw-principle:nth-child(even) {
+                padding-left: 0;
+                border-left: none;
+            }
+            .lw-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .lw-mobile-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .lw-palette {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</BaseLayout>

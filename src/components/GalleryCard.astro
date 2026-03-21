@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { getImageAsset } from "../utils/image-loader";
 
 interface Props {
     title: string;
@@ -10,6 +11,9 @@ interface Props {
 }
 
 const { title, description, image, href, subtitle } = Astro.props;
+
+// Resolve the image asset for Astro's Image component
+const resolvedImage = image ? await getImageAsset(image) : null;
 ---
 
 <a
@@ -18,8 +22,16 @@ const { title, description, image, href, subtitle } = Astro.props;
 >
     <div class="aspect-[4/5] overflow-hidden">
         {
-            image ? (
+            resolvedImage ? (
                 <Image
+                    src={resolvedImage}
+                    alt={title}
+                    width={800}
+                    height={1000}
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-[filter,transform] duration-700 ease-out"
+                />
+            ) : image ? (
+                <img
                     src={image}
                     alt={title}
                     width={800}

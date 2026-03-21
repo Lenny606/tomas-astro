@@ -1,11 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getLangFromUrl, useTranslations } from '../utils/i18n';
+import { getLangFromUrl, useTranslations, getLocalePath } from '../utils/i18n';
 import selectedWorks from '../data/selected_works.json';
 import { Image } from 'astro:assets';
+import { getImageAsset } from '../utils/image-loader';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+// Resolve images for selected works
+const worksWithImages = await Promise.all(
+  selectedWorks.map(async (work) => ({
+    ...work,
+    resolvedImage: work.image ? await getImageAsset(work.image) : null
+  }))
+);
 ---
 
 <BaseLayout title="NebulaLab | Creative Developer">
@@ -31,15 +40,19 @@ const t = useTranslations(lang);
   <section id="work" class="max-w-7xl mx-auto px-12 py-32 border-t border-alabaster/5">
     <div class="flex justify-between items-end mb-20">
       <h2 class="text-5xl font-serif">{t('work.title')}</h2>
-      <a href="#" class="text-xs uppercase tracking-[0.2em] font-bold text-zinc-500 hover:text-alabaster transition-colors">{t('work.view_all')}</a>
+      <a href={getLocalePath("/galleries", lang)} class="text-xs uppercase tracking-[0.2em] font-bold text-zinc-500 hover:text-alabaster transition-colors">{t('work.view_all')}</a>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      {selectedWorks.map((work) => (
+      {worksWithImages.map((work) => (
         <a href={work.url} target="_blank" rel="noopener noreferrer" class="group relative cursor-pointer overflow-hidden plastic aspect-[4/5] bg-zinc-900 border border-alabaster/5 block">
-          <!-- Background Image Placeholder -->
+          <!-- Background Image -->
           <div class="absolute inset-0 bg-linear-to-br from-zinc-800 to-zinc-900 group-hover:scale-105 transition-transform duration-700 ease-out">
-            {work.image && <Image src={work.image} alt={work.title} width={800} height={1000} class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" />}
+            {work.resolvedImage ? (
+              <Image src={work.resolvedImage} alt={work.title} width={800} height={1000} class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" />
+            ) : work.image ? (
+              <img src={work.image} alt={work.title} width={800} height={1000} class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" />
+            ) : null}
           </div>
           
           <!-- Overlay -->
@@ -48,220 +61,59 @@ const t = useTranslations(lang);
               <p class="text-xs uppercase tracking-[0.2em] text-zinc-400 mb-3">
                 {work.category === 'Web Development' ? t('category.web') : work.category}
               </p>
-              <h3 class="text-3xl font-serif leading-tight">{work.title}</h3>
-              <div class="mt-6 h-[1px] w-0 group-hover:w-full bg-alabaster transition-[width] duration-700 delay-100"></div>
+              <h3 class="text-3xl font-serif text-alabaster">{work.title}</h3>
             </div>
           </div>
         </a>
       ))}
     </div>
   </section>
-  <section class="max-w-7xl mx-auto px-12 py-32 reveal-section">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-20">
-      <div class="lg:col-span-5">
-        <h2 class="text-6xl md:text-8xl font-serif mb-12 reveal-item leading-tight">
-          {t('process.title')}
-        </h2>
-        <p class="text-2xl text-zinc-400 reveal-item max-w-md">
-          {t('process.subtitle')}
-        </p>
-      </div>
 
-      <div class="lg:col-span-7 space-y-32">
-        <div class="reveal-item group">
-          <div class="flex items-center gap-6 mb-8">
-            <span class="w-12 h-12 rounded-full bg-accent-pink text-black flex items-center justify-center font-bold font-sans">1</span>
-            <div class="h-[1px] flex-grow bg-alabaster/10 group-hover:bg-accent-pink/50 transition-colors duration-500"></div>
-          </div>
-          <h3 class="text-4xl font-serif mb-6">{t('process.step1.title')}</h3>
-          <p class="text-xl text-zinc-500 leading-relaxed max-w-xl">{t('process.step1.text')}</p>
-        </div>
+  <!-- Process Section -->
+  <section class="max-w-7xl mx-auto px-12 py-32 border-t border-alabaster/5">
+    <div class="max-w-3xl mb-24">
+      <h2 class="text-5xl font-serif mb-8">{t('process.title')}</h2>
+      <p class="text-xl text-zinc-400 font-light leading-relaxed">
+        {t('process.subtitle')}
+      </p>
+    </div>
 
-        <div class="reveal-item group">
-          <div class="flex items-center gap-6 mb-8">
-            <span class="w-12 h-12 rounded-full bg-accent-green text-black flex items-center justify-center font-bold font-sans">2</span>
-            <div class="h-[1px] flex-grow bg-alabaster/10 group-hover:bg-accent-green/50 transition-colors duration-500"></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-20 gap-y-24">
+      {[1, 2, 3, 4, 5, 6].map((step) => (
+        <div class="group">
+          <div class="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-6 font-bold flex items-center gap-4">
+            <span class="w-8 h-[1px] bg-zinc-800 group-hover:w-12 group-hover:bg-alabaster transition-all duration-500"></span>
+            Step 0{step}
           </div>
-          <h3 class="text-4xl font-serif mb-6">{t('process.step2.title')}</h3>
-          <p class="text-xl text-zinc-500 leading-relaxed max-w-xl">{t('process.step2.text')}</p>
+          <h3 class="text-2xl font-serif mb-4 text-alabaster group-hover:text-white transition-colors">
+            {t(`process.step${step}.title` as any)}
+          </h3>
+          <p class="text-zinc-400 font-light leading-relaxed">
+            {t(`process.step${step}.text` as any)}
+          </p>
         </div>
-
-        <div class="reveal-item group">
-          <div class="flex items-center gap-6 mb-8">
-            <span class="w-12 h-12 rounded-full bg-accent-pink text-black flex items-center justify-center font-bold font-sans">3</span>
-            <div class="h-[1px] flex-grow bg-alabaster/10 group-hover:bg-accent-pink/50 transition-colors duration-500"></div>
-          </div>
-          <h3 class="text-4xl font-serif mb-6">{t('process.step3.title')}</h3>
-          <p class="text-xl text-zinc-500 leading-relaxed max-w-xl">{t('process.step3.text')}</p>
-        </div>
-
-        <div class="reveal-item group">
-          <div class="flex items-center gap-6 mb-8">
-            <span class="w-12 h-12 rounded-full bg-accent-green text-black flex items-center justify-center font-bold font-sans">4</span>
-            <div class="h-[1px] flex-grow bg-alabaster/10 group-hover:bg-accent-green/50 transition-colors duration-500"></div>
-          </div>
-          <h3 class="text-4xl font-serif mb-6">{t('process.step4.title')}</h3>
-          <p class="text-xl text-zinc-500 leading-relaxed max-w-xl">{t('process.step4.text')}</p>
-        </div>
-
-        <div class="reveal-item group">
-          <div class="flex items-center gap-6 mb-8">
-            <span class="w-12 h-12 rounded-full bg-accent-pink text-black flex items-center justify-center font-bold font-sans">5</span>
-            <div class="h-[1px] flex-grow bg-alabaster/10 group-hover:bg-accent-pink/50 transition-colors duration-500"></div>
-          </div>
-          <h3 class="text-4xl font-serif mb-6">{t('process.step5.title')}</h3>
-          <p class="text-xl text-zinc-500 leading-relaxed max-w-xl">{t('process.step5.text')}</p>
-        </div>
-
-        <div class="reveal-item group">
-          <div class="flex items-center gap-6 mb-8">
-            <span class="w-12 h-12 rounded-full bg-accent-green text-black flex items-center justify-center font-bold font-sans">6</span>
-            <div class="h-[1px] flex-grow bg-alabaster/10 group-hover:bg-accent-green/50 transition-colors duration-500"></div>
-          </div>
-          <h3 class="text-4xl font-serif mb-6">{t('process.step6.title')}</h3>
-          <p class="text-xl text-zinc-500 leading-relaxed max-w-xl">{t('process.step6.text')}</p>
-        </div>
-      </div>
+      ))}
     </div>
   </section>
-
-  <script>
-    import { gsap } from 'gsap';
-    import { ScrollTrigger } from 'gsap/ScrollTrigger';
-    import { splitText } from '../utils/text-animations';
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Initial SplitText animations for Process section
-    function initAnimations() {
-      // Hero section animations
-      const heroTitle = document.querySelector('h1');
-      const heroSubtitle = document.querySelector('p.text-2xl');
-      const heroLinkWrapper = document.querySelector('.flex.flex-wrap.items-center.gap-8');
-      const heroLink = document.querySelector('.link-hover');
-
-      if (heroTitle) {
-        gsap.set(heroTitle, { opacity: 1 });
-        const words = splitText(heroTitle as HTMLElement);
-        gsap.from(words, {
-          y: 80,
-          opacity: 0,
-          duration: 1.2,
-          ease: 'expo.out',
-          stagger: 0.08,
-          delay: 0.2
-        });
-      }
-
-      if (heroSubtitle) {
-        gsap.set(heroSubtitle, { opacity: 1 });
-        const words = splitText(heroSubtitle as HTMLElement);
-        gsap.from(words, {
-          y: 20,
-          opacity: 0,
-          duration: 1,
-          ease: 'power2.out',
-          stagger: 0.03,
-          delay: 0.6
-        });
-      }
-
-      if (heroLinkWrapper) {
-        gsap.set(heroLinkWrapper, { opacity: 1 });
-        if (heroLink) {
-          gsap.from(heroLink, {
-            y: 10,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power2.out',
-            delay: 1.2
-          });
-        }
-      }
-
-      const revealSections = document.querySelectorAll('.reveal-section');
-      
-      revealSections.forEach(section => {
-        // Animate section headers and descriptions
-        const headers = section.querySelectorAll('h2, .reveal-item > h3');
-        const paragraphs = section.querySelectorAll('p.reveal-item, .reveal-item > p');
-
-        headers.forEach(header => {
-          const words = splitText(header as HTMLElement);
-          gsap.from(words, {
-            scrollTrigger: {
-              trigger: header,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            },
-            y: 100,
-            opacity: 0,
-            duration: 1,
-            ease: 'expo.out',
-            stagger: 0.05
-          });
-        });
-
-        paragraphs.forEach(p => {
-          const words = splitText(p as HTMLElement);
-          gsap.from(words, {
-            scrollTrigger: {
-              trigger: p,
-              start: 'top 90%',
-              toggleActions: 'play none none none',
-            },
-            y: 20,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power2.out',
-            stagger: 0.02,
-            delay: 0.2
-          });
-        });
-
-        // Animate numbers and lines in process steps
-        const stepDecorations = section.querySelectorAll('.reveal-item .rounded-full, .reveal-item .flex-grow');
-        stepDecorations.forEach(deco => {
-          gsap.from(deco, {
-            scrollTrigger: {
-              trigger: deco,
-              start: 'top 90%',
-            },
-            scale: 0,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'back.out(1.7)',
-          });
-        });
-      });
-    }
-
-    // Run on init
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initAnimations);
-    } else {
-      initAnimations();
-    }
-  </script>
-
-  <style>
-    .reveal-item {
-      /* Remove old transition properties as GSAP handles them */
-      opacity: 1;
-      transform: none;
-    }
-    
-    .text-zinc-600 {
-      color: #52525b;
-    }
-
-    .hero-hide {
-      opacity: 0;
-    }
-
-    /* Initial state for SplitText elements to prevent flash */
-    .split-word-inner {
-      will-change: transform, opacity;
-    }
-  </style>
 </BaseLayout>
+
+<script>
+  import { gsap } from 'gsap';
+  
+  function init() {
+    gsap.from('.hero-hide', {
+      y: 30,
+      opacity: 0,
+      duration: 1.2,
+      stagger: 0.2,
+      ease: 'expo.out',
+      delay: 0.5
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>

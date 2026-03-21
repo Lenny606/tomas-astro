@@ -1,15 +1,26 @@
-import type { ImageData } from './api';
+import { z } from 'zod';
 
-export interface GalleryItem extends ImageData {
-    slug: string;
-    pageUrl?: string; // optional link to a dedicated standalone page
-}
+export const GalleryItemSchema = z.object({
+    id: z.string(),
+    filename: z.string().optional(),
+    url: z.string(),
+    title: z.string(),
+    description: z.string().optional(),
+    medium: z.string().optional(),
+    year: z.string().optional(),
+    status: z.enum(['available', 'sold', 'reserved']).optional(),
+    slug: z.string(),
+    pageUrl: z.string().optional(),
+});
 
-export interface Gallery {
-    id: string;
-    title: string;
-    slug: string;
-    description?: string;
-    coverImage?: string;
-    items?: GalleryItem[];
-}
+export const GallerySchema = z.object({
+    id: z.string(),
+    title: z.string(),
+    slug: z.string(),
+    description: z.string().optional(),
+    coverImage: z.string().optional(),
+    items: z.array(GalleryItemSchema).optional(),
+});
+
+export type GalleryItem = z.infer<typeof GalleryItemSchema>;
+export type Gallery = z.infer<typeof GallerySchema>;

@@ -1,0 +1,553 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getLangFromUrl, useTranslations } from "../utils/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<BaseLayout title="Alex Creator | Minimal Brutalist Study">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;800&family=Outfit:wght@400;700;800&display=swap"
+        rel="stylesheet"
+    />
+
+    <div class="brutal-root" id="brutal-root" data-device="desktop">
+        <!-- ═══════════════════════════════════ DEVICE SWITCHER -->
+        <div class="switcher-bar">
+            <div class="switcher-inner">
+                <span class="switcher-label">Prezentace Designu:</span>
+                <div class="switcher-btns">
+                    <button class="switcher-btn active" data-switch="desktop">
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><rect
+                                x="2"
+                                y="3"
+                                width="20"
+                                height="14"
+                                rx="2"
+                                ry="2"></rect><line
+                                x1="8"
+                                y1="21"
+                                x2="16"
+                                y2="21"></line><line
+                                x1="12"
+                                y1="17"
+                                x2="12"
+                                y2="21"></line>
+                        </svg>
+                        Desktop
+                    </button>
+                    <button class="switcher-btn" data-switch="mobile">
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><rect
+                                x="5"
+                                y="2"
+                                width="14"
+                                height="20"
+                                rx="2"
+                                ry="2"></rect><line
+                                x1="12"
+                                y1="18"
+                                x2="12.01"
+                                y2="18"></line>
+                        </svg>
+                        Mobil
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="viewport-container">
+            <div class="viewport-frame">
+                <!-- Back to Gallery -->
+                <a href="/galleries/web-design" class="back-link">
+                    ← Zpět na galerii
+                </a>
+
+                <div class="showcase-layout">
+                    <!-- Sidebar: Design Notes (Brutalist style) -->
+                    <aside class="design-side">
+                        <div class="side-card pastel-green">
+                            <h2 class="brutal-h2">Design Concept</h2>
+                            <p>
+                                Minimalistický brutalismus s pastelovým
+                                nádechem. Zaměřeno na surovou typografii a
+                                asymetrické bloky.
+                            </p>
+                        </div>
+                        <div class="side-card pastel-yellow">
+                            <h2 class="brutal-h2">Vlastnosti</h2>
+                            <ul class="side-list">
+                                <li><strong>6px</strong> černé okraje</li>
+                                <li><strong>Outfit</strong> font</li>
+                                <li>Asymetrický layout</li>
+                                <li>Vysoký kontrast</li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                    <!-- Main Content (The Minimal Brutalist Site) -->
+                    <main class="brutal-site">
+                        <!-- 1. Hero Section -->
+                        <section class="brutal-section hero pastel-pink">
+                            <h1 class="brutal-h1">
+                                Vytváříme Budoucnost Designu.
+                            </h1>
+                            <p class="subtitle">
+                                Minimalistický přístup, maximální dopad.
+                                Brutální estetičnost pro digitální věk.
+                            </p>
+                            <a href="#" class="brutal-cta">Začněme Spolu</a>
+                        </section>
+
+                        <!-- 2. About Section -->
+                        <section class="brutal-section about">
+                            <p class="about-p">
+                                Tento projekt zkoumá hranice mezi syrovým
+                                brutalismem a jemnou pastelovou estetikou. Každý
+                                prvek je záměrně výrazný a funkční.
+                            </p>
+                            <div class="benefit-row">
+                                <div class="benefit-box pastel-blue">
+                                    <h3>Rychlost</h3>
+                                    <p>
+                                        Optimalizováno pro extrémní výkon bez
+                                        zbytečných prvků.
+                                    </p>
+                                </div>
+                                <div class="benefit-box pastel-yellow">
+                                    <h3>Odlišnost</h3>
+                                    <p>
+                                        Design, který se nebojí vybočit z řady a
+                                        šokovat.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 3. Features Section -->
+                        <section class="brutal-section features">
+                            <h2 class="brutal-h2">Klíčové Prvky</h2>
+                            <div class="features-grid">
+                                <div class="feature-card pastel-green">
+                                    <h3>Bold Typo</h3>
+                                    <p>
+                                        Velká písma, která mluví jasně a nahlas.
+                                    </p>
+                                </div>
+                                <div class="feature-card pastel-pink">
+                                    <h3>Kontrast</h3>
+                                    <p>
+                                        Vizuální hierarchie tvořená silnými
+                                        konturami.
+                                    </p>
+                                </div>
+                                <div class="feature-card pastel-blue">
+                                    <h3>Whitespace</h3>
+                                    <p>Prostor pro dech uprostřed brutality.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 4. Contact Section -->
+                        <section class="brutal-section contact pastel-yellow">
+                            <p>Máte zájem o podobně odvážný projekt?</p>
+                            <a
+                                href="mailto:hello@alex.design"
+                                class="brutal-cta">Napište mi</a
+                            >
+                        </section>
+
+                        <footer class="brutal-footer">
+                            <p>© 2024 Alex Creator — Brutalist Study</p>
+                        </footer>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════ SCRIPTS -->
+    <script is:inline>
+        const root = document.getElementById("brutal-root");
+        const btns = document.querySelectorAll(".switcher-btn");
+
+        btns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const device = btn.getAttribute("data-switch");
+                root.setAttribute("data-device", device);
+                btns.forEach((b) => b.classList.remove("active"));
+                btn.classList.add("active");
+            });
+        });
+    </script>
+
+    <style>
+        :root {
+            --p-pink: #ffd1dc;
+            --p-blue: #aec6cf;
+            --p-yellow: #fdfd96;
+            --p-green: #77dd77;
+            --b-black: #000000;
+            --b-size: 6px;
+        }
+
+        .brutal-root {
+            font-family: "Outfit", sans-serif;
+            background: #ffffff;
+            color: var(--b-black);
+            min-height: 100vh;
+            line-height: 1.4;
+        }
+
+        /* Switcher */
+        .switcher-bar {
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            background: #fff;
+            border-bottom: var(--b-size) solid var(--b-black);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+        }
+        .switcher-inner {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .switcher-label {
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+        .switcher-btns {
+            display: flex;
+            background: var(--b-black);
+            padding: 0.4rem;
+            border-radius: 4px;
+            gap: 0.4rem;
+        }
+        .switcher-btn {
+            border: none;
+            background: transparent;
+            color: #fff;
+            padding: 0.6rem 1.4rem;
+            font-size: 0.8rem;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+        .switcher-btn.active {
+            background: #fff;
+            color: var(--b-black);
+        }
+
+        /* General Layout */
+        .viewport-container {
+            padding: 5rem 2rem;
+            display: flex;
+            justify-content: center;
+            background: #e5e5e5;
+            min-height: 100vh;
+        }
+        .viewport-frame {
+            width: 100%;
+            max-width: 1400px;
+            transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+            position: relative;
+        }
+
+        /* Mobile Simulation */
+        [data-device="mobile"] .viewport-container {
+            background: #999;
+        }
+        [data-device="mobile"] .viewport-frame {
+            max-width: 390px;
+            height: 844px;
+            background: #fff;
+            border: var(--b-size) solid var(--b-black);
+            overflow-y: auto;
+            overflow-x: hidden;
+            box-shadow: 20px 20px 0 0 var(--b-black);
+        }
+        [data-device="mobile"] .viewport-frame::-webkit-scrollbar {
+            width: 0;
+        }
+        [data-device="mobile"] .showcase-layout {
+            grid-template-columns: 1fr;
+            padding: 0;
+        }
+        [data-device="mobile"] .design-side {
+            display: none;
+        }
+        [data-device="mobile"] .brutal-site {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        [data-device="mobile"] .brutal-section {
+            padding: 3rem 1.5rem;
+            border-left: none;
+            border-right: none;
+        }
+        [data-device="mobile"] .brutal-h1 {
+            font-size: 3rem;
+        }
+        [data-device="mobile"] .benefit-row,
+        [data-device="mobile"] .features-grid {
+            grid-template-columns: 1fr;
+        }
+        [data-device="mobile"] .back-link {
+            margin: 2rem 1.5rem;
+        }
+
+        /* Core Elements */
+        .back-link {
+            display: inline-block;
+            text-decoration: none;
+            color: #555;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 3rem;
+        }
+        .back-link:hover {
+            color: var(--b-black);
+        }
+
+        .showcase-layout {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        /* Sidebar */
+        .design-side {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .side-card {
+            padding: 2.5rem;
+            border: var(--b-size) solid var(--b-black);
+            box-shadow: 10px 10px 0 0 var(--b-black);
+        }
+        .side-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+        }
+        .side-list li::before {
+            content: "→";
+            margin-right: 0.5rem;
+            font-weight: 800;
+        }
+
+        /* Site Components */
+        .brutal-site {
+            background: #fff;
+            border: var(--b-size) solid var(--b-black);
+        }
+        .brutal-section {
+            padding: 5rem 4rem;
+            border-bottom: var(--b-size) solid var(--b-black);
+            position: relative;
+            overflow: hidden;
+        }
+        .brutal-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .pastel-pink {
+            background: var(--p-pink);
+        }
+        .pastel-blue {
+            background: var(--p-blue);
+        }
+        .pastel-yellow {
+            background: var(--p-yellow);
+        }
+        .pastel-green {
+            background: var(--p-green);
+        }
+
+        .brutal-h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+        .brutal-h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+        .subtitle {
+            font-size: 1.25rem;
+            font-weight: 700;
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        .brutal-cta {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--b-black);
+            background: #fff;
+            padding: 1.5rem 3rem;
+            border: var(--b-size) solid var(--b-black);
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            box-shadow: 8px 8px 0 0 var(--b-black);
+            transition: all 0.1s;
+        }
+        .brutal-cta:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 12px 12px 0 0 var(--b-black);
+        }
+
+        /* About & Benefits */
+        .about-p {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            max-width: 800px;
+        }
+        .benefit-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .benefit-box {
+            padding: 3rem;
+            border: var(--b-size) solid var(--b-black);
+            box-shadow: 10px 10px 0 0 var(--b-black);
+            transform: rotate(-1deg);
+        }
+        .benefit-box:nth-child(even) {
+            transform: rotate(1deg) translateY(10px);
+        }
+        .benefit-box h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .benefit-box p {
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .feature-card {
+            padding: 2.5rem;
+            border: var(--b-size) solid var(--b-black);
+            box-shadow: 8px 8px 0 0 var(--b-black);
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .feature-card p {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+        }
+        .contact p {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+        }
+
+        /* Footer */
+        .brutal-footer {
+            padding: 3rem;
+            text-align: center;
+            border-top: var(--b-size) solid var(--b-black);
+            background: #eee;
+        }
+        .brutal-footer p {
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Desktop Asymmetry */
+        @media (min-width: 1100px) {
+            .hero .brutal-cta {
+                margin-left: -20px;
+            }
+            .feature-card:nth-child(2) {
+                transform: translateY(-20px);
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .showcase-layout {
+                grid-template-columns: 1fr;
+            }
+            .design-side {
+                grid-template-columns: 1fr 1fr;
+                display: grid;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .design-side {
+                grid-template-columns: 1fr;
+            }
+            .brutal-h1 {
+                font-size: 3.5rem;
+            }
+            .brutal-section {
+                padding: 4rem 2rem;
+            }
+        }
+    </style>
+</BaseLayout>

@@ -1,9 +1,10 @@
-import type { Gallery, GalleryItem } from '../types/gallery';
+import { GallerySchema, type Gallery, type GalleryItem } from '../types/gallery';
 import { imageService } from './image-service';
-import localGalleries from '../data/galleries.json';
+import localGalleriesJson from '../data/galleries.json';
+import { z } from 'zod';
 
 // Set to true to use API, false to use local JSON structure
-const USE_API = false;
+const USE_API = import.meta.env.PUBLIC_USE_API === 'true';
 
 export const galleryService = {
     /**
@@ -11,13 +12,17 @@ export const galleryService = {
      */
     async getGalleries(): Promise<Gallery[]> {
         if (USE_API) {
-            // If the API supports multiple galleries/tenants as folders/categories
-            // For now, let's assume API returns image data and we might need to group them.
-            // This is a placeholder for actual API logic once the backend has gallery concepts.
-            // For now we'll stick to local or a hybrid.
-            return localGalleries as Gallery[];
+            // Placeholder for actual API logic
+            return z.array(GallerySchema).parse(localGalleriesJson);
         }
-        return localGalleries as Gallery[];
+        
+        // Validate local JSON
+        try {
+            return z.array(GallerySchema).parse(localGalleriesJson);
+        } catch (error) {
+            console.error('Failed to validate galleries.json:', error);
+            return localGalleriesJson as Gallery[]; // Fallback to unsafe cast if validation fails during dev
+        }
     },
 
     /**
