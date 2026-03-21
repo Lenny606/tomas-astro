@@ -21,6 +21,9 @@ if (!gallery) {
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const disabledLinksSlugs = ["abstract-landscapes", "urban-geometry"];
+const showLinks = !disabledLinksSlugs.includes(slug as string);
 ---
 
 <BaseLayout title={`${gallery.title} | Galleries`}>
@@ -54,8 +57,9 @@ const t = useTranslations(lang);
                         description={item.medium}
                         image={item.url}
                         href={
-                            item.pageUrl ? getLocalePath(item.pageUrl, lang) :
-                            getLocalePath(`/galleries/${gallery.slug}/${item.slug}`, lang)
+                            showLinks 
+                                ? (item.pageUrl ? getLocalePath(item.pageUrl, lang) : getLocalePath(`/galleries/${gallery.slug}/${item.slug}`, lang))
+                                : undefined
                         }
                         subtitle={item.year}
                     />
