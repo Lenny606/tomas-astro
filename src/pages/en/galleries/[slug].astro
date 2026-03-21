@@ -1,9 +1,9 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import GalleryGrid from "../../components/GalleryGrid.astro";
-import GalleryCard from "../../components/GalleryCard.astro";
-import { getLangFromUrl, useTranslations, getLocalePath } from "../../utils/i18n";
-import { galleryService } from "../../services/gallery-service";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import GalleryGrid from "../../../components/GalleryGrid.astro";
+import GalleryCard from "../../../components/GalleryCard.astro";
+import { getLangFromUrl, useTranslations, getLocalePath } from "../../../utils/i18n";
+import { galleryService } from "../../../services/gallery-service";
 
 export async function getStaticPaths() {
     const galleries = await galleryService.getGalleries();

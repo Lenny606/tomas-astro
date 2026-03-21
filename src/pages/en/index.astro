@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { getLangFromUrl, useTranslations, getLocalePath } from '../utils/i18n';
-import selectedWorks from '../data/selected_works.json';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLangFromUrl, useTranslations, getLocalePath } from '../../utils/i18n';
+import selectedWorks from '../../data/selected_works.json';
 import { Image } from 'astro:assets';
-import { getImageAsset } from '../utils/image-loader';
+import { getImageAsset } from '../../utils/image-loader';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -53,8 +53,8 @@ const worksWithImages = await Promise.all(
   <section id="work" class="max-w-7xl mx-auto px-12 py-32 border-t border-alabaster/5">
     <div class="flex justify-between items-end mb-20">
       <h2 class="text-5xl font-serif">{t('work.title')}</h2>
-      <a href={getLocalePath("/galleries", lang)} class="group flex items-center gap-4 text-xs uppercase tracking-[0.2em] font-bold text-zinc-500 hover:text-alabaster transition-colors">
-        <span class="w-8 h-[1px] bg-zinc-800 group-hover:w-12 group-hover:bg-alabaster transition-all duration-500"></span>
+      <a href={getLocalePath("/galleries", lang)} class="group flex items-center gap-4 text-xs uppercase tracking-[0.2em] font-bold text-zinc-500 hover:text-alabaster transition-all duration-500 link-hover">
+        <span class="w-12 h-[1px] bg-zinc-800 group-hover:w-20 group-hover:bg-alabaster transition-all duration-500"></span>
         {t('work.view_all')}
       </a>
     </div>

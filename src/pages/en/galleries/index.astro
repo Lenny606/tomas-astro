@@ -1,9 +1,9 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import GalleryGrid from "../../components/GalleryGrid.astro";
-import GalleryCard from "../../components/GalleryCard.astro";
-import { galleryService } from "../../services/gallery-service";
-import { getLangFromUrl, useTranslations, getLocalePath } from "../../utils/i18n";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import GalleryGrid from "../../../components/GalleryGrid.astro";
+import GalleryCard from "../../../components/GalleryCard.astro";
+import { galleryService } from "../../../services/gallery-service";
+import { getLangFromUrl, useTranslations, getLocalePath } from "../../../utils/i18n";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
