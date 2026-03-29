@@ -9,42 +9,83 @@ const t = useTranslations(lang);
 const githubUser = await getGitHubUser("Lenny606");
 const experience = [
     {
-        title: "Senior Full-stack Vývojář",
-        company: "Freelance / Vlastní projekty",
-        period: "2022 - Současnost",
+        title: "Process Designer",
+        company: "Česká spořitelna, a.s.",
+        period: "08/2022 - Současnost",
         description:
-            "Vývoj komplexních webových aplikací s využitím React, Astro a Node.js. Implementace AI automatizací pomocí n8n a Langgraph.",
+            "Práce na interním softwaru banky (údržba, opravy chyb). Hlavní využití TypeScript, JavaScript a FreeMarker Template Language.",
     },
     {
-        title: "Full-stack Vývojář",
-        company: "Digitální agentura",
-        period: "2019 - 2022",
+        title: "Specialista logistiky & EOC",
+        company: "Arval CZ, BNP Paribas Group",
+        period: "02/2020 - 03/2022",
         description:
-            "Tvorba a správa klientských projektů od e-shopů po korporátní weby s využitím PHP, Reactu a Pythonu.",
+            "Odpovědnost za logistické procesy a spolupráce na vývoji a testování interního softwaru pod vedením IT oddělení v Nizozemsku.",
+    },
+    {
+        title: "Specialista nákupu",
+        company: "Arval CZ, BNP Paribas Group",
+        period: "09/2018 - 02/2020",
+        description:
+            "Součást týmu odpovědného za včasný nákup a dodání vozidel, komunikace a vyjednávání o cenách s dodavateli.",
+    },
+    {
+        title: "Školitel & Projektový manažer",
+        company: "NAR marketing s.r.o.",
+        period: "03/2016 - 06/2018",
+        description:
+            "Školení zaměstnanců v používání nákupního softwaru, spolupráce na nových obchodních příležitostech a implementace softwaru.",
+    },
+    {
+        title: "Asistent prodeje",
+        company: "NAR marketing s.r.o.",
+        period: "09/2014 - 03/2016",
+        description:
+            "Akvizice nového obchodního potenciálu v B2B sektoru a spolupráce na marketingovém a eventovém plánování.",
+    },
+    {
+        title: "Galerista",
+        company: "Galerie U mloka",
+        period: "01/2013 - 06/2013",
+        description:
+            "Vedení malé nezávislé umělecké galerie, organizace výstav a dalších akcí, vedení týmu dobrovolníků.",
     },
 ];
 
 const education = [
     {
-        degree: "Bakalář informatiky",
-        school: "Technická univerzita",
-        period: "2015 - 2018",
+        degree: "Fullstack webový vývoj",
+        school: "Coding Bootcamp Prague (Data4You z.s.)",
+        period: "05/2022 - 07/2022",
+    },
+    {
+        degree: "Mgr. v oboru Dějiny umění",
+        school: "Univerzita Palackého v Olomouci",
+        period: "2010 - 2014",
     },
 ];
 
 const skills = [
     {
         category: "Frontend",
-        items: ["React", "Next.js", "Astro", "Tailwind CSS", "TypeScript"],
+        items: ["React", "Astro", "Tailwind CSS", "TypeScript", "SaSS"],
     },
-    { category: "Backend", items: ["Express.js", "Python", "PHP", "Sql"] },
+    {
+        category: "Backend",
+        items: ["Node.js", "PHP", "Laravel", "Python", "Sql"],
+    },
     {
         category: "AI & Automatizace",
-        items: ["n8n", "Langgraph"],
+        items: ["n8n", "Langgraph", "OpenAI API"],
     },
     {
-        category: "Infrastructure",
-        items: ["Docker", "Helm", "Terraform", "Sentry"],
+        category: "Měkké dovednosti",
+        items: [
+            "Týmový duch",
+            "Komunikace",
+            "Prozákaznický přístup",
+            "Smysl pro detail",
+        ],
     },
 ];
 ---
