@@ -292,6 +292,11 @@ const t = useTranslations(lang);
             border-radius: 40px;
             border: 12px solid #222;
             overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        [data-device="mobile"] .gp-viewport-frame::-webkit-scrollbar {
+            display: none;
         }
 
         .gp-back {
